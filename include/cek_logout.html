@@ -1,0 +1,12 @@
+<script language="javascript">
+	function logout()
+	{
+		location.replace('logout.aspx');
+	}
+	
+	// Catch window closings and logout
+	window.onbeforeunload = function(){
+	if((window.event.clientX<0) || (window.event.clientY<0)) logout();
+	}
+
+</script>

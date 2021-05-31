@@ -1,0 +1,188 @@
+<script language="javascript">
+function ConfirmBox(str)
+{
+	if (processing) {
+		alert("Update is in progress. Please wait ...");
+		return false;	
+	}
+	
+	sta	= confirm(str);
+	if (sta)
+		return true;
+	else
+		return false;
+}
+
+function update()
+{
+	if (processing) {
+		alert("Update is in progress. Please wait ...");
+		return false;	
+	}
+	
+	conf = confirm("Are you sure you want to update?");
+	if (conf)
+	{
+		return true;		
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function updateMsg(mode)
+{
+	if (processing) {
+		alert("Update is in progress. Please wait ...");
+		return false;	
+	}
+	
+	var msg = "Are you sure you want to update?";
+	if (mode == "A") /* IDE - Info Perusahaan */
+		{msg = "1. Agar dicheck apakah susunan pengurus dan masa jabatan pengurus perusahaan masih valid.";
+		msg = msg + "\n2. Agar dilengkapi dengan company tree dan ultimate shareholder bagi perusahaan yang mempunyai group usaha.";
+		msg = msg + "\n3. Agar diyakini bahwa jabatan pengurus masih berlaku sesuai masa jabatan yang tercantum dalam AD perusahaan.";
+		msg = msg + "\n4. Agar diperhatikan hubungan masing-masing pengurus.";}
+	else if (mode == "B") /* IDE - Ketentuan Kredit */
+		{msg = "1. Agar dicheck apakah tujuan proposal sudah sesuai dengan surat permohonan calon debitur.";}
+	else if (mode == "C") /* Verification Assignment */
+		{msg = "1. Untuk agunan non fixed asset, agar diperhatikan apakah sumber data dan posisi stock & piutang masih cukup up-to-date.";
+		msg = msg + "\n2. Untuk agunan fixed asset, agar diperhatikan masalaku SHGB.";
+		msg = msg + "\n3. Apabila agunan adalah milik pihak ketiga, agar diberikan penjelasan apa kaitannya dengan calon debitur/debitur,.";
+		msg = msg + "\n   dan jika tidak ada kaitannya agar dikemukakan risiko dan disyaratkan Indemnity Letter.";
+		msg = msg + "\n4. Apabila agunan a/n pengurus, agar diperhatikan apakah di dalam Neraca telah dicatat sebagai asset PT.";
+		msg = msg + "\n   Jika tidak termasuk dalam asset PT agar disyaratkan Surat Pernyataan dari pemilik agunan.";
+		msg = msg + "\n   yang menyatakan setuju bahwa agunan tersebut digunakan untuk kepentingan usaha PT (Indemnity Letter).";
+		msg = msg + "\n5. Apabila agunan telah dicatat dalam asset PT, agar dilengkapi dengan:";
+		msg = msg + "\n   (1) Surat Pernyataan dari yang namanya tercantum dalam sertifikat bahwa asset tersebut merupakan asset PT, dan";
+		msg = msg + "\n   (2) RUPS yang menyatakan bahwa asset tersebut merupakan asset PT.";
+		msg = msg + "\n6. Agar diteliti apakah agunan dinilai oleh appraisal rekanan Bank Mandiri (KP/Wilayah)";
+		msg = msg + "\n   dan diperhatikan apakah telah sesuai kelasnya.";
+		msg = msg + "\n7. Agar diperiksa apakah masa penilaian appraisal masih berlaku.";
+		msg = msg + "\n8. Agar diteliti apakah agunan ditutup pada asuradur rekanan dan diperhatikan apakah telah sesuai kelasnya.";
+		msg = msg + "\n9. Agar diperiksa mengenai masalaku asuransi agunan.";}
+	else if (mode == "D") /* Credit Analyst */
+		{msg = "1. Agar review fasilitas dilengkapi dengan kesimpulan apakah terdapat posisi pincang atau tidak.";
+		msg = msg + "\n2. Agar review covenant (untuk debitur existing) dilengkapi dengan penjelasan apakah covenant telah dipenuhi ";
+		msg = msg + "\n   atau belum dipenuhi, serta diberikan penjelasan penyebabnya dan bagaimana tindak lanjutnya.";
+		msg = msg + "\n3. Agar review kolektibilitas dilengkapi dengan penjelasan 3 pilar Bank Indonesia untuk kredit > Rp. 10 Milyar,";
+		msg = msg + "\n   serta dicantumkan dasar penetapan kolektibilitas sesuai PBI, SPK, limit kredit dan realisasi pembayaran.";
+		msg = msg + "\n4. Agar diberikan penjelasan apakah leglitas permohonan kredit telah dipenuhi dan permohonan telah ditandatangani";
+		msg = msg + "\n   sesuai AD perusahaan dan UU PT terbaru (UU No. 40 Tahun 2007).";
+		msg = msg + "\n5. Apabila terdapat dokumen yang perlu dilengkapi/diserahkan debitur, pastikan sudah dituangakan dalam syarat kredit";
+		msg = msg + "\n   yang diusulkan.";
+		msg = msg + "\n6. Pastikan bahwa debitur telah disyaratkan untuk menyerahkan pernyataan bahwa akta mengenai susunan pengurus";
+		msg = msg + "\n   merupakan akta terakhir dan belum ada perubahan.";
+		msg = msg + "\n7. Agar disebutkan tempat usaha milik sendiri atau sewa. Apabila sewa agar diperhatikan masalakunya.";
+		msg = msg + "\n8. Agar diperhatikan perkembangan realisasi pembelian. Apabila terjadi perkembangan yang signifikan";
+		msg = msg + "\n   agar diberi penjelasan.";
+		msg = msg + "\n9. Agar diperhatikan kapasitas produksi (terpasang, normal, terpakai) dan kaitannya dengan realisasi produksi";
+		msg = msg + "\n   dan rencana produksi.";
+		msg = msg + "\n10. Apabila Laporan Keuangan Audited agar diperhatikan apakah diaudit oleh Rekanan/Bukan Rekanan,";
+		msg = msg + "\n    apakah Kelas KAP telah sesuai, agar diberikan penjelasan atas Laporan Keuangan, Pendapat Auditor,";
+		msg = msg + "\n    dan penjelasan apakah telah melaksanakan PSAK24.";
+		msg = msg + "\n11. Agar diperhatikan perubahan pos-pos dalam Neraca & Laba/Rugi. Apabila terdapat perubahan yang signifikan";
+		msg = msg + "\n    agar diberikan penjelasan.";
+		msg = msg + "\n12. Apabila terdapat pencatatan yang tidak tepat dalam pos-pos Neraca & Laba/Rugi agar dilakukan recasting";
+		msg = msg + "\n    dan harus diberi catatan/penjelasan dalam NAK.";
+		msg = msg + "\n13. Agar diperhatikan perhitungan Limit Kredit pada NAK sebelumnya.";
+		msg = msg + "\n14. Agar diperhatikan perubahan penjualan dan TC.";}
+	else if (mode == "E") /* Scoring/Rating */
+		{msg = "1. Agar dilakukan recheck apakah input rating telah sesuai.";
+		msg = msg + "\n2. Agar Loan Periode diisi 1 tahun.";
+		msg = msg + "\n3. Agar diberikan penjelasan apabila hasil Rating/Scoring kurang baik atau terjadi perubahan";
+		msg = msg + "\n   yang cukup signifikan.";}
+	else if (mode == "F") /* Credit Proposal */
+		{msg = "1. Penentuan kategori pemutus kredit agar memperhatikan limit kredit one obligor, security coverage agunan,";
+		msg = msg + "\n   jenis permohonan kredit (baru, perpanjangan, tambahan), dan hasil rating/scoring.";
+		msg = msg + "\n2. Agar review fasilitas dilengkapi dengan kesimpulan apakah terdapat posisi pincang atau tidak.";
+		msg = msg + "\n3. Agar review covenant (untuk debitur existing) dilengkapi dengan penjelasan apakah covenant telah dipenuhi ";
+		msg = msg + "\n   atau belum dipenuhi, serta diberikan penjelasan penyebabnya dan bagaimana tindak lanjutnya.";
+		msg = msg + "\n4. Agar review kolektibilitas dilengkapi dengan penjelasan 3 pilar Bank Indonesia untuk kredit > Rp. 10 Milyar,";
+		msg = msg + "\n   serta dicantumkan dasar penetapan kolektibilitas sesuai PBI, SPK, limit kredit dan realisasi pembayaran.";}
+	else if (mode == "G") /* Approval */
+		{msg = "Penentuan kategori pemutus kredit agar memperhatikan limit kredit one obligor, security coverage agunan,";
+		msg = msg + "\n   jenis permohonan kredit (baru, perpanjangan, tambahan), dan hasil rating/scoring.";}
+    else if (mode == "H") /* Approval */
+        {msg = "Sebelum Update Status, pastikan Anda telah mencetak Worksheet!";
+        msg = msg + "\nApakah Anda yakin untuk melanjutkan?";}
+
+	{conf = confirm(msg);}
+	if (conf)
+	{
+		conf2 = confirm("Are you sure you want to update?");
+		if (conf2)
+		{
+			return true;		
+		}
+		else
+		{
+			return false;
+		}		
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+function showtime () {
+var now = new Date();
+var hours = now.getHours();
+var minutes = now.getMinutes();
+var seconds = now.getSeconds()
+var timeValue = "" + ((hours >12) ? hours -12 :hours)
+if (timeValue == "0") timeValue = 12;
+timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+timeValue += ((seconds < 10) ? ":0" : ":") + seconds
+timeValue += (hours >= 12) ? " P.M." : " A.M."
+document.clock.face.value = timeValue;
+timerID = setTimeout("showtime()",1000);
+timerRunning = true;
+}
+
+
+function interfaceDelay(secDelay) 
+{
+	var now = new Date();
+	var hours = now.getHours();
+	var minutes = now.getMinutes();
+	var seconds = now.getSeconds();
+	var time1 = (hours * 3600) + (minutes * 60) + seconds ;
+	var time2 = (hours * 3600) + (minutes * 60) + seconds + secDelay;
+	while (time1 < time2)
+	{
+		now = new Date();
+		hours = now.getHours();
+		minutes = now.getMinutes();
+		seconds = now.getSeconds();
+		time1 = (hours * 3600) + (minutes * 60) + seconds ;
+	}		//constraint!!   cant be used in the middle of the night 
+}
+
+function interfaceMsg(proses)
+{
+	if (processing) {
+		alert(proses + " File is in progress. Please wait ...");
+		return false;	
+	}	
+	
+	alert("Please make sure eMAS LOS SME is already completed ...");	
+	
+	conf = confirm("Are you sure you want to " + proses + " ?");
+	
+	interfaceDelay(10);	// delay for 50 seconds
+	
+	if (conf)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+</script>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://localhost/WSSales" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://localhost/WSSales" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/WSSales">
+      <s:element name="GenerateMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="menuDir" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="connString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="moduleID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateMenuResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="GenerateMenuSoapIn">
+    <part name="parameters" element="s0:GenerateMenu" />
+  </message>
+  <message name="GenerateMenuSoapOut">
+    <part name="parameters" element="s0:GenerateMenuResponse" />
+  </message>
+  <portType name="MaintenanceSoap">
+    <operation name="GenerateMenu">
+      <input message="s0:GenerateMenuSoapIn" />
+      <output message="s0:GenerateMenuSoapOut" />
+    </operation>
+  </portType>
+  <binding name="MaintenanceSoap" type="s0:MaintenanceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="GenerateMenu">
+      <soap:operation soapAction="http://localhost/WSSales/GenerateMenu" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Maintenance">
+    <documentation>WebServices for Sales Commission</documentation>
+    <port name="MaintenanceSoap" binding="s0:MaintenanceSoap">
+      <soap:address location="http://localhost/WSSales/maintenance.asmx" />
+    </port>
+  </service>
+</definitions>

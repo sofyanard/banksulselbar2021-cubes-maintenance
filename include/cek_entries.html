@@ -1,0 +1,181 @@
+<script language="javascript" type="text/javascript">
+function numbersonly()
+{
+	if (event.keyCode<48||event.keyCode>57)
+	{
+		return false;
+	} else
+	{
+		return true;
+	}	
+}
+
+function charsonly()
+{	
+	//A : 65; Z : 90; a:97; z:122; 0:48; 9:57; spasi : 32; - : 45
+	if ((event.keyCode>=65 && event.keyCode<=90) || (event.keyCode>=97 && event.keyCode<=122) || event.keyCode==32)
+	{
+		return true;
+	} else
+	{
+		return false;
+	}	
+}
+
+function digitsonly()
+{
+	if ((event.keyCode>47&&event.keyCode<58 ) || (event.keyCode == 44 ))
+	{
+		return true;
+	} else
+	{
+		return false;
+	}	
+}
+
+function signeddigitsonly()
+{
+	if ((event.keyCode>47&&event.keyCode<58 ) || (event.keyCode == 44 ) || (event.keyCode == 45 ))
+	{
+		return true;
+	} else
+	{
+		return false;
+	}	
+}
+
+function kutip_satu()
+{
+	if ((event.keyCode == 35) || (event.keyCode == 39))
+	{
+		return false;
+	} else
+	{
+		return true;
+	}	
+}
+
+//onkeydown = "return DateFormat(this, event.keyCode)"
+function DateFormat(txt, keyCode) {
+    var isShift = false;
+    var seperator = "-";
+
+    if (keyCode == 16)
+        isShift = true;
+    //Validate that its Numeric
+    if (((keyCode >= 48 && keyCode <= 57) || keyCode == 8 ||
+         keyCode <= 37 || keyCode <= 39 ||
+         (keyCode >= 96 && keyCode <= 105)) && isShift == false) {
+        if ((txt.value.length == 4 || txt.value.length == 7) && keyCode != 8) {
+            txt.value += seperator;
+        }
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//onKeyPress="return MaskMoney(event,4)"
+function MaskMoney(evt, allow) {
+
+    if (!(evt.keyCode == 46 || (evt.keyCode >= 48 && evt.keyCode <= 57))) return false;
+    var parts = evt.srcElement.value.split('.');
+    if (parts.length > 4) return false;
+    if (evt.keyCode == 46) return (parts.length == 1);
+    if (parts[0].length >= 23) return false;
+    if (parts.length == 4 && parts[1].length >= allow) return false;
+}
+
+//onkeyup = "insertdots(this)"
+function insertdots(nField) {
+    if (/^0/.test(nField.value)) {
+        nField.value = nField.value.substring(0, 1);
+    }
+    if (Number(nField.value.replace(/,/g, ""))) {
+        var tmp = nField.value.replace(/,/g, "");
+        tmp = tmp.toString().split('').reverse().join('').replace(/(\d{3})/g, '$1,').split('').reverse().join('').replace(/^,/, '');
+        if (/\./g.test(tmp)) {
+            tmp = tmp.split(".");
+            tmp[1] = tmp[1].replace(/\,/g, "").replace(/ /, "");
+            nField.value = tmp[0] + "." + tmp[1]
+        }
+        else {
+            nField.value = tmp.replace(/ /, "");
+        }
+    }
+    else {
+        nField.value = nField.value.replace(/[^\d\,\.]/g, "").replace(/ /, "");
+    }
+}
+
+//onKeyPress = "return(currencyFormat(this,'.',',',event))"
+function currencyFormat(fld, milSep, decSep, e) {
+    var sep = 0;
+    var key = '';
+    var i = j = 0;
+    var len = len2 = 0;
+    var strCheck = '0123456789';
+    var aux = aux2 = '';
+    var whichCode = (window.Event) ? e.which : e.keyCode;
+
+    if (whichCode == 13) return true; // Enter
+    if (whichCode == 8) return true; // Delete
+    key = String.fromCharCode(whichCode); // Get key value from key code
+    if (strCheck.indexOf(key) == -1) return false; // Not a valid key
+    len = fld.value.length;
+    for (i = 0; i < len; i++)
+        if ((fld.value.charAt(i) != '0') && (fld.value.charAt(i) != decSep)) break;
+    aux = '';
+    for (; i < len; i++)
+        if (strCheck.indexOf(fld.value.charAt(i)) != -1) aux += fld.value.charAt(i);
+    aux += key;
+    len = aux.length;
+    if (len == 0) fld.value = '';
+    if (len == 1) fld.value = '0' + decSep + '0' + aux;
+    if (len == 2) fld.value = '0' + decSep + aux;
+    if (len > 2) {
+        aux2 = '';
+        for (j = 0, i = len - 3; i >= 0; i--) {
+            if (j == 3) {
+                aux2 += milSep;
+                j = 0;
+            }
+            aux2 += aux.charAt(i);
+            j++;
+        }
+        fld.value = '';
+        len2 = aux2.length;
+        for (i = len2 - 1; i >= 0; i--)
+            fld.value += aux2.charAt(i);
+        fld.value += decSep + aux.substr(len - 2, len);
+    }
+    return false;
+}
+</script>
+
+
+
+<script language="javascript">
+    function IsNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    function FormatCurrency(obj) {
+        var n = obj.value;
+        var c = 2;
+        var d = ',';
+        var t = '.';
+
+        if (IsNumeric(n) == true) {
+            var sign = (n < 0) ? '-' : '';
+
+            i = parseInt(n = Math.abs(n).toFixed(c)) + '';
+            j = ((j = i.length) > 3) ? j % 3 : 0;
+
+            obj.value = sign + (j ? i.substr(0, j) + t : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : '');
+        }
+        else
+            obj.value = 0;
+    }
+</script>

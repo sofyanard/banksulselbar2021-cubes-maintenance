@@ -1,0 +1,907 @@
+<script language="vbscript">
+
+	function FormatMoney(hasil)
+		SetLocale("in")
+		hasil = replace(hasil, ".", "")
+		hasil = replace(hasil, ",", ".")
+		if isnumeric(hasil) then
+			FormatMoney = formatnumber(hasil,0)
+		else
+			FormatMoney = ""
+		end if
+	end function
+		
+	function NoFormat(hasil)
+		NoFormat = replace(hasil, ".", "")
+	end function
+</script>
+
+<script language="javascript">	
+<!--
+	
+	function valid_bpr(b1,b2,c1,c2,d1,d2)
+	{		
+		if (eval("document.Form1."+b1+".value") != eval("document.Form1."+b2+".value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Liabilities tidak sama !! ");
+			eval("document.Form1."+b1+".focus();");
+			return false;
+		}
+		
+		if (eval("document.Form1."+c1+".value") != eval("document.Form1."+c2+".value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Liabilities tidak sama !! ");
+			eval("document.Form1."+c1+".focus();");
+			return false;
+		}
+		
+		if (eval("document.Form1."+d1+".value") != eval("document.Form1."+d2+".value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Liabilities tidak sama !! ");
+			eval("document.Form1."+d1+".focus();");
+			return false;
+		}
+
+		return true;
+	}
+	
+	
+	function cek_key(tipe)
+	{
+		if (tipe == "neraca")
+		{
+			//-----------------------------------------cek kolom b	
+			if (document.Form1.txt_DD_B1.value=="") 
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				document.Form1.txt_DD_B1.focus();
+				return false;
+			}
+			if (document.Form1.ddl_MM_B1.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				document.Form1.ddl_MM_B1.focus();
+				return false;
+			}
+			if (document.Form1.txt_YY_B1.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				document.Form1.txt_YY_B1.focus();
+				return false;
+			}
+			if (document.Form1.txt_B2.value=="") 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				document.Form1.txt_B2.focus();
+				return false;
+			}
+			
+			//-----------------------------------------cek kolom c
+			if (document.Form1.txt_C4.value != "")
+			{
+				if (document.Form1.txt_DD_C1.value=="") 
+				{
+					alert("Silakan isi kolom tanggal nya ");
+					document.Form1.txt_DD_C1.focus();
+					return false;
+				}
+				if (document.Form1.ddl_MM_C1.selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					document.Form1.ddl_MM_C1.focus();
+					return false;
+				}
+				if (document.Form1.txt_YY_C1.value=="") 
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					document.Form1.txt_YY_C1.focus();
+					return false;
+				}
+				if (document.Form1.txt_C2.value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.Form1.txt_C2.focus();
+					return false;
+				}
+			}
+			
+			//-----------------------------------------cek kolom d	
+			if (document.Form1.txt_D4.value != "")
+			{
+				if (document.Form1.txt_DD_D1.value=="") 
+				{
+					alert("Silakan isi kolom tanggal nya ");
+					document.Form1.txt_DD_D1.focus();
+					return false;
+				}
+				if (document.Form1.ddl_MM_D1.selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					document.Form1.ddl_MM_D1.focus();
+					return false;
+				}
+				if (document.Form1.txt_YY_D1.value=="") 
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					document.Form1.txt_YY_D1.focus();
+					return false;
+				}
+				if (document.Form1.txt_D2.value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.Form1.txt_D2.focus();
+					return false;
+				}
+			}
+		} //#################################################################### neraca ok
+		else if (tipe == "labarugi")
+		{
+			//-----------------------------------------cek kolom b	
+			if (document.Form1.txt_DD_B29.value=="")
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				document.Form1.txt_DD_B29.focus();
+				return false;
+			}
+			if (document.Form1.ddl_MM_B29.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				document.Form1.ddl_MM_B29.focus();
+				return false;
+			}
+			if (document.Form1.txt_YY_B29.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				document.Form1.txt_YY_B29.focus();
+				return false;
+			}
+			if (document.Form1.txt_B30.value=="") 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				document.Form1.txt_B30.focus();
+				return false;
+			}
+			
+			//-----------------------------------------cek kolom c
+			if (document.Form1.txt_C32.value != "")
+			{
+				if (document.Form1.txt_DD_C29.value=="") 
+				{
+					alert("Silakan isi kolom tanggal nya ");
+					document.Form1.txt_DD_C29.focus();
+					return false;
+				}
+				if (document.Form1.ddl_MM_C29.selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					document.Form1.ddl_MM_C29.focus();
+					return false;
+				}
+				if (document.Form1.txt_YY_C29.value=="") 
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					document.Form1.txt_YY_C29.focus();
+					return false;
+				}
+				if (document.Form1.txt_C30.value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.Form1.txt_C30.focus();
+					return false;
+				}
+			}
+			
+			//-----------------------------------------cek kolom d	
+			if (document.Form1.txt_D32.value != "")
+			{
+				if (document.Form1.txt_DD_D29.value=="") 
+				{
+					alert("Silakan isi kolom tanggal nya ");
+					document.Form1.txt_DD_D29.focus();
+					return false;
+				}
+				if (document.Form1.ddl_MM_D29.selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					document.Form1.ddl_MM_D29.focus();
+					return false;
+				}
+				if (document.Form1.txt_YY_D29.value=="") 
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					document.Form1.txt_YY_D29.focus();
+					return false;
+				}
+				if (document.Form1.txt_D30.value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.Form1.txt_D30.focus();
+					return false;
+				}
+			}
+		}
+		//#################################################################### labarugi ok
+		else if (tipe == "rasio")
+		{
+			//-----------------------------------------cek kolom b	
+			if (document.Form1.txt_DD_B12.value=="") 
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				document.Form1.txt_DD_B12.focus();
+				return false;
+			}
+			if (document.Form1.ddl_MM_B12.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				document.Form1.ddl_MM_B12.focus();
+				return false;
+			}
+			if (document.Form1.txt_YY_B12.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				document.Form1.txt_YY_B12.focus();
+				return false;
+			}
+			if (document.Form1.txt_B13.value=="") 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				document.Form1.txt_B13.focus();
+				return false;
+			}
+			
+			//-----------------------------------------cek kolom c
+			if (document.Form1.txt_C15.value != "")
+			{
+				if (document.Form1.txt_DD_C12.value=="") 
+				{
+					alert("Silakan isi kolom tanggal nya ");
+					document.Form1.txt_DD_C12.focus();
+					return false;
+				}
+				if (document.Form1.ddl_MM_C12.selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					document.Form1.ddl_MM_C12.focus();
+					return false;
+				}
+				if (document.Form1.txt_YY_C12.value=="") 
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					document.Form1.txt_YY_C12.focus();
+					return false;
+				}
+				if (document.Form1.txt_C13.value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.Form1.txt_C13.focus();
+					return false;
+				}
+			}
+			
+			//-----------------------------------------cek kolom d	
+			if (document.Form1.txt_D15.value != "")
+			{
+				if (document.Form1.txt_DD_D12.value=="") 
+				{
+					alert("Silakan isi kolom tanggal nya ");
+					document.Form1.txt_DD_D12.focus();
+					return false;
+				}
+				if (document.Form1.ddl_MM_D12.selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					document.Form1.ddl_MM_D12.focus();
+					return false;
+				}
+				if (document.Form1.txt_YY_D12.value=="") 
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					document.Form1.txt_YY_D12.focus();
+					return false;
+				}
+				if (document.Form1.txt_D13.value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.Form1.txt_D13.focus();
+					return false;
+				}
+			}
+		}
+
+	
+		return true;
+	}
+	
+	
+	function hit_neraca(urut, kolom)
+	{
+		if (urut==1) //----------------------------------aktiva
+		{
+			if (kolom=="B")
+			{
+				A01_B = NoFormat(document.Form1.txt_B4.value);	//A01_B = NoFormat(document.Form1.txt_B3.value);
+				A02_B = NoFormat(document.Form1.txt_B5.value);	//A02_B = NoFormat(document.Form1.txt_B4.value);
+				A03_B = NoFormat(document.Form1.txt_B6.value);	//A03_B = NoFormat(document.Form1.txt_B5.value);
+				A04_B = NoFormat(document.Form1.txt_B7.value);	//A04_B = NoFormat(document.Form1.txt_B6.value);
+				A05_B = NoFormat(document.Form1.txt_B8.value);	//A05_B = NoFormat(document.Form1.txt_B7.value);
+				A06_B = NoFormat(document.Form1.txt_B9.value);	//A06_B = NoFormat(document.Form1.txt_B8.value);
+				A07_B = NoFormat(document.Form1.txt_B10.value);	//A07_B = NoFormat(document.Form1.txt_B9.value);
+				A08_B = NoFormat(document.Form1.txt_B11.value);	//A08_B = NoFormat(document.Form1.txt_B10.value);
+				//A09_B = NoFormat(document.Form1.txt_B11.value);
+				A09_B = 0;
+				
+				if (A01_B == ""){A01_B = 0;}
+				if (A02_B == ""){A02_B = 0;}
+				if (A03_B == ""){A03_B = 0;}
+				if (A04_B == ""){A04_B = 0;}
+				if (A05_B == ""){A05_B = 0;}
+				if (A06_B == ""){A06_B = 0;}
+				if (A07_B == ""){A07_B = 0;}
+				if (A08_B == ""){A08_B = 0;}
+				if (A09_B == ""){A09_B = 0;}
+				
+				document.Form1.txt_B13.value = FormatMoney(parseInt(A01_B) + parseInt(A02_B) + parseInt(A03_B) + parseInt(A04_B) + 
+					parseInt(A05_B) + parseInt(A06_B) + parseInt(A07_B) + parseInt(A08_B) + parseInt(A09_B));
+				//document.Form1.txt_B12.value
+			}
+			else if (kolom=="C")
+			{
+				A01_C = NoFormat(document.Form1.txt_C4.value);	//A01_C = NoFormat(document.Form1.txt_C3.value);
+				A02_C = NoFormat(document.Form1.txt_C5.value);	//A02_C = NoFormat(document.Form1.txt_C4.value);
+				A03_C = NoFormat(document.Form1.txt_C6.value);	//A03_C = NoFormat(document.Form1.txt_C5.value);
+				A04_C = NoFormat(document.Form1.txt_C7.value);	//A04_C = NoFormat(document.Form1.txt_C6.value);
+				A05_C = NoFormat(document.Form1.txt_C8.value);	//A05_C = NoFormat(document.Form1.txt_C7.value);
+				A06_C = NoFormat(document.Form1.txt_C9.value);	//A06_C = NoFormat(document.Form1.txt_C8.value);
+				A07_C = NoFormat(document.Form1.txt_C10.value);	//A07_C = NoFormat(document.Form1.txt_C9.value);
+				A08_C = NoFormat(document.Form1.txt_C11.value);	//A08_C = NoFormat(document.Form1.txt_C10.value);
+				//A09_C = NoFormat(document.Form1.txt_C11.value);
+				A09_C = 0;
+				
+				
+				if (A01_C == ""){A01_C = 0;}
+				if (A02_C == ""){A02_C = 0;}
+				if (A03_C == ""){A03_C = 0;}
+				if (A04_C == ""){A04_C = 0;}
+				if (A05_C == ""){A05_C = 0;}
+				if (A06_C == ""){A06_C = 0;}
+				if (A07_C == ""){A07_C = 0;}
+				if (A08_C == ""){A08_C = 0;}
+				if (A09_C == ""){A09_C = 0;}
+				
+				document.Form1.txt_C13.value = FormatMoney(parseInt(A01_C) + parseInt(A02_C) + parseInt(A03_C) + parseInt(A04_C) + 
+					parseInt(A05_C) + parseInt(A06_C) + parseInt(A07_C) + parseInt(A08_C) + parseInt(A09_C));
+				//document.Form1.txt_C12.value
+			}	
+			else if (kolom=="D")
+			{
+				A01_D = NoFormat(document.Form1.txt_D4.value);	//A01_D = NoFormat(document.Form1.txt_D3.value);
+				A02_D = NoFormat(document.Form1.txt_D5.value);	//A02_D = NoFormat(document.Form1.txt_D4.value);
+				A03_D = NoFormat(document.Form1.txt_D6.value);	//A03_D = NoFormat(document.Form1.txt_D5.value);
+				A04_D = NoFormat(document.Form1.txt_D7.value);	//A04_D = NoFormat(document.Form1.txt_D6.value);
+				A05_D = NoFormat(document.Form1.txt_D8.value);	//A05_D = NoFormat(document.Form1.txt_D7.value);
+				A06_D = NoFormat(document.Form1.txt_D9.value);	//A06_D = NoFormat(document.Form1.txt_D8.value);
+				A07_D = NoFormat(document.Form1.txt_D10.value);	//A07_D = NoFormat(document.Form1.txt_D9.value);
+				A08_D = NoFormat(document.Form1.txt_D11.value);	//A08_D = NoFormat(document.Form1.txt_D10.value);
+				//A09_D = NoFormat(document.Form1.txt_D11.value);
+				A09_D = 0;
+				
+				if (A01_D == ""){A01_D = 0;}
+				if (A02_D == ""){A02_D = 0;}
+				if (A03_D == ""){A03_D = 0;}
+				if (A04_D == ""){A04_D = 0;}
+				if (A05_D == ""){A05_D = 0;}
+				if (A06_D == ""){A06_D = 0;}
+				if (A07_D == ""){A07_D = 0;}
+				if (A08_D == ""){A08_D = 0;}
+				if (A09_D == ""){A09_D = 0;}
+				
+				document.Form1.txt_D13.value = FormatMoney(parseInt(A01_D) + parseInt(A02_D) + parseInt(A03_D) + parseInt(A04_D) + 
+					parseInt(A05_D) + parseInt(A06_D) + parseInt(A07_D) + parseInt(A08_D) + parseInt(A09_D));
+				//document.Form1.txt_D12.value
+			}
+		}
+		
+		else if (urut==2) //----------------------------------liabilities
+		{
+			if (kolom=="B")
+			{
+				L01_B = NoFormat(document.Form1.txt_B14.value); //L01_B = NoFormat(document.Form1.txt_B13.value);
+				L02_B = NoFormat(document.Form1.txt_B15.value);	//L02_B = NoFormat(document.Form1.txt_B14.value);
+				L03_B = NoFormat(document.Form1.txt_B16.value);	//L03_B = NoFormat(document.Form1.txt_B15.value);
+				L04_B = NoFormat(document.Form1.txt_B17.value);	//L04_B = NoFormat(document.Form1.txt_B16.value);
+				L05_B = NoFormat(document.Form1.txt_B18.value);	//L05_B = NoFormat(document.Form1.txt_B17.value);
+				L06_B = NoFormat(document.Form1.txt_B19.value);	//L06_B = NoFormat(document.Form1.txt_B18.value);
+				L07_B = NoFormat(document.Form1.txt_B20.value);	//L07_B = NoFormat(document.Form1.txt_B19.value);
+				L08_B = NoFormat(document.Form1.txt_B21.value);	//L08_B = NoFormat(document.Form1.txt_B20.value);
+				L09_B = NoFormat(document.Form1.txt_B22.value);	//L09_B = NoFormat(document.Form1.txt_B21.value);
+				L10_B = NoFormat(document.Form1.txt_B23.value);	//L10_B = NoFormat(document.Form1.txt_B22.value);
+				L11_B = NoFormat(document.Form1.txt_B24.value); //L11_B = NoFormat(document.Form1.txt_B23.value);
+				L12_B = NoFormat(document.Form1.txt_B25.value); //L12_B = NoFormat(document.Form1.txt_B24.value);
+				L13_B = NoFormat(document.Form1.txt_B26.value); //L13_B = NoFormat(document.Form1.txt_B25.value);
+				
+				if (L01_B == ""){L01_B = 0;}
+				if (L02_B == ""){L02_B = 0;}
+				if (L03_B == ""){L03_B = 0;}
+				if (L04_B == ""){L04_B = 0;}
+				if (L05_B == ""){L05_B = 0;}
+				if (L06_B == ""){L06_B = 0;}
+				if (L07_B == ""){L07_B = 0;}
+				if (L08_B == ""){L08_B = 0;}
+				if (L09_B == ""){L09_B = 0;}
+				if (L10_B == ""){L10_B = 0;}
+				if (L11_B == ""){L11_B = 0;}
+				if (L12_B == ""){L12_B = 0;}
+				if (L13_B == ""){L13_B = 0;}
+				
+				document.Form1.txt_B27.value = FormatMoney(parseInt(L01_B) + parseInt(L02_B) + parseInt(L03_B) + parseInt(L04_B) + 
+					parseInt(L05_B) + parseInt(L06_B) + parseInt(L07_B) + parseInt(L08_B) + parseInt(L09_B) +
+					parseInt(L10_B) + parseInt(L11_B) + parseInt(L12_B) + parseInt(L13_B));
+				//document.Form1.txt_B26.value
+			}
+			else if (kolom=="C")
+			{
+				L01_C = NoFormat(document.Form1.txt_C14.value);	//L01_C = NoFormat(document.Form1.txt_C13.value);
+				L02_C = NoFormat(document.Form1.txt_C15.value); //L02_C = NoFormat(document.Form1.txt_C14.value);
+				L03_C = NoFormat(document.Form1.txt_C16.value);	//L03_C = NoFormat(document.Form1.txt_C15.value);
+				L04_C = NoFormat(document.Form1.txt_C17.value); //L04_C = NoFormat(document.Form1.txt_C16.value);
+				L05_C = NoFormat(document.Form1.txt_C18.value);	//L05_C = NoFormat(document.Form1.txt_C17.value);
+				L06_C = NoFormat(document.Form1.txt_C19.value);	//L06_C = NoFormat(document.Form1.txt_C18.value);
+				L07_C = NoFormat(document.Form1.txt_C20.value);	//L07_C = NoFormat(document.Form1.txt_C19.value);
+				L08_C = NoFormat(document.Form1.txt_C21.value);	//L08_C = NoFormat(document.Form1.txt_C20.value);
+				L09_C = NoFormat(document.Form1.txt_C22.value);	//L09_C = NoFormat(document.Form1.txt_C21.value);
+				L10_C = NoFormat(document.Form1.txt_C23.value);	//L10_C = NoFormat(document.Form1.txt_C22.value);
+				L11_C = NoFormat(document.Form1.txt_C24.value);	//L11_C = NoFormat(document.Form1.txt_C23.value);
+				L12_C = NoFormat(document.Form1.txt_C25.value);	//L12_C = NoFormat(document.Form1.txt_C24.value);
+				L13_C = NoFormat(document.Form1.txt_C26.value);	//L13_C = NoFormat(document.Form1.txt_C25.value);
+				
+				if (L01_C == ""){L01_C = 0;}
+				if (L02_C == ""){L02_C = 0;}
+				if (L03_C == ""){L03_C = 0;}
+				if (L04_C == ""){L04_C = 0;}
+				if (L05_C == ""){L05_C = 0;}
+				if (L06_C == ""){L06_C = 0;}
+				if (L07_C == ""){L07_C = 0;}
+				if (L08_C == ""){L08_C = 0;}
+				if (L09_C == ""){L09_C = 0;}
+				if (L10_C == ""){L10_C = 0;}
+				if (L11_C == ""){L11_C = 0;}
+				if (L12_C == ""){L12_C = 0;}
+				if (L13_C == ""){L13_C = 0;}
+				
+				document.Form1.txt_C27.value = FormatMoney(parseInt(L01_C) + parseInt(L02_C) + parseInt(L03_C) + parseInt(L04_C) + 
+					parseInt(L05_C) + parseInt(L06_C) + parseInt(L07_C) + parseInt(L08_C) + parseInt(L09_C) +
+					parseInt(L10_C) + parseInt(L11_C) + parseInt(L12_C) + parseInt(L13_C));
+				//document.Form1.txt_C26.value
+			}
+			else if (kolom=="D")
+			{
+				L01_D = NoFormat(document.Form1.txt_D14.value); //L01_D = NoFormat(document.Form1.txt_D13.value);
+				L02_D = NoFormat(document.Form1.txt_D15.value);	//L02_D = NoFormat(document.Form1.txt_D14.value);
+				L03_D = NoFormat(document.Form1.txt_D16.value);	//L03_D = NoFormat(document.Form1.txt_D15.value);
+				L04_D = NoFormat(document.Form1.txt_D17.value);	//L04_D = NoFormat(document.Form1.txt_D16.value);
+				L05_D = NoFormat(document.Form1.txt_D18.value);	//L05_D = NoFormat(document.Form1.txt_D17.value);
+				L06_D = NoFormat(document.Form1.txt_D19.value);	//L06_D = NoFormat(document.Form1.txt_D18.value);
+				L07_D = NoFormat(document.Form1.txt_D20.value);	//L07_D = NoFormat(document.Form1.txt_D19.value);
+				L08_D = NoFormat(document.Form1.txt_D21.value);	//L08_D = NoFormat(document.Form1.txt_D20.value);
+				L09_D = NoFormat(document.Form1.txt_D22.value);	//L09_D = NoFormat(document.Form1.txt_D21.value);
+				L10_D = NoFormat(document.Form1.txt_D23.value); //L10_D = NoFormat(document.Form1.txt_D22.value);
+				L11_D = NoFormat(document.Form1.txt_D24.value);	//L11_D = NoFormat(document.Form1.txt_D23.value);
+				L12_D = NoFormat(document.Form1.txt_D25.value); //L12_D = NoFormat(document.Form1.txt_D24.value);
+				L13_D = NoFormat(document.Form1.txt_D26.value); //L13_D = NoFormat(document.Form1.txt_D25.value);
+				
+				if (L01_D == ""){L01_D = 0;}
+				if (L02_D == ""){L02_D = 0;}
+				if (L03_D == ""){L03_D = 0;}
+				if (L04_D == ""){L04_D = 0;}
+				if (L05_D == ""){L05_D = 0;}
+				if (L06_D == ""){L06_D = 0;}
+				if (L07_D == ""){L07_D = 0;}
+				if (L08_D == ""){L08_D = 0;}
+				if (L09_D == ""){L09_D = 0;}
+				if (L10_D == ""){L10_D = 0;}
+				if (L11_D == ""){L11_D = 0;}
+				if (L12_D == ""){L12_D = 0;}
+				if (L13_D == ""){L13_D = 0;}
+				
+				document.Form1.txt_D27.value = FormatMoney(parseInt(L01_D) + parseInt(L02_D) + parseInt(L03_D) + parseInt(L04_D) + 
+					parseInt(L05_D) + parseInt(L06_D) + parseInt(L07_D) + parseInt(L08_D) + parseInt(L09_D) +
+					parseInt(L10_D) + parseInt(L11_D) + parseInt(L12_D) + parseInt(L13_D));
+				//document.Form1.txt_D26.value
+			}
+		}
+	} //######################################################################################################################### ok
+	
+	
+	
+	
+	
+	function hit_labarugi(urut,kolom)
+	{
+
+		if (urut=="1") //------------------------------------Pendapatan Operasional
+		{
+			if (kolom=="B")
+			{
+				PO1_B = NoFormat(document.Form1.txt_B32.value); //PO1_B = NoFormat(document.Form1.txt_B30.value);
+				PO2_B = NoFormat(document.Form1.txt_B33.value);	//PO2_B = NoFormat(document.Form1.txt_B31.value);
+				PO3_B = NoFormat(document.Form1.txt_B34.value);	//PO3_B = NoFormat(document.Form1.txt_B32.value);
+				
+				if (PO1_B == ""){PO1_B = 0;}
+				if (PO2_B == ""){PO2_B = 0;}
+				if (PO3_B == ""){PO3_B = 0;}
+				
+				document.Form1.txt_B35.value = FormatMoney(parseInt(PO1_B) + parseInt(PO2_B) + parseInt(PO3_B));	//document.Form1.txt_B33.value = FormatMoney(parseInt(PO1_B) + parseInt(PO2_B) + parseInt(PO3_B));
+			}
+			else if (kolom=="C")
+			{
+				PO1_C = NoFormat(document.Form1.txt_C32.value);	//PO1_C = NoFormat(document.Form1.txt_C30.value);
+				PO2_C = NoFormat(document.Form1.txt_C33.value);	//PO2_C = NoFormat(document.Form1.txt_C31.value);
+				PO3_C = NoFormat(document.Form1.txt_C34.value);	//PO3_C = NoFormat(document.Form1.txt_C32.value);
+				
+				if (PO1_C == ""){PO1_C = 0;}
+				if (PO2_C == ""){PO2_C = 0;}
+				if (PO3_C == ""){PO3_C = 0;}
+				
+				document.Form1.txt_C35.value = FormatMoney(parseInt(PO1_C) + parseInt(PO2_C) + parseInt(PO3_C));	//document.Form1.txt_C33.value = FormatMoney(parseInt(PO1_C) + parseInt(PO2_C) + parseInt(PO3_C));
+			}
+			else if (kolom=="D")
+			{
+				PO1_D = NoFormat(document.Form1.txt_D32.value); //PO1_D = NoFormat(document.Form1.txt_D30.value);
+				PO2_D = NoFormat(document.Form1.txt_D33.value);	//PO2_D = NoFormat(document.Form1.txt_D31.value);
+				PO3_D = NoFormat(document.Form1.txt_D34.value);	//PO3_D = NoFormat(document.Form1.txt_D32.value);
+				
+				if (PO1_D == ""){PO1_D = 0;}
+				if (PO2_D == ""){PO2_D = 0;}
+				if (PO3_D == ""){PO3_D = 0;}
+				
+				document.Form1.txt_D35.value = FormatMoney(parseInt(PO1_D) + parseInt(PO2_D) + parseInt(PO3_D));	//document.Form1.txt_D33.value = FormatMoney(parseInt(PO1_D) + parseInt(PO2_D) + parseInt(PO3_D));
+			}
+		}
+		else if (urut=="2") //------------------------------------Beban Operasional
+		{
+			if (kolom=="B")
+			{
+				BO1_B = NoFormat(document.Form1.txt_B36.value);	//BO1_B = NoFormat(document.Form1.txt_B34.value);
+				BO2_B = NoFormat(document.Form1.txt_B37.value);	//BO2_B = NoFormat(document.Form1.txt_B35.value);
+				BO3_B = NoFormat(document.Form1.txt_B38.value);	//BO3_B = NoFormat(document.Form1.txt_B36.value);
+				
+				if (BO1_B == ""){BO1_B = 0;}
+				if (BO2_B == ""){BO2_B = 0;}
+				if (BO3_B == ""){BO3_B = 0;}
+				
+				document.Form1.txt_B39.value = FormatMoney(parseInt(BO1_B) + parseInt(BO2_B) + parseInt(BO3_B));	//document.Form1.txt_B37.value = FormatMoney(parseInt(BO1_B) + parseInt(BO2_B) + parseInt(BO3_B));
+			}
+			else if (kolom=="C")
+			{
+				BO1_C = NoFormat(document.Form1.txt_C36.value);	//BO1_C = NoFormat(document.Form1.txt_C34.value);
+				BO2_C = NoFormat(document.Form1.txt_C37.value);	//BO2_C = NoFormat(document.Form1.txt_C35.value);
+				BO3_C = NoFormat(document.Form1.txt_C38.value);	//BO3_C = NoFormat(document.Form1.txt_C36.value);
+				
+				if (BO1_C == ""){BO1_C = 0;}
+				if (BO2_C == ""){BO2_C = 0;}
+				if (BO3_C == ""){BO3_C = 0;}
+				
+				document.Form1.txt_C39.value = FormatMoney(parseInt(BO1_C) + parseInt(BO2_C) + parseInt(BO3_C));	//document.Form1.txt_C37.value = FormatMoney(parseInt(BO1_C) + parseInt(BO2_C) + parseInt(BO3_C));
+			}
+			else if (kolom=="D")
+			{
+				BO1_D = NoFormat(document.Form1.txt_D36.value);	//BO1_D = NoFormat(document.Form1.txt_D34.value);
+				BO2_D = NoFormat(document.Form1.txt_D37.value);	//BO2_D = NoFormat(document.Form1.txt_D35.value);
+				BO3_D = NoFormat(document.Form1.txt_D38.value);	//BO3_D = NoFormat(document.Form1.txt_D36.value);
+				
+				if (BO1_D == ""){BO1_D = 0;}
+				if (BO2_D == ""){BO2_D = 0;}
+				if (BO3_D == ""){BO3_D = 0;}
+				
+				document.Form1.txt_D39.value = FormatMoney(parseInt(BO1_D) + parseInt(BO2_D) + parseInt(BO3_D));	//document.Form1.txt_D37.value = FormatMoney(parseInt(BO1_D) + parseInt(BO2_D) + parseInt(BO3_D));
+			}
+		}
+		else if (urut=="3") //------------------------------------Pendapatan Operasional Bersih
+		{
+			if (kolom=="B")
+			{
+				POT_B = NoFormat(document.Form1.txt_B35.value);	//POT_B = NoFormat(document.Form1.txt_B33.value);
+				BOT_B = NoFormat(document.Form1.txt_B39.value);	//BOT_B = NoFormat(document.Form1.txt_B37.value);
+								
+				if (POT_B == ""){POT_B = 0;}
+				if (BOT_B == ""){BOT_B = 0;}
+				
+				document.Form1.txt_B40.value = FormatMoney(parseInt(POT_B) - parseInt(BOT_B));	//document.Form1.txt_B38.value = FormatMoney(parseInt(POT_B) - parseInt(BOT_B));
+			}
+			else if (kolom=="C")
+			{
+				POT_C = NoFormat(document.Form1.txt_C35.value);	//POT_C = NoFormat(document.Form1.txt_C33.value);
+				BOT_C = NoFormat(document.Form1.txt_C39.value);	//BOT_C = NoFormat(document.Form1.txt_C37.value);
+								
+				if (POT_C == ""){POT_C = 0;}
+				if (BOT_C == ""){BOT_C = 0;}
+				
+				document.Form1.txt_C40.value = FormatMoney(parseInt(POT_C) - parseInt(BOT_C));	//document.Form1.txt_C38.value = FormatMoney(parseInt(POT_C) - parseInt(BOT_C));
+			}
+			else if (kolom=="D")
+			{
+				POT_D = NoFormat(document.Form1.txt_D35.value);	//POT_D = NoFormat(document.Form1.txt_D33.value);
+				BOT_D = NoFormat(document.Form1.txt_D39.value);	//BOT_D = NoFormat(document.Form1.txt_D37.value);
+
+				if (POT_D == ""){POT_D = 0;}
+				if (BOT_D == ""){BOT_D = 0;}
+
+				document.Form1.txt_D40.value = FormatMoney(parseInt(POT_D) - parseInt(BOT_D)); //document.Form1.txt_D38.value = FormatMoney(parseInt(POT_D) - parseInt(BOT_D));
+			}
+		}
+		else if (urut=="4") //------------------------------------Total Pendapatan operasional lainnya
+		{
+			if (kolom=="B")
+			{
+				PL1_B = NoFormat(document.Form1.txt_B41.value); //PL1_B = NoFormat(document.Form1.txt_B39.value);
+				PL2_B = NoFormat(document.Form1.txt_B42.value);	//PL2_B = NoFormat(document.Form1.txt_B40.value);
+				PL3_B = NoFormat(document.Form1.txt_B43.value);	//PL3_B = NoFormat(document.Form1.txt_B41.value);
+				
+				if (PL1_B == ""){PL1_B = 0;}
+				if (PL2_B == ""){PL2_B = 0;}
+				if (PL3_B == ""){PL3_B = 0;}
+				
+				document.Form1.txt_B44.value = FormatMoney(parseInt(PL1_B) + parseInt(PL2_B) + parseInt(PL3_B));	//document.Form1.txt_B42.value = FormatMoney(parseInt(PL1_B) + parseInt(PL2_B) + parseInt(PL3_B));
+			}
+			else if (kolom=="C")
+			{
+				PL1_C = NoFormat(document.Form1.txt_C41.value);	//PL1_C = NoFormat(document.Form1.txt_C39.value);
+				PL2_C = NoFormat(document.Form1.txt_C42.value);	//PL2_C = NoFormat(document.Form1.txt_C40.value);
+				PL3_C = NoFormat(document.Form1.txt_C43.value);	//PL3_C = NoFormat(document.Form1.txt_C41.value);
+				
+				if (PL1_C == ""){PL1_C = 0;}
+				if (PL2_C == ""){PL2_C = 0;}
+				if (PL3_C == ""){PL3_C = 0;}
+				
+				document.Form1.txt_C44.value = FormatMoney(parseInt(PL1_C) + parseInt(PL2_C) + parseInt(PL3_C)); //document.Form1.txt_C42.value = FormatMoney(parseInt(PL1_C) + parseInt(PL2_C) + parseInt(PL3_C));
+			}
+			else if (kolom=="D")
+			{
+				PL1_D = NoFormat(document.Form1.txt_D41.value);	//PL1_D = NoFormat(document.Form1.txt_D39.value);
+				PL2_D = NoFormat(document.Form1.txt_D42.value);	//PL2_D = NoFormat(document.Form1.txt_D40.value);
+				PL3_D = NoFormat(document.Form1.txt_D43.value);	//PL3_D = NoFormat(document.Form1.txt_D41.value);
+				
+				if (PL1_D == ""){PL1_D = 0;}
+				if (PL2_D == ""){PL2_D = 0;}
+				if (PL3_D == ""){PL3_D = 0;}
+				
+				document.Form1.txt_D44.value = FormatMoney(parseInt(PL1_D) + parseInt(PL2_D) + parseInt(PL3_D));	//document.Form1.txt_D42.value = FormatMoney(parseInt(PL1_D) + parseInt(PL2_D) + parseInt(PL3_D));
+			}
+		}
+		else if (urut=="5") //------------------------------------Total Pendapatan operasional lainnya
+		{
+			if (kolom=="B")
+			{
+				BL1_B = NoFormat(document.Form1.txt_B45.value);	//BL1_B = NoFormat(document.Form1.txt_B43.value);
+				BL2_B = NoFormat(document.Form1.txt_B46.value);	//BL2_B = NoFormat(document.Form1.txt_B44.value);
+				BL3_B = NoFormat(document.Form1.txt_B47.value);	//BL3_B = NoFormat(document.Form1.txt_B45.value);
+				BL4_B = NoFormat(document.Form1.txt_B48.value);	//BL4_B = NoFormat(document.Form1.txt_B46.value);
+				BL5_B = NoFormat(document.Form1.txt_B49.value);	//BL5_B = NoFormat(document.Form1.txt_B47.value);
+				BL6_B = NoFormat(document.Form1.txt_B50.value);	//BL6_B = NoFormat(document.Form1.txt_B48.value);
+				
+				if (BL1_B == ""){BL1_B = 0;}
+				if (BL2_B == ""){BL2_B = 0;}
+				if (BL3_B == ""){BL3_B = 0;}
+				if (BL4_B == ""){BL4_B = 0;}
+				if (BL5_B == ""){BL5_B = 0;}
+				if (BL6_B == ""){BL6_B = 0;}
+				
+				document.Form1.txt_B51.value = FormatMoney(parseInt(BL1_B) + parseInt(BL2_B) + parseInt(BL3_B) + 
+					parseInt(BL4_B) + parseInt(BL5_B) + parseInt(BL6_B));
+				//document.Form1.txt_B49.value
+			}
+			else if (kolom=="C")
+			{
+				BL1_C = NoFormat(document.Form1.txt_C45.value);	//BL1_C = NoFormat(document.Form1.txt_C43.value);
+				BL2_C = NoFormat(document.Form1.txt_C46.value);	//BL2_C = NoFormat(document.Form1.txt_C44.value);
+				BL3_C = NoFormat(document.Form1.txt_C47.value);	//BL3_C = NoFormat(document.Form1.txt_C45.value);
+				BL4_C = NoFormat(document.Form1.txt_C48.value);	//BL4_C = NoFormat(document.Form1.txt_C46.value);
+				BL5_C = NoFormat(document.Form1.txt_C49.value);	//BL5_C = NoFormat(document.Form1.txt_C47.value);
+				BL6_C = NoFormat(document.Form1.txt_C50.value);	//BL6_C = NoFormat(document.Form1.txt_C48.value);
+				
+				if (BL1_C == ""){BL1_C = 0;}
+				if (BL2_C == ""){BL2_C = 0;}
+				if (BL3_C == ""){BL3_C = 0;}
+				if (BL4_C == ""){BL4_C = 0;}
+				if (BL5_C == ""){BL5_C = 0;}
+				if (BL6_C == ""){BL6_C = 0;}
+				
+				document.Form1.txt_C51.value = FormatMoney(parseInt(BL1_C) + parseInt(BL2_C) + parseInt(BL3_C) + 
+					parseInt(BL4_C) + parseInt(BL5_C) + parseInt(BL6_C));
+				//document.Form1.txt_C49.value
+			}
+			else if (kolom=="D")
+			{
+				BL1_D = NoFormat(document.Form1.txt_D45.value); //BL1_D = NoFormat(document.Form1.txt_D43.value);
+				BL2_D = NoFormat(document.Form1.txt_D46.value);	//BL2_D = NoFormat(document.Form1.txt_D44.value);
+				BL3_D = NoFormat(document.Form1.txt_D47.value);	//BL3_D = NoFormat(document.Form1.txt_D45.value);
+				BL4_D = NoFormat(document.Form1.txt_D48.value);	//BL4_D = NoFormat(document.Form1.txt_D46.value);
+				BL5_D = NoFormat(document.Form1.txt_D49.value);	//BL5_D = NoFormat(document.Form1.txt_D47.value);
+				BL6_D = NoFormat(document.Form1.txt_D50.value);	//BL6_D = NoFormat(document.Form1.txt_D48.value);
+				
+				if (BL1_D == ""){BL1_D = 0;}
+				if (BL2_D == ""){BL2_D = 0;}
+				if (BL3_D == ""){BL3_D = 0;}
+				if (BL4_D == ""){BL4_D = 0;}
+				if (BL5_D == ""){BL5_D = 0;}
+				if (BL6_D == ""){BL6_D = 0;}
+				
+				document.Form1.txt_D51.value = FormatMoney(parseInt(BL1_D) + parseInt(BL2_D) + parseInt(BL3_D) + 
+					parseInt(BL4_D) + parseInt(BL5_D) + parseInt(BL6_D));
+				//document.Form1.txt_D49.value
+			}
+		}
+		else if (urut=="6") //------------------------------------Pendapatan Operasional Lainnya Bersih
+		{
+			if (kolom=="B")
+			{
+				PLT_B = NoFormat(document.Form1.txt_B44.value);	//PLT_B = NoFormat(document.Form1.txt_B42.value);
+				BLT_B = NoFormat(document.Form1.txt_B51.value);	//BLT_B = NoFormat(document.Form1.txt_B49.value);
+								
+				if (PLT_B == ""){PLT_B = 0;}
+				if (BLT_B == ""){BLT_B = 0;}
+				
+				document.Form1.txt_B52.value = FormatMoney(parseInt(PLT_B) - parseInt(BLT_B));	//document.Form1.txt_B50.value = FormatMoney(parseInt(PLT_B) - parseInt(BLT_B));
+			}
+			else if (kolom=="C")
+			{
+				PLT_C = NoFormat(document.Form1.txt_C44.value);	//PLT_C = NoFormat(document.Form1.txt_C42.value);
+				BLT_C = NoFormat(document.Form1.txt_C51.value);	//BLT_C = NoFormat(document.Form1.txt_C49.value);
+								
+				if (PLT_C == ""){PLT_C = 0;}
+				if (BLT_C == ""){BLT_C = 0;}
+				
+				document.Form1.txt_C52.value = FormatMoney(parseInt(PLT_C) - parseInt(BLT_C)); //document.Form1.txt_C50.value = FormatMoney(parseInt(PLT_C) - parseInt(BLT_C));
+			}
+			else if (kolom=="D")
+			{
+				PLT_D = NoFormat(document.Form1.txt_D44.value);	//PLT_D = NoFormat(document.Form1.txt_D42.value);
+				BLT_D = NoFormat(document.Form1.txt_D51.value);	//BLT_D = NoFormat(document.Form1.txt_D49.value);
+								
+				if (PLT_D == ""){PLT_D = 0;}
+				if (BLT_D == ""){BLT_D = 0;}
+				
+				document.Form1.txt_D52.value = FormatMoney(parseInt(PLT_D) - parseInt(BLT_D));	//document.Form1.txt_D50.value = FormatMoney(parseInt(PLT_D) - parseInt(BLT_D));
+			}
+		}
+		else if (urut=="7") //------------------------------------Laba Operasional
+		{
+			if (kolom=="B")
+			{
+				POB_B = NoFormat(document.Form1.txt_B40.value);	//POB_B = NoFormat(document.Form1.txt_B38.value);
+				PLB_B = NoFormat(document.Form1.txt_B52.value);	//PLB_B = NoFormat(document.Form1.txt_B50.value);
+								
+				if (POB_B == ""){POB_B = 0;}
+				if (PLB_B == ""){PLB_B = 0;}
+				
+				document.Form1.txt_B53.value = FormatMoney(parseInt(POB_B) + parseInt(PLB_B)); //document.Form1.txt_B51.value = FormatMoney(parseInt(POB_B) + parseInt(PLB_B));
+			}
+			else if (kolom=="C")
+			{
+				POB_C = NoFormat(document.Form1.txt_C40.value);	//POB_C = NoFormat(document.Form1.txt_C38.value);
+				PLB_C = NoFormat(document.Form1.txt_C52.value);	//PLB_C = NoFormat(document.Form1.txt_C50.value);
+								
+				if (POB_C == ""){POB_C = 0;}
+				if (PLB_C == ""){PLB_C = 0;}
+				
+				document.Form1.txt_C53.value = FormatMoney(parseInt(POB_C) + parseInt(PLB_C));	//document.Form1.txt_C51.value = FormatMoney(parseInt(POB_C) + parseInt(PLB_C));
+			}
+			else if (kolom=="D")
+			{
+				POB_D = NoFormat(document.Form1.txt_D40.value);	//POB_D = NoFormat(document.Form1.txt_D38.value);
+				PLB_D = NoFormat(document.Form1.txt_D52.value);	//PLB_D = NoFormat(document.Form1.txt_D50.value);
+								
+				if (POB_D == ""){POB_D = 0;}
+				if (PLB_D == ""){PLB_D = 0;}
+				
+				document.Form1.txt_D53.value = FormatMoney(parseInt(POB_D) + parseInt(PLB_D));	//document.Form1.txt_D51.value = FormatMoney(parseInt(POB_D) + parseInt(PLB_D));
+			}
+		}
+		else if (urut=="8") //------------------------------------Income before Income Tax		
+		{
+			if (kolom=="B")
+			{
+				LOP_B = NoFormat(document.Form1.txt_B53.value);	//LOP_B = NoFormat(document.Form1.txt_B51.value);
+				NOR_B = NoFormat(document.Form1.txt_B54.value);	//NOR_B = NoFormat(document.Form1.txt_B52.value);
+								
+				if (LOP_B == ""){LOP_B = 0;}
+				if (NOR_B == ""){NOR_B = 0;}
+				
+				document.Form1.txt_B55.value = FormatMoney(parseInt(LOP_B) + parseInt(NOR_B));	//document.Form1.txt_B53.value = FormatMoney(parseInt(LOP_B) + parseInt(NOR_B));
+			}
+			else if (kolom=="C")
+			{
+				LOP_C = NoFormat(document.Form1.txt_C53.value);	//LOP_C = NoFormat(document.Form1.txt_C51.value);
+				NOR_C = NoFormat(document.Form1.txt_C54.value);	//NOR_C = NoFormat(document.Form1.txt_C52.value);
+								
+				if (LOP_C == ""){LOP_C = 0;}
+				if (NOR_C == ""){NOR_C = 0;}
+				
+				document.Form1.txt_C55.value = FormatMoney(parseInt(LOP_C) + parseInt(NOR_C));	//document.Form1.txt_C53.value = FormatMoney(parseInt(LOP_C) + parseInt(NOR_C));
+			}
+			else if (kolom=="D")
+			{
+				LOP_D = NoFormat(document.Form1.txt_D53.value);	//LOP_D = NoFormat(document.Form1.txt_D51.value);
+				NOR_D = NoFormat(document.Form1.txt_D54.value);	//NOR_D = NoFormat(document.Form1.txt_D52.value);
+								
+				if (LOP_D == ""){LOP_D = 0;}
+				if (NOR_D == ""){NOR_D = 0;}
+				
+				document.Form1.txt_D55.value = FormatMoney(parseInt(LOP_D) + parseInt(NOR_D));	//document.Form1.txt_D53.value = FormatMoney(parseInt(LOP_D) + parseInt(NOR_D));
+			}
+		}
+		else if (urut=="9") //------------------------------------Net Income
+		{
+			if (kolom=="B")
+			{
+				IBT_B = NoFormat(document.Form1.txt_B55.value);	//IBT_B = NoFormat(document.Form1.txt_B53.value);
+				ITX_B = NoFormat(document.Form1.txt_B56.value);	//ITX_B = NoFormat(document.Form1.txt_B54.value);
+								
+				if (IBT_B == ""){IBT_B = 0;}
+				if (ITX_B == ""){ITX_B = 0;}
+				
+				document.Form1.txt_B57.value = FormatMoney(parseInt(IBT_B) - parseInt(ITX_B));	//document.Form1.txt_B55.value = FormatMoney(parseInt(IBT_B) - parseInt(ITX_B));
+			}
+			else if (kolom=="C")
+			{
+				IBT_C = NoFormat(document.Form1.txt_C55.value);	//IBT_C = NoFormat(document.Form1.txt_C53.value);
+				ITX_C = NoFormat(document.Form1.txt_C56.value);	//ITX_C = NoFormat(document.Form1.txt_C54.value);
+								
+				if (IBT_C == ""){IBT_C = 0;}
+				if (ITX_C == ""){ITX_C = 0;}
+				
+				document.Form1.txt_C57.value = FormatMoney(parseInt(IBT_C) - parseInt(ITX_C));	//document.Form1.txt_C55.value = FormatMoney(parseInt(IBT_C) - parseInt(ITX_C));
+			}
+			else if (kolom=="D")
+			{
+				IBT_D = NoFormat(document.Form1.txt_D55.value);	//IBT_D = NoFormat(document.Form1.txt_D53.value);
+				ITX_D = NoFormat(document.Form1.txt_D56.value);	//ITX_D = NoFormat(document.Form1.txt_D54.value);
+								
+				if (IBT_D == ""){IBT_D = 0;}
+				if (ITX_D == ""){ITX_D = 0;}
+				
+				document.Form1.txt_D57.value = FormatMoney(parseInt(IBT_D) - parseInt(ITX_D));	//document.Form1.txt_D55.value = FormatMoney(parseInt(IBT_D) - parseInt(ITX_D));
+			}
+		}
+		else if (urut=="10") //------------------------------------TOTAL RETAINED EARNING AT THE END OF YEAR
+		{
+			if (kolom=="B")
+			{
+				NET_B = NoFormat(document.Form1.txt_B57.value); //NET_B = NoFormat(document.Form1.txt_B55.value);
+				BAL_B = NoFormat(document.Form1.txt_B58.value);	//BAL_B = NoFormat(document.Form1.txt_B56.value);
+				DEV_B = NoFormat(document.Form1.txt_B59.value);	//DEV_B = NoFormat(document.Form1.txt_B57.value);
+				
+				if (NET_B == ""){NET_B = 0;}
+				if (BAL_B == ""){BAL_B = 0;}
+				if (DEV_B == ""){DEV_B = 0;}
+				
+				document.Form1.txt_B60.value = FormatMoney(parseInt(NET_B) + parseInt(BAL_B) - parseInt(DEV_B));
+			}
+			else if (kolom=="C")
+			{
+				NET_C = NoFormat(document.Form1.txt_C57.value);	//NET_C = NoFormat(document.Form1.txt_C55.value);
+				BAL_C = NoFormat(document.Form1.txt_C58.value);	//BAL_C = NoFormat(document.Form1.txt_C56.value);
+				DEV_C = NoFormat(document.Form1.txt_C59.value);	//DEV_C = NoFormat(document.Form1.txt_C57.value);
+				
+				if (NET_C == ""){NET_C = 0;}
+				if (BAL_C == ""){BAL_C = 0;}
+				if (DEV_C == ""){DEV_C = 0;}
+				
+				document.Form1.txt_C60.value = FormatMoney(parseInt(NET_C) + parseInt(BAL_C) - parseInt(DEV_C));	//document.Form1.txt_C58.value = FormatMoney(parseInt(NET_C) + parseInt(BAL_C) - parseInt(DEV_C));
+			}
+			else if (kolom=="D")
+			{
+				NET_D = NoFormat(document.Form1.txt_D57.value);	//NET_D = NoFormat(document.Form1.txt_D55.value);
+				BAL_D = NoFormat(document.Form1.txt_D58.value);	//BAL_D = NoFormat(document.Form1.txt_D56.value);
+				DEV_D = NoFormat(document.Form1.txt_D59.value);	//DEV_D = NoFormat(document.Form1.txt_D57.value);
+				
+				if (NET_D == ""){NET_D = 0;}
+				if (BAL_D == ""){BAL_D = 0;}
+				if (DEV_D == ""){DEV_D = 0;}
+				
+				document.Form1.txt_D60.value = FormatMoney(parseInt(NET_D) + parseInt(BAL_D) - parseInt(DEV_D)); //document.Form1.txt_D58.value = FormatMoney(parseInt(NET_D) + parseInt(BAL_D) - parseInt(DEV_D));
+			}
+		}
+	}
+-->
+</script>

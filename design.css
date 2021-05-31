@@ -1,0 +1,101 @@
+INPUT
+{
+    BORDER-RIGHT: silver 1px solid;
+    BORDER-TOP: silver 1px solid;
+    FONT-SIZE: 11px;
+    Z-INDEX: 11;
+    VISIBILITY: visible;
+    BORDER-LEFT: silver 1px solid;
+    COLOR: black;
+    BORDER-BOTTOM: silver 1px solid;
+    FONT-FAMILY: Tahoma;
+    LETTER-SPACING: normal;
+    BACKGROUND-COLOR: #f5f5f4
+}
+.CaptionTable
+{
+    MARGIN-TOP: 0cm;
+    MARGIN-BOTTOM: 0cm;
+    PADDING-BOTTOM: 3px;
+    PADDING-TOP: 3px
+}
+.COMBO
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: 1px solid;
+    FONT-SIZE: 10px;
+    BORDER-LEFT: 1px solid;
+    BORDER-BOTTOM: 1px solid;
+    FONT-FAMILY: Tahoma
+}
+TABLE
+{
+    FONT-SIZE: 11px;
+    COLOR: black;
+    FONT-FAMILY: Tahoma
+}
+.Button
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Tahoma
+}
+.CaptionColor1
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: navy
+}
+.CaptionColor2
+{
+    BACKGROUND-COLOR: #8080c0
+}
+.CaptionColor3
+{
+    BACKGROUND-COLOR: #cc33ff
+}
+.CaptionColor4
+{
+    BACKGROUND-COLOR: #ff0000
+}
+.TableHeaderLine
+{
+    BACKGROUND-COLOR: purple
+}
+.TableContentLine
+{
+    BACKGROUND-COLOR: silver
+}
+.TableHeaderBGColor
+{
+    BACKGROUND-COLOR: navy
+}
+.TableContentBGColor
+{
+    BACKGROUND-COLOR: whitesmoke
+}
+.TableHeaderBGColor2
+{
+    BACKGROUND-COLOR: #8080c0
+}
+.TableHeaderLine2
+{
+    BACKGROUND-COLOR: silver
+}
+.TableHeaderBGColor3
+{
+    BACKGROUND-COLOR: silver
+}
+.TableHeaderBGColor4
+{
+    BACKGROUND-COLOR: whitesmoke
+}
+BODY
+{
+    FONT-SIZE: 11mm;
+    VISIBILITY: visible;
+    MARGIN: 0px;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+}

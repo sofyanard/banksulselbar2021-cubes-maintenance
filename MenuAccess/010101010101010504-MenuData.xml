@@ -1,0 +1,31 @@
+<MenuData ImagesBaseURL="Maintenance/MenuAccess/images/" DefaultGroupCssClass="MenuGroup" DefaultItemCssClass="MenuItem" DefaultItemCssClassOver="MenuItemOver" DefaultItemCssClassDown="MenuItemDown">
+  <MenuGroup>
+    <MenuItem Label="Loan Process" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12">
+      <MenuGroup>
+        <MenuItem Label="Detail Data Entry" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="DataEntry/ListCustomer.aspx?tc=1.4&amp;mc=003" />
+        <MenuItem Label="Credit Analysis" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="CreditAnalysis/ListCreditAnalysis.aspx?tc=1.6&amp;mc=005" />
+        <MenuItem Label="Final Scoring / Rating" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Scoring/ListScoring.aspx?tc=1.7&amp;mc=006" />
+        <MenuItem Label="Credit Proposal" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="CreditProposal/ListCreditProposal.aspx?tc=1.8&amp;mc=007" />
+        <MenuItem Label="Credit Channeling To End Users" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="CreditChanneling/MainChanneling.aspx?tc=5.3&amp;mc=010" />
+      </MenuGroup>
+    </MenuItem>
+    <MenuItem Label="Facilities" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12">
+      <MenuGroup>
+        <MenuItem Label="Inquiry Application by Status" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/InquiryStatus.aspx?mc=024" />
+        <MenuItem Label="Inquiry Application by Stage" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/InquiryStage.aspx?mc=025" />
+        <MenuItem Label="Change Password" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/ChangePassword.aspx?mc=026" />
+        <MenuItem Label="Reject eMAS Maintenance" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="CreditOperations/RejectMaintenance/RejectMaintenanceList.aspx?tc=5.4&amp;mc=033" />
+        <MenuItem Label="Customer Interaction" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/CustInteraction.aspx?mc=048" />
+        <MenuItem Label="Product Rate Inquiry" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/RateInquiry.aspx?mc=079" />
+        <MenuItem Label="Exchange Rate Inquiry" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/ExchangeRateInquiry.aspx?mc=080" />
+        <MenuItem Label="Document Tracking" RightIcon="arrow.gif" RightconWidth="17" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12">
+          <MenuGroup>
+            <MenuItem Label="Send / Receive" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/DocumentTrackingSearch.aspx?mc=096" />
+            <MenuItem Label="Tracking History" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Facilities/InquiryDocumentTracking.aspx?mc=097" />
+          </MenuGroup>
+        </MenuItem>
+      </MenuGroup>
+    </MenuItem>
+    <MenuItem Label="Logout" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Logout.aspx" URLTarget="_top" />
+  </MenuGroup>
+</MenuData>

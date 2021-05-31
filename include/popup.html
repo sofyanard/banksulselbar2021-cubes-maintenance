@@ -1,0 +1,30 @@
+<script language="javascript">
+var popupWindow = null;
+function PopupPage(href,width,height)
+{
+    if (popupWindow!=null) return;
+    var X = (screen.width-width)/2;
+    var Y = (screen.height-height)/2;
+        
+    popupWindow = window.open(href,null,
+    "height="+height+"px,width="+width+"px,left="+X+",top="+Y+
+    ",status=no,toolbar=no,titlebar=no,menubar=no,location=no,dependent=yes,scrollbars=yes");
+}
+</script>
+<script for=window event=onfocus language="javascript">
+ // focuspopup()
+    if (popupWindow!=null)
+    {
+        if (popupWindow.closed)
+            popupWindow = null;
+        else popupWindow.focus();
+    }
+</script>
+<script for=window event=onunload language="javascript">
+ // closepopup()
+    if (popupWindow!=null)
+    {
+        popupWindow.close();
+        popupWindow = null;
+    }
+</script>

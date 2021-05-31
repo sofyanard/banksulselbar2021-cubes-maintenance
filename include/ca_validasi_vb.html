@@ -1,0 +1,1897 @@
+<script language="javascript">	
+function cek_curr_denom()
+{
+	doc = eval("document.Form1");
+	if (doc.DDL_CURRENCY.selectedIndex<= 0) 
+	{
+		alert("Silakan isi currency ");
+		doc.DDL_CURRENCY.focus();
+		return false;
+	}
+	if (doc.DDL_DENOMINATOR.selectedIndex<= 0) 
+	{
+		alert("Silakan isi denominator ");
+		doc.DDL_DENOMINATOR.focus();
+		return false;
+	}
+	return true;
+}
+
+function validasi(b1,b2,c1,c2,d1,d2,e1,e2)
+	{
+		if (eval("document.getElementById('"+b1+"').value") != eval("document.getElementById('"+b2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+b1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+c1+"').value") != eval("document.getElementById('"+c2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+c1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+d1+"').value") != eval("document.getElementById('"+d2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+d1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+e1+"').value") != eval("document.getElementById('"+e2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+e1+"').focus();");
+			return false;
+		}
+		
+		return true;
+	}
+	
+function valid_small(b1,b2,c1,c2,d1,d2)
+	{
+		if (eval("document.getElementById('"+b1+"').value") != eval("document.getElementById('"+b2+"').value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Pasiva tidak sama !! ");
+			eval("document.getElementById('"+b1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+c1+"').value") != eval("document.getElementById('"+c2+"').value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Pasiva tidak sama !! ");
+			eval("document.getElementById('"+c1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+d1+"').value") != eval("document.getElementById('"+d2+"').value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Pasiva tidak sama !! ");
+			eval("document.getElementById('"+d1+"').focus();");
+			return false;
+		}
+
+		return true;
+	}
+	
+
+function cek_key(jenis)
+	{
+		if (jenis=="neraca")
+		{
+			vNext_aw = eval("document.getElementById('TXT_B5')");
+			vTXT_TglB = eval("document.getElementById('TXT_TGL_B1')");
+			vDDL_BlnB = eval("document.getElementById('DDL_BLN_B1')")
+			vTXT_YearB = eval("document.getElementById('TXT_YEAR_B1')");
+			vJmlBln_B = eval("document.getElementById('TXT_B2')");
+			vJnsLap_B = eval("document.getElementById('DDL_B3')");
+			
+			vNext = eval("document.getElementById('TXT_C5')");
+			vTXT_TglC = eval("document.getElementById('TXT_TGL_C1')");
+			vDDL_BlnC = eval("document.getElementById('DDL_BLN_C1')")
+			vTXT_YearC = eval("document.getElementById('TXT_YEAR_C1')");
+			vJmlBln_C = eval("document.getElementById('TXT_C2')");
+			vJnsLap_C = eval("document.getElementById('DDL_C3')");
+			
+			vNextLg = eval("document.getElementById('TXT_D5')");
+			vTXT_TglD = eval("document.getElementById('TXT_TGL_D1')");
+			vDDL_BlnD = eval("document.getElementById('DDL_BLN_D1')")
+			vTXT_YearD = eval("document.getElementById('TXT_YEAR_D1')");
+			vJmlBln_D = eval("document.getElementById('TXT_D2')");
+			vJnsLap_D = eval("document.getElementById('DDL_D3')");
+			//-------------- ********** -----------------------------------------//
+		} else {
+			vNext_aw = eval("document.getElementById('TXT_B39')");
+			vTXT_TglB = eval("document.getElementById('TXT_TGL_B36')");
+			vDDL_BlnB = eval("document.getElementById('DDL_BLN_B36')");
+			vTXT_YearB = eval("document.getElementById('TXT_YEAR_B36')");
+			vJmlBln_B = eval("document.getElementById('TXT_B37')");
+			vJnsLap_B = eval("document.getElementById('DDL_B38')");
+		
+			vNext = eval("document.getElementById('TXT_C39')");
+			vTXT_TglC = eval("document.getElementById('TXT_TGL_C36')");
+			vDDL_BlnC = eval("document.getElementById('DDL_BLN_C36')");
+			vTXT_YearC = eval("document.getElementById('TXT_YEAR_C36')");
+			vJmlBln_C = eval("document.getElementById('TXT_C37')");
+			vJnsLap_C = eval("document.getElementById('DDL_C38')");	
+			
+			vNextLg = eval("document.getElementById('TXT_D39')");
+			vTXT_TglD = eval("document.getElementById('TXT_TGL_D36')");
+			vDDL_BlnD = eval("document.getElementById('DDL_BLN_D36')");
+			vTXT_YearD = eval("document.getElementById('TXT_YEAR_D36')");
+			vJmlBln_D = eval("document.getElementById('TXT_D37')");
+			vJnsLap_D = eval("document.getElementById('DDL_D38')");
+		}
+		
+		/******************************************************************************/
+			if (vNext_aw.value != "")
+			{
+				if  (vTXT_TglB.value=="" || vTXT_TglB.value > 31)
+				{
+					alert("Silakan isi kolom tanggal dengan benar ");
+					vTXT_TglB.focus();
+					return false;
+				}
+				
+				if (vDDL_BlnB.selectedIndex<= 0) 
+				{
+					alert("Silakan isi kolom bulan nya ");
+					vDDL_BlnB.focus();
+					return false;
+				}
+				if (vTXT_YearB.value=="")
+				{
+					alert("Silakan isi kolom tahunnya nya ");
+					vTXT_YearB.focus();
+					return false;
+				}
+				//--------------------------------------	
+					if (vJmlBln_B.value=="" || vJmlBln_B.value > 12) 
+					{
+						alert("Silakan isi kolom bulan dengan benar ");
+						vJmlBln_B.focus();
+						return false;
+					}
+					if (vJnsLap_B.selectedIndex <= 0) 
+					{
+						alert("Silakan isi kolom jenis laporan nya ");
+						vJnsLap_B.focus();
+						return false;
+					}
+				}		
+			//---- end kolom B-------------------------------
+					if (vNext.value != "")
+					{
+						if  (vTXT_TglC.value=="" || vTXT_TglC.value > 31)
+						{
+							alert("Silakan isi kolom bulan dengan benar ");
+							vTXT_TglC.focus();
+							return false;
+						}
+						if (vDDL_BlnC.selectedIndex<= 0)  
+						{
+							alert("Silakan isi kolom bulan nya ");
+							vDDL_BlnC.focus();
+							return false;
+						}
+						if (vTXT_YearC.value=="")
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							vTXT_YearC.focus();
+							return false;
+						}
+						if (vJmlBln_C.value=="" || vJmlBln_C.value > 12) 
+						{
+							alert("Silakan isi kolom jumlah bulan nya ");
+							vJmlBln_C.focus();
+							return false;
+						}
+						if (vJnsLap_C.selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom jenis laporan nya ");
+							vJnsLap_C.focus();
+							return false;
+						}
+					}	
+				
+		//-----------end kolom C-----------------------------
+					if (vNextLg.value != "")
+					{
+						if  (vTXT_TglD.value=="" || vTXT_TglD.value > 31)
+						{
+							alert("Silakan isi kolom tanggal dengan benar ");
+							vTXT_TglD.focus();
+							return false;
+						}
+						if (vDDL_BlnD.selectedIndex<= 0) 
+						{
+							alert("Silakan isi kolom bulan nya ");
+							vDDL_BlnD.focus();
+							return false;
+						}
+						if (vTXT_YearD.value=="")
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							vTXT_YearD.focus();
+							return false;
+						}
+						if (vJmlBln_D.value=="" || vJmlBln_D.value > 12) 
+						{
+							alert("Silakan isi bulan nya ");
+							vJmlBln_D.focus();
+							return false;
+						}
+					}
+			
+		//--------------end kolom D------------------------------ 
+		return true;
+	}
+	
+	
+function cek_key_middle(jenis)
+	{
+		if (jenis=="neraca")
+		{
+			vNext_B = eval("document.getElementById('TXT_B5')")
+			vTgl_B = eval("document.getElementById('TXT_TGL_B1')");
+			vBln_B = eval("document.getElementById('DDL_BLN_B1')");
+			vThn_B = eval("document.getElementById('TXT_YEAR_B1')");
+			vJmlBln_B = eval("document.getElementById('TXT_B2')");
+			vJnsLap_B = eval("document.getElementById('DDL_B3')");
+			
+			vNext_C = eval("document.getElementById('TXT_C5')")
+			vTgl_C = eval("document.getElementById('TXT_TGL_C1')");
+			vBln_C = eval("document.getElementById('DDL_BLN_C1')");
+			vThn_C = eval("document.getElementById('TXT_YEAR_C1')");
+			vJmlBln_C = eval("document.getElementById('TXT_C2')");
+			vJnsLap_C = eval("document.getElementById('DDL_C3')");
+			
+			vNext_D = eval("document.getElementById('TXT_D5')")
+			vTgl_D = eval("document.getElementById('TXT_TGL_D1')");
+			vBln_D = eval("document.getElementById('DDL_BLN_D1')");
+			vThn_D = eval("document.getElementById('TXT_YEAR_D1')");
+			vJmlBln_D = eval("document.getElementById('TXT_D2')");
+			vJnsLap_D = eval("document.getElementById('DDL_D3')");
+			
+			vNext_E = eval("document.getElementById('TXT_E5')")
+			vTgl_E = eval("document.getElementById('TXT_TGL_E1')");
+			vBln_E = eval("document.getElementById('DDL_BLN_E1')");
+			vThn_E = eval("document.getElementById('TXT_YEAR_E1')");
+			vJmlBln_E = eval("document.getElementById('TXT_E2')");
+		}
+		else  // labarugi
+		{
+			vNext_B = eval("document.getElementById('TXT_B41')")
+			vTgl_B = eval("document.getElementById('TXT_TGL_B37')");
+			vBln_B = eval("document.getElementById('DDL_BLN_B37')");
+			vThn_B = eval("document.getElementById('TXT_YEAR_B37')");
+			vJmlBln_B = eval("document.getElementById('TXT_B38')");
+			vJnsLap_B = eval("document.getElementById('DDL_B39')");
+			
+			vNext_C = eval("document.getElementById('TXT_C41')")
+			vTgl_C = eval("document.getElementById('TXT_TGL_C37')");
+			vBln_C = eval("document.getElementById('DDL_BLN_C37')");
+			vThn_C = eval("document.getElementById('TXT_YEAR_C37')");
+			vJmlBln_C = eval("document.getElementById('TXT_C38')");
+			vJnsLap_C = eval("document.getElementById('DDL_C39')");
+			
+			vNext_D = eval("document.getElementById('TXT_D41')")
+			vTgl_D = eval("document.getElementById('TXT_TGL_D37')");
+			vBln_D = eval("document.getElementById('DDL_BLN_D37')");
+			vThn_D = eval("document.getElementById('TXT_YEAR_D37')");
+			vJmlBln_D = eval("document.getElementById('TXT_D38')");
+			vJnsLap_D = eval("document.getElementById('DDL_D39')");
+			
+			vNext_E = eval("document.getElementById('TXT_E41')")
+			vTgl_E = eval("document.getElementById('TXT_TGL_E37')");
+			vBln_E = eval("document.getElementById('DDL_BLN_E37')");
+			vThn_E = eval("document.getElementById('TXT_YEAR_E37')");
+			vJmlBln_E = eval("document.getElementById('TXT_E38')");
+		
+		}
+		
+		if (vNext_B.value != "")
+		{
+			if (vTgl_B.value=="" || vTgl_B.value > 31) 
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				vTgl_B.focus();
+				return false;
+			}
+			if (vBln_B.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				vBln_B.focus();
+				return false;
+			}
+			if (vThn_B.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				vThn_B.focus();
+				return false;
+			}
+		//--------------------------------------	
+			if (vJmlBln_B.value=="" || vJmlBln_B.value > 12) 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				vJmlBln_B.focus();
+				return false;
+			}
+			if (vJnsLap_B.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom jenis laporan nya ");
+				vJnsLap_B.focus();
+				return false;
+			}
+		}	
+		//---- end kolom B-------------------------------
+		if (vNext_C.value != "")
+		{
+			if (vTgl_C.value=="" || vTgl_C.value > 31) 
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				vTgl_C.focus();
+				return false;
+			}
+			if (vBln_C.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				vBln_C.focus();
+				return false;
+			}
+			if (vThn_C.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				vThn_C.focus();
+				return false;
+			}
+			if (vJmlBln_C.value=="" || vJmlBln_C.value > 12) 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				vJmlBln_C.focus();
+				return false;
+			}
+			if (vJnsLap_C.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom jenis laporan nya ");
+				vJnsLap_C.focus();
+				return false;
+			}
+		}	
+		//-----------end kolom C-----------------------------
+		if (vNext_D.value != "")
+		{
+			if (vTgl_D.value=="" || vTgl_D.value > 31) 
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				vTgl_D.focus();
+				return false;
+			}
+			if (vBln_D.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				vBln_D.focus();
+				return false;
+			}
+			if (vThn_D.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				vThn_D.focus();
+				return false;
+			}
+			if (vJmlBln_D.value=="" || vJmlBln_D.value > 12) 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				vJmlBln_D.focus();
+				return false;
+			}
+			if (vJnsLap_D.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom jenis laporan nya ");
+				vJnsLap_D.focus();
+				return false;
+			}
+		}
+		//-----------END KOLOM D-----------------------------------------------------------
+		if (vNext_E.value != "")
+		{
+			if (vTgl_E.value=="" || vTgl_E.value > 31) 
+			{
+				alert("Silakan isi kolom tanggal nya ");
+				vTgl_E.focus();
+				return false;
+			}
+			if (vBln_E.selectedIndex <= 0) 
+			{
+				alert("Silakan isi kolom bulan nya ");
+				vBln_E.focus();
+				return false;
+			}
+			if (vThn_E.value=="") 
+			{
+				alert("Silakan isi kolom tahunnya nya ");
+				vThn_E.focus();
+				return false;
+			}
+			if (vJmlBln_E.value=="" || vJmlBln_E.value > 12) 
+			{
+				alert("Silakan isi kolom jumlah bulan nya ");
+				vJmlBln_E.focus();
+				return false;
+			}
+		}
+		//--------------end kolom E------------------------------ 
+		return true;
+	}
+	
+	//-------------------  start format curr ---------------------------------------------------------	
+	function formatCurrency(num) 
+	{
+		num = num.toString().replace(/\$|\,/g,'');
+		if(isNaN(num)) num = "0";
+		cents = Math.floor((num * 100 + 0.5) % 100);
+		num = Math.floor((num * 100 + 0.5) / 100).toString();
+		if(cents < 10) cents = "0" + cents;
+		for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+		num = num.substring(0,num.length - (4 * i + 3))+','+num.substring(num.length-(4 * i + 3));
+		return (num + "." + cents);
+	}
+	
+	//-------------------  end format curr ---------------------------------------------------------	
+</script>
+
+<script language="vbscript">
+
+	function FormatCurrency_noDec(obj_curr)
+		SetLocale("in")
+		v_curr = obj_curr.value
+		
+		v_a = "1.000,00"    '-- in Rupiah Currency
+		if isnumeric(v_a) and v_a = 1000 then	
+			v_curr = replace(v_curr, ".", "")
+			if isnumeric(v_curr) then
+				v_curr = formatnumber(v_curr, 0)
+			else
+				v_curr = 0
+			end if
+		end if
+		obj_curr.value = v_curr
+	end function	
+
+function HitungNeracaSmall(urutx,kolom)
+	SetLocale("in")
+	
+urut = 1
+for i = 1 to 9
+	if (urut=1) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B5").value)  then objB5 = cdbl(window.document.getElementById("TXT_B5").value) else objB5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B6").value)  then objB6 = cdbl(window.document.getElementById("TXT_B6").value) else objB6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B7").value)  then objB7 = cdbl(window.document.getElementById("TXT_B7").value) else objB7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B8").value)  then objB8 = cdbl(window.document.getElementById("TXT_B8").value) else objB8 = 0 end if			
+			
+			window.document.getElementById("TXT_B9").value = objB5 + objB6 + objB7 + objB8
+			window.document.getElementById("TXT_B9").value = replace(window.document.getElementById("TXT_B9").value, ".", ",")	
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C5").value)  then objC5 = cdbl(window.document.getElementById("TXT_C5").value) else objC5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C6").value)  then objC6 = cdbl(window.document.getElementById("TXT_C6").value) else objC6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C7").value)  then objC7 = cdbl(window.document.getElementById("TXT_C7").value) else objC7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C8").value)  then objC8 = cdbl(window.document.getElementById("TXT_C8").value) else objC8 = 0 end if
+			
+			window.document.getElementById("TXT_C9").value = objC5 + objC6 + objC7 + objC8
+			window.document.getElementById("TXT_C9").value = replace(window.document.getElementById("TXT_C9").value, ".", ",")	
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D5").value)  then objD5 = cdbl(window.document.getElementById("TXT_D5").value) else objD5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D6").value)  then objD6 = cdbl(window.document.getElementById("TXT_D6").value) else objD6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D7").value)  then objD7 = cdbl(window.document.getElementById("TXT_D7").value) else objD7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D8").value)  then objD8 = cdbl(window.document.getElementById("TXT_D8").value) else objD8 = 0 end if
+			
+			window.document.getElementById("TXT_D9").value = objD5 + objD6 + objD7 + objD8
+			window.document.getElementById("TXT_D9").value = replace(window.document.getElementById("TXT_D9").value, ".", ",")							
+		end if ' ---------------------- end urut 1 kolom D -------------------------------------------
+		' ----------------------------- end urut 1 ---------------------------------------------------
+	elseif 	(urut=2) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B10").value)  then objB10 = cdbl(window.document.getElementById("TXT_B10").value) else objB10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B11").value)  then objB11 = cdbl(window.document.getElementById("TXT_B11").value) else objB11 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B12").value)  then objB12 = cdbl(window.document.getElementById("TXT_B12").value) else objB12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B13").value)  then objB13 = cdbl(window.document.getElementById("TXT_B13").value) else objB13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B14").value)  then objB14 = cdbl(window.document.getElementById("TXT_B14").value) else objB14 = 0 end if
+			
+			window.document.getElementById("TXT_B15").value = objB10 + objB11 + objB12 + objB13 - objB14
+			'window.document.getElementById("TXT_B15").value = objB10 + objB11 + objB12 + objB13
+			window.document.getElementById("TXT_B15").value = replace(window.document.getElementById("TXT_B15").value, ".", ",")							
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C10").value)  then objC10 = cdbl(window.document.getElementById("TXT_C10").value) else objC10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C11").value)  then objC11 = cdbl(window.document.getElementById("TXT_C11").value) else objC11 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C12").value)  then objC12 = cdbl(window.document.getElementById("TXT_C12").value) else objC12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C13").value)  then objC13 = cdbl(window.document.getElementById("TXT_C13").value) else objC13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C14").value)  then objC14 = cdbl(window.document.getElementById("TXT_C14").value) else objC14 = 0 end if
+			
+			window.document.getElementById("TXT_C15").value = objC10 + objC11 + objC12 + objC13 - objC14
+			'window.document.getElementById("TXT_C15").value = objC10 + objC11 + objC12 + objC13 
+			window.document.getElementById("TXT_C15").value = replace(window.document.getElementById("TXT_C15").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D10").value)  then objD10 = cdbl(window.document.getElementById("TXT_D10").value) else objD10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D11").value)  then objD11 = cdbl(window.document.getElementById("TXT_D11").value) else objD11 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D12").value)  then objD12 = cdbl(window.document.getElementById("TXT_D12").value) else objD12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D13").value)  then objD13 = cdbl(window.document.getElementById("TXT_D13").value) else objD13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D14").value)  then objD14 = cdbl(window.document.getElementById("TXT_D14").value) else objD14 = 0 end if
+			
+			window.document.getElementById("TXT_D15").value = objD10 + objD11 + objD12 + objD13 - objD14
+			'window.document.getElementById("TXT_D15").value = objD10 + objD11 + objD12 + objD13
+			window.document.getElementById("TXT_D15").value = replace(window.document.getElementById("TXT_D15").value, ".", ",")																
+		end if ' ---------------------- end urut 2 kolom D -------------------------------------------
+		' ----------------------------- end urut 2 ---------------------------------------------------
+	elseif (urut=3) then
+		if 	(kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B16").value)  then objB16 = cdbl(window.document.getElementById("TXT_B16").value) else objB16 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B17").value)  then objB17 = cdbl(window.document.getElementById("TXT_B17").value) else objB17 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B18").value)  then objB18 = cdbl(window.document.getElementById("TXT_B18").value) else objB18 = 0 end if
+			
+			window.document.getElementById("TXT_B19").value = objB16 - objB17 + objB18 
+			window.document.getElementById("TXT_B19").value = replace(window.document.getElementById("TXT_B19").value, ".", ",")
+		elseif (kolom="C") then	
+			if isnumeric(window.document.getElementById("TXT_C16").value)  then objC16 = cdbl(window.document.getElementById("TXT_C16").value) else objC16 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C17").value)  then objC17 = cdbl(window.document.getElementById("TXT_C17").value) else objC17 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C18").value)  then objC18 = cdbl(window.document.getElementById("TXT_C18").value) else objC18 = 0 end if
+			
+			window.document.getElementById("TXT_C19").value = objC16 - objC17 + objC18 
+			window.document.getElementById("TXT_C19").value = replace(window.document.getElementById("TXT_C19").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D16").value)  then objD16 = cdbl(window.document.getElementById("TXT_D16").value) else objD16 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D17").value)  then objD17 = cdbl(window.document.getElementById("TXT_D17").value) else objD17 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D18").value)  then objD18 = cdbl(window.document.getElementById("TXT_D18").value) else objD18 = 0 end if
+			
+			window.document.getElementById("TXT_D19").value = objD16 - objD17 + objD18 
+			window.document.getElementById("TXT_D19").value = replace(window.document.getElementById("TXT_D19").value, ".", ",")	
+		end if ' ---------------------- end urut 3 kolom D -------------------------------------------
+		' ----------------------------- end urut 3 ---------------------------------------------------
+	elseif (urut=4) then	
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B9").value)  then objB9 = cdbl(window.document.getElementById("TXT_B9").value) else objB9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B15").value)  then objB15 = cdbl(window.document.getElementById("TXT_B15").value) else objB15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B19").value)  then objB19 = cdbl(window.document.getElementById("TXT_B19").value) else objB19 = 0 end if
+			
+			window.document.getElementById("TXT_B20").value = objB9 + objB15 + objB19 
+			window.document.getElementById("TXT_B20").value = replace(window.document.getElementById("TXT_B20").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C9").value)  then objC9 = cdbl(window.document.getElementById("TXT_C9").value) else objC9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C15").value)  then objC15 = cdbl(window.document.getElementById("TXT_C15").value) else objC15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C19").value)  then objC19 = cdbl(window.document.getElementById("TXT_C19").value) else objC19 = 0 end if
+			
+			window.document.getElementById("TXT_C20").value = objC9 + objC15 + objC19 
+			window.document.getElementById("TXT_C20").value = replace(window.document.getElementById("TXT_C20").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D9").value)  then objD9 = cdbl(window.document.getElementById("TXT_D9").value) else objD9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D15").value)  then objD15 = cdbl(window.document.getElementById("TXT_D15").value) else objD15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D19").value)  then objD19 = cdbl(window.document.getElementById("TXT_D19").value) else objD19 = 0 end if
+			
+			window.document.getElementById("TXT_D20").value = objD9 + objD15 + objD19 
+			window.document.getElementById("TXT_D20").value = replace(window.document.getElementById("TXT_D20").value, ".", ",")
+		end if ' ---------------------- end urut 4 kolom D -------------------------------------------
+		' ----------------------------- end urut 4 ---------------------------------------------------
+	'--- START PASIVA --------------------------------------------------------------------------------
+	elseif (urut=5) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B21").value)  then objB21 = cdbl(window.document.getElementById("TXT_B21").value) else objB21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B22").value)  then objB22 = cdbl(window.document.getElementById("TXT_B22").value) else objB22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B23").value)  then objB23 = cdbl(window.document.getElementById("TXT_B23").value) else objB23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B24").value)  then objB24 = cdbl(window.document.getElementById("TXT_B24").value) else objB24 = 0 end if
+			
+			window.document.getElementById("TXT_B25").value = objB21 + objB22 + objB23 + objB24
+			window.document.getElementById("TXT_B25").value = replace(window.document.getElementById("TXT_B25").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C21").value)  then objC21 = cdbl(window.document.getElementById("TXT_C21").value) else objC21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C22").value)  then objC22 = cdbl(window.document.getElementById("TXT_C22").value) else objC22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C23").value)  then objC23 = cdbl(window.document.getElementById("TXT_C23").value) else objC23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C24").value)  then objC24 = cdbl(window.document.getElementById("TXT_C24").value) else objC24 = 0 end if
+			
+			window.document.getElementById("TXT_C25").value = objC21 + objC22 + objC23 + objC24
+			window.document.getElementById("TXT_C25").value = replace(window.document.getElementById("TXT_C25").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D21").value)  then objD21 = cdbl(window.document.getElementById("TXT_D21").value) else objD21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D22").value)  then objD22 = cdbl(window.document.getElementById("TXT_D22").value) else objD22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D23").value)  then objD23 = cdbl(window.document.getElementById("TXT_D23").value) else objD23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D24").value)  then objD24 = cdbl(window.document.getElementById("TXT_D24").value) else objD24 = 0 end if
+			
+			window.document.getElementById("TXT_D25").value = objD21 + objD22 + objD23 + objD24
+			window.document.getElementById("TXT_D25").value = replace(window.document.getElementById("TXT_D25").value, ".", ",")
+		end if ' ---------------------- end urut 5 kolom D -------------------------------------------
+		' ----------------------------- end urut 5 ---------------------------------------------------
+	elseif (urut=6) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B26").value)  then objB26 = cdbl(window.document.getElementById("TXT_B26").value) else objB26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B27").value)  then objB27 = cdbl(window.document.getElementById("TXT_B27").value) else objB27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B28").value)  then objB28 = cdbl(window.document.getElementById("TXT_B28").value) else objB28 = 0 end if
+			
+			window.document.getElementById("TXT_B29").value = objB26 + objB27 + objB28 
+			window.document.getElementById("TXT_B29").value = replace(window.document.getElementById("TXT_B29").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C26").value)  then objC26 = cdbl(window.document.getElementById("TXT_C26").value) else objC26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C27").value)  then objC27 = cdbl(window.document.getElementById("TXT_C27").value) else objC27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C28").value)  then objC28 = cdbl(window.document.getElementById("TXT_C28").value) else objC28 = 0 end if
+			
+			window.document.getElementById("TXT_C29").value = objC26 + objC27 + objC28 
+			window.document.getElementById("TXT_C29").value = replace(window.document.getElementById("TXT_C29").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D26").value)  then objD26 = cdbl(window.document.getElementById("TXT_D26").value) else objD26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D27").value)  then objD27 = cdbl(window.document.getElementById("TXT_D27").value) else objD27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D28").value)  then objD28 = cdbl(window.document.getElementById("TXT_D28").value) else objD28 = 0 end if
+			
+			window.document.getElementById("TXT_D29").value = objD26 + objD27 + objD28 
+			window.document.getElementById("TXT_D29").value = replace(window.document.getElementById("TXT_D29").value, ".", ",")	
+		end if ' ---------------------- end urut 5 kolom D -------------------------------------------
+		' ----------------------------- end urut 5 ---------------------------------------------------	
+	elseif (urut=7) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B25").value)  then objB25 = cdbl(window.document.getElementById("TXT_B25").value) else objB25 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B29").value)  then objB29 = cdbl(window.document.getElementById("TXT_B29").value) else objB29 = 0 end if
+			
+			window.document.getElementById("TXT_B30").value = objB25 + objB29 
+			window.document.getElementById("TXT_B30").value = replace(window.document.getElementById("TXT_B30").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C25").value)  then objC25 = cdbl(window.document.getElementById("TXT_C25").value) else objC25 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C29").value)  then objC29 = cdbl(window.document.getElementById("TXT_C29").value) else objC29 = 0 end if
+			
+			window.document.getElementById("TXT_C30").value = objC25 + objC29 
+			window.document.getElementById("TXT_C30").value = replace(window.document.getElementById("TXT_C30").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D25").value)  then objD25 = cdbl(window.document.getElementById("TXT_D25").value) else objD25 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D29").value)  then objD29 = cdbl(window.document.getElementById("TXT_D29").value) else objD29 = 0 end if
+			
+			window.document.getElementById("TXT_D30").value = objD25 + objD29 
+			window.document.getElementById("TXT_D30").value = replace(window.document.getElementById("TXT_D30").value, ".", ",")
+		end if ' ---------------------- end urut 7 kolom D -------------------------------------------
+		' ----------------------------- end urut 7 ---------------------------------------------------		
+	elseif (urut=8) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B31").value) then objB31 = cdbl(window.document.getElementById("TXT_B31").value) else objB31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B32").value) then objB32 = cdbl(window.document.getElementById("TXT_B32").value) else objB32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B33").value) then objB33 = cdbl(window.document.getElementById("TXT_B33").value) else objB33 = 0 end if			
+			
+			window.document.getElementById("TXT_B34").value = objB31 + objB32 + objB33
+			window.document.getElementById("TXT_B34").value = replace(window.document.getElementById("TXT_B34").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C31").value) then objC31 = cdbl(window.document.getElementById("TXT_C31").value) else objC31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C32").value) then objC32 = cdbl(window.document.getElementById("TXT_C32").value) else objC32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C33").value) then objC33 = cdbl(window.document.getElementById("TXT_C33").value) else objC33 = 0 end if
+			
+			window.document.getElementById("TXT_C34").value = objC31 + objC32 + objC33
+			window.document.getElementById("TXT_C34").value = replace(window.document.getElementById("TXT_C34").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D31").value) then objD31 = cdbl(window.document.getElementById("TXT_D31").value) else objD31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D32").value) then objD32 = cdbl(window.document.getElementById("TXT_D32").value) else objD32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D33").value) then objD33 = cdbl(window.document.getElementById("TXT_D33").value) else objD33 = 0 end if
+			
+			window.document.getElementById("TXT_D34").value = objD31 + objD32 + objD33
+			window.document.getElementById("TXT_D34").value = replace(window.document.getElementById("TXT_D34").value, ".", ",")
+		end if ' ---------------------- end urut 7 kolom D -------------------------------------------
+		' ----------------------------- end urut 7 ---------------------------------------------------		
+	elseif (urut=9) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B30").value) then objB30 = cdbl(window.document.getElementById("TXT_B30").value) else objB30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B34").value) then objB33 = cdbl(window.document.getElementById("TXT_B34").value) else objB33 = 0 end if
+			
+			window.document.getElementById("TXT_B35").value = objB30 + objB33 
+			window.document.getElementById("TXT_B35").value = replace(window.document.getElementById("TXT_B35").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C30").value) then objC30 = cdbl(window.document.getElementById("TXT_C30").value) else objC30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C34").value) then objC33 = cdbl(window.document.getElementById("TXT_C34").value) else objC33 = 0 end if
+			
+			window.document.getElementById("TXT_C35").value = objC30 + objC33 
+			window.document.getElementById("TXT_C35").value = replace(window.document.getElementById("TXT_C35").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D30").value) then objD30 = cdbl(window.document.getElementById("TXT_D30").value) else objD30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D34").value) then objD33 = cdbl(window.document.getElementById("TXT_D34").value) else objD33 = 0 end if
+			
+			window.document.getElementById("TXT_D35").value = objD30 + objD33 
+			window.document.getElementById("TXT_D35").value = replace(window.document.getElementById("TXT_D35").value, ".", ",")
+		end if 	
+	end if 
+	urut = urut + 1
+	next 
+end function
+'=============================================================================================================
+'======= separator ===========================================================================================
+'=============================================================================================================
+function HitungNeracaMiddle(urutx,kolom)
+	SetLocale("in")
+	
+	urut = 1
+	
+	for i = 1 to 8 
+	
+	if (urut=1) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B5.value)  then objB5 = cdbl(obj.TXT_B5.value) else objB5 = 0 end if
+			if isnumeric(obj.TXT_B6.value)  then objB6 = cdbl(obj.TXT_B6.value) else objB6 = 0 end if
+			if isnumeric(obj.TXT_B7.value)  then objB7 = cdbl(obj.TXT_B7.value) else objB7 = 0 end if
+			if isnumeric(obj.TXT_B8.value)  then objB8 = cdbl(obj.TXT_B8.value) else objB8 = 0 end if
+			if isnumeric(obj.TXT_B9.value)  then objB9 = cdbl(obj.TXT_B9.value) else objB9 = 0 end if
+			if isnumeric(obj.TXT_B10.value)  then objB10 = cdbl(obj.TXT_B10.value) else objB10 = 0 end if
+			if isnumeric(obj.TXT_B11.value)  then objB11 = cdbl(obj.TXT_B11.value) else objB11 = 0 end if
+			
+			obj.TXT_B12.value = objB5 + objB6 + objB7 + objB8 + objB9 + objB10 + objB11 
+			obj.TXT_B12.value = replace(obj.TXT_B12.value, ".", ",")	
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C5.value)  then objC5 = cdbl(obj.TXT_C5.value) else objC5 = 0 end if
+			if isnumeric(obj.TXT_C6.value)  then objC6 = cdbl(obj.TXT_C6.value) else objC6 = 0 end if
+			if isnumeric(obj.TXT_C7.value)  then objC7 = cdbl(obj.TXT_C7.value) else objC7 = 0 end if
+			if isnumeric(obj.TXT_C8.value)  then objC8 = cdbl(obj.TXT_C8.value) else objC8 = 0 end if
+			if isnumeric(obj.TXT_C9.value)  then objC9 = cdbl(obj.TXT_C9.value) else objC9 = 0 end if
+			if isnumeric(obj.TXT_C10.value)  then objC10 = cdbl(obj.TXT_C10.value) else objC10 = 0 end if
+			if isnumeric(obj.TXT_C11.value)  then objC11 = cdbl(obj.TXT_C11.value) else objC11 = 0 end if
+			
+			obj.TXT_C12.value = objC5 + objC6 + objC7 + objC8 + objC9 + objC10 + objC11 
+			obj.TXT_C12.value = replace(obj.TXT_C12.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D5.value)  then objD5 = cdbl(obj.TXT_D5.value) else objD5 = 0 end if
+			if isnumeric(obj.TXT_D6.value)  then objD6 = cdbl(obj.TXT_D6.value) else objD6 = 0 end if
+			if isnumeric(obj.TXT_D7.value)  then objD7 = cdbl(obj.TXT_D7.value) else objD7 = 0 end if
+			if isnumeric(obj.TXT_D8.value)  then objD8 = cdbl(obj.TXT_D8.value) else objD8 = 0 end if
+			if isnumeric(obj.TXT_D9.value)  then objD9 = cdbl(obj.TXT_D9.value) else objD9 = 0 end if
+			if isnumeric(obj.TXT_D10.value)  then objD10 = cdbl(obj.TXT_D10.value) else objD10 = 0 end if
+			if isnumeric(obj.TXT_D11.value)  then objD11 = cdbl(obj.TXT_D11.value) else objD11 = 0 end if
+			
+			obj.TXT_D12.value = objD5 + objD6 + objD7 + objD8 + objD9 + objD10 + objD11 
+			obj.TXT_D12.value = replace(obj.TXT_D12.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E5.value)  then objE5 = cdbl(obj.TXT_E5.value) else objE5 = 0 end if
+			if isnumeric(obj.TXT_E6.value)  then objE6 = cdbl(obj.TXT_E6.value) else objE6 = 0 end if
+			if isnumeric(obj.TXT_E7.value)  then objE7 = cdbl(obj.TXT_E7.value) else objE7 = 0 end if
+			if isnumeric(obj.TXT_E8.value)  then objE8 = cdbl(obj.TXT_E8.value) else objE8 = 0 end if
+			if isnumeric(obj.TXT_E9.value)  then objE9 = cdbl(obj.TXT_E9.value) else objE9 = 0 end if
+			if isnumeric(obj.TXT_E10.value)  then objE10 = cdbl(obj.TXT_E10.value) else objE10 = 0 end if
+			if isnumeric(obj.TXT_E11.value)  then objE11 = cdbl(obj.TXT_E11.value) else objE11 = 0 end if
+			
+			obj.TXT_E12.value = objE5 + objE6 + objE7 + objE8 + objE9 + objE10 + objE11 
+			obj.TXT_E12.value = replace(obj.TXT_E12.value, ".", ",")
+		end if '---------------- end urut 1 kolom E ---------------------------------------------------------
+		'----------------------- end urut 1 -----------------------------------------------------------------
+	elseif (urut=2) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B13.value)  then objB13 = cdbl(obj.TXT_B13.value) else objB13 = 0 end if
+			if isnumeric(obj.TXT_B14.value)  then objB14 = cdbl(obj.TXT_B14.value) else objB14 = 0 end if
+			if isnumeric(obj.TXT_B15.value)  then objB15 = cdbl(obj.TXT_B15.value) else objB15 = 0 end if
+			if isnumeric(obj.TXT_B16.value)  then objB16 = cdbl(obj.TXT_B16.value) else objB16 = 0 end if
+			
+			obj.TXT_B17.value = objB13 + objB14 + objB15 + objB16 
+			obj.TXT_B17.value = replace(obj.TXT_B17.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C13.value)  then objC13 = cdbl(obj.TXT_C13.value) else objC13 = 0 end if
+			if isnumeric(obj.TXT_C14.value)  then objC14 = cdbl(obj.TXT_C14.value) else objC14 = 0 end if
+			if isnumeric(obj.TXT_C15.value)  then objC15 = cdbl(obj.TXT_C15.value) else objC15 = 0 end if
+			if isnumeric(obj.TXT_C16.value)  then objC16 = cdbl(obj.TXT_C16.value) else objC16 = 0 end if
+			
+			obj.TXT_C17.value = objC13 + objC14 + objC15 + objC16 
+			obj.TXT_C17.value = replace(obj.TXT_C17.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D13.value)  then objD13 = cdbl(obj.TXT_D13.value) else objD13 = 0 end if
+			if isnumeric(obj.TXT_D14.value)  then objD14 = cdbl(obj.TXT_D14.value) else objD14 = 0 end if
+			if isnumeric(obj.TXT_D15.value)  then objD15 = cdbl(obj.TXT_D15.value) else objD15 = 0 end if
+			if isnumeric(obj.TXT_D16.value)  then objD16 = cdbl(obj.TXT_D16.value) else objD16 = 0 end if
+			
+			obj.TXT_D17.value = objD13 + objD14 + objD15 + objD16 
+			obj.TXT_D17.value = replace(obj.TXT_D17.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E13.value)  then objE13 = cdbl(obj.TXT_E13.value) else objE13 = 0 end if
+			if isnumeric(obj.TXT_E14.value)  then objE14 = cdbl(obj.TXT_E14.value) else objE14 = 0 end if
+			if isnumeric(obj.TXT_E15.value)  then objE15 = cdbl(obj.TXT_E15.value) else objE15 = 0 end if
+			if isnumeric(obj.TXT_E16.value)  then objE16 = cdbl(obj.TXT_E16.value) else objE16 = 0 end if
+			
+			obj.TXT_E17.value = objE13 + objE14 + objE15 + objE16 
+			obj.TXT_E17.value = replace(obj.TXT_E17.value, ".", ",")
+		end if '---------------- end urut 2 kolom E ---------------------------------------------------------
+		'----------------------- end urut 2 -----------------------------------------------------------------	
+	elseif (urut=3) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B12.value)  then objB12 = cdbl(obj.TXT_B12.value) else objB12 = 0 end if
+			if isnumeric(obj.TXT_B17.value)  then objB17 = cdbl(obj.TXT_B17.value) else objB17 = 0 end if
+			
+			obj.TXT_B18.value = objB12 + objB17 
+			obj.TXT_B18.value = replace(obj.TXT_B18.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C12.value)  then objC12 = cdbl(obj.TXT_C12.value) else objC12 = 0 end if
+			if isnumeric(obj.TXT_C17.value)  then objC17 = cdbl(obj.TXT_C17.value) else objC17 = 0 end if
+			
+			obj.TXT_C18.value = objC12 + objC17 
+			obj.TXT_C18.value = replace(obj.TXT_C18.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D12.value)  then objD12 = cdbl(obj.TXT_D12.value) else objD12 = 0 end if
+			if isnumeric(obj.TXT_D17.value)  then objD17 = cdbl(obj.TXT_D17.value) else objD17 = 0 end if
+			
+			obj.TXT_D18.value = objD12 + objD17 
+			obj.TXT_D18.value = replace(obj.TXT_D18.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E12.value)  then objE12 = cdbl(obj.TXT_E12.value) else objE12 = 0 end if
+			if isnumeric(obj.TXT_E17.value)  then objE17 = cdbl(obj.TXT_E17.value) else objE17 = 0 end if
+			
+			obj.TXT_E18.value = objE12 + objE17 
+			obj.TXT_E18.value = replace(obj.TXT_E18.value, ".", ",")
+		end if '---------------- end urut 3 kolom E ---------------------------------------------------------
+		'----------------------- end urut 3 -----------------------------------------------------------------	
+	elseif (urut=4) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B19.value)  then objB19 = cdbl(obj.TXT_B19.value) else objB19 = 0 end if
+			if isnumeric(obj.TXT_B20.value)  then objB20 = cdbl(obj.TXT_B20.value) else objB20 = 0 end if
+			if isnumeric(obj.TXT_B21.value)  then objB21 = cdbl(obj.TXT_B21.value) else objB21 = 0 end if
+			if isnumeric(obj.TXT_B22.value)  then objB22 = cdbl(obj.TXT_B22.value) else objB22 = 0 end if
+			if isnumeric(obj.TXT_B23.value)  then objB23 = cdbl(obj.TXT_B23.value) else objB23 = 0 end if
+			if isnumeric(obj.TXT_B24.value)  then objB24 = cdbl(obj.TXT_B24.value) else objB24 = 0 end if
+			if isnumeric(obj.TXT_B25.value)  then objB25 = cdbl(obj.TXT_B25.value) else objB25 = 0 end if
+			
+			obj.TXT_B26.value = objB19 + objB20 + objB21 + objB22 + objB23 + objB24 + objB25
+			obj.TXT_B26.value = replace(obj.TXT_B26.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C19.value)  then objC19 = cdbl(obj.TXT_C19.value) else objC19 = 0 end if
+			if isnumeric(obj.TXT_C20.value)  then objC20 = cdbl(obj.TXT_C20.value) else objC20 = 0 end if
+			if isnumeric(obj.TXT_C21.value)  then objC21 = cdbl(obj.TXT_C21.value) else objC21 = 0 end if
+			if isnumeric(obj.TXT_C22.value)  then objC22 = cdbl(obj.TXT_C22.value) else objC22 = 0 end if
+			if isnumeric(obj.TXT_C23.value)  then objC23 = cdbl(obj.TXT_C23.value) else objC23 = 0 end if
+			if isnumeric(obj.TXT_C24.value)  then objC24 = cdbl(obj.TXT_C24.value) else objC24 = 0 end if
+			if isnumeric(obj.TXT_C25.value)  then objC25 = cdbl(obj.TXT_C25.value) else objC25 = 0 end if
+			
+			obj.TXT_C26.value = objC19 + objC20 + objC21 + objC22 + objC23 + objC24 + objC25
+			obj.TXT_C26.value = replace(obj.TXT_C26.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D19.value)  then objD19 = cdbl(obj.TXT_D19.value) else objD19 = 0 end if
+			if isnumeric(obj.TXT_D20.value)  then objD20 = cdbl(obj.TXT_D20.value) else objD20 = 0 end if
+			if isnumeric(obj.TXT_D21.value)  then objD21 = cdbl(obj.TXT_D21.value) else objD21 = 0 end if
+			if isnumeric(obj.TXT_D22.value)  then objD22 = cdbl(obj.TXT_D22.value) else objD22 = 0 end if
+			if isnumeric(obj.TXT_D23.value)  then objD23 = cdbl(obj.TXT_D23.value) else objD23 = 0 end if
+			if isnumeric(obj.TXT_D24.value)  then objD24 = cdbl(obj.TXT_D24.value) else objD24 = 0 end if
+			if isnumeric(obj.TXT_D25.value)  then objD25 = cdbl(obj.TXT_D25.value) else objD25 = 0 end if
+			
+			obj.TXT_D26.value = objD19 + objD20 + objD21 + objD22 + objD23 + objD24 + objD25
+			obj.TXT_D26.value = replace(obj.TXT_D26.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E19.value)  then objE19 = cdbl(obj.TXT_E19.value) else objE19 = 0 end if
+			if isnumeric(obj.TXT_E20.value)  then objE20 = cdbl(obj.TXT_E20.value) else objE20 = 0 end if
+			if isnumeric(obj.TXT_E21.value)  then objE21 = cdbl(obj.TXT_E21.value) else objE21 = 0 end if
+			if isnumeric(obj.TXT_E22.value)  then objE22 = cdbl(obj.TXT_E22.value) else objE22 = 0 end if
+			if isnumeric(obj.TXT_E23.value)  then objE23 = cdbl(obj.TXT_E23.value) else objE23 = 0 end if
+			if isnumeric(obj.TXT_E24.value)  then objE24 = cdbl(obj.TXT_E24.value) else objE24 = 0 end if
+			if isnumeric(obj.TXT_E25.value)  then objE25 = cdbl(obj.TXT_E25.value) else objE25 = 0 end if
+			
+			obj.TXT_E26.value = objE19 + objE20 + objE21 + objE22 + objE23 + objE24 + objE25
+			obj.TXT_E26.value = replace(obj.TXT_E26.value, ".", ",")
+		end if '---------------- end urut 4 kolom E ---------------------------------------------------------
+		'----------------------- end urut 4 -----------------------------------------------------------------	
+	elseif (urut=5) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B27.value)  then objB27 = cdbl(obj.TXT_B27.value) else objB27 = 0 end if
+			if isnumeric(obj.TXT_B28.value)  then objB28 = cdbl(obj.TXT_B28.value) else objB28 = 0 end if
+			
+			obj.TXT_B29.value = objB27 + objB28
+			obj.TXT_B29.value = replace(obj.TXT_B29.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C27.value)  then objC27 = cdbl(obj.TXT_C27.value) else objC27 = 0 end if
+			if isnumeric(obj.TXT_C28.value)  then objC28 = cdbl(obj.TXT_C28.value) else objC28 = 0 end if
+			
+			obj.TXT_C29.value = objC27 + objC28
+			obj.TXT_C29.value = replace(obj.TXT_C29.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D27.value)  then objD27 = cdbl(obj.TXT_D27.value) else objD27 = 0 end if
+			if isnumeric(obj.TXT_D28.value)  then objD28 = cdbl(obj.TXT_D28.value) else objD28 = 0 end if
+			
+			obj.TXT_D29.value = objD27 + objD28
+			obj.TXT_D29.value = replace(obj.TXT_D29.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E27.value)  then objE27 = cdbl(obj.TXT_E27.value) else objE27 = 0 end if
+			if isnumeric(obj.TXT_E28.value)  then objE28 = cdbl(obj.TXT_E28.value) else objE28 = 0 end if
+			
+			obj.TXT_E29.value = objE27 + objE28
+			obj.TXT_E29.value = replace(obj.TXT_E29.value, ".", ",")
+		end if '---------------- end urut 5 kolom E ---------------------------------------------------------
+		'----------------------- end urut 5 -----------------------------------------------------------------	
+	elseif (urut=6) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B26.value)  then objB26 = cdbl(obj.TXT_B26.value) else objB26 = 0 end if
+			if isnumeric(obj.TXT_B29.value)  then objB29 = cdbl(obj.TXT_B29.value) else objB29 = 0 end if
+			
+			obj.TXT_B30.value = objB26 + objB29
+			obj.TXT_B30.value = replace(obj.TXT_B30.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C26.value)  then objC26 = cdbl(obj.TXT_C26.value) else objC26 = 0 end if
+			if isnumeric(obj.TXT_C29.value)  then objC29 = cdbl(obj.TXT_C29.value) else objC29 = 0 end if
+			
+			obj.TXT_C30.value = objC26 + objC29
+			obj.TXT_C30.value = replace(obj.TXT_C30.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D26.value)  then objD26 = cdbl(obj.TXT_D26.value) else objD26 = 0 end if
+			if isnumeric(obj.TXT_D29.value)  then objD29 = cdbl(obj.TXT_D29.value) else objD29 = 0 end if
+			
+			obj.TXT_D30.value = objD26 + objD29
+			obj.TXT_D30.value = replace(obj.TXT_D30.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E26.value)  then objE26 = cdbl(obj.TXT_E26.value) else objE26 = 0 end if
+			if isnumeric(obj.TXT_E29.value)  then objE29 = cdbl(obj.TXT_E29.value) else objE29 = 0 end if
+			
+			obj.TXT_E30.value = objE26 + objE29
+			obj.TXT_E30.value = replace(obj.TXT_E30.value, ".", ",")
+		end if '---------------- end urut 6 kolom E ---------------------------------------------------------
+		'----------------------- end urut 6 -----------------------------------------------------------------	
+	elseif (urut=7) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B31.value)  then objB31 = cdbl(obj.TXT_B31.value) else objB31 = 0 end if
+			if isnumeric(obj.TXT_B32.value)  then objB32 = cdbl(obj.TXT_B32.value) else objB32 = 0 end if
+			if isnumeric(obj.TXT_B33.value)  then objB33 = cdbl(obj.TXT_B33.value) else objB33 = 0 end if
+			
+			obj.TXT_B34.value = objB31 + objB32 + objB33
+			obj.TXT_B34.value = replace(obj.TXT_B34.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C31.value)  then objC31 = cdbl(obj.TXT_C31.value) else objC31 = 0 end if
+			if isnumeric(obj.TXT_C32.value)  then objC32 = cdbl(obj.TXT_C32.value) else objC32 = 0 end if
+			if isnumeric(obj.TXT_C33.value)  then objC33 = cdbl(obj.TXT_C33.value) else objC33 = 0 end if
+			
+			obj.TXT_C34.value = objC31 + objC32 + objC33
+			obj.TXT_C34.value = replace(obj.TXT_C34.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D31.value)  then objD31 = cdbl(obj.TXT_D31.value) else objD31 = 0 end if
+			if isnumeric(obj.TXT_D32.value)  then objD32 = cdbl(obj.TXT_D32.value) else objD32 = 0 end if
+			if isnumeric(obj.TXT_D33.value)  then objD33 = cdbl(obj.TXT_D33.value) else objD33 = 0 end if
+			
+			obj.TXT_D34.value = objD31 + objD32 + objD33
+			obj.TXT_D34.value = replace(obj.TXT_D34.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E31.value)  then objE31 = cdbl(obj.TXT_E31.value) else objE31 = 0 end if
+			if isnumeric(obj.TXT_E32.value)  then objE32 = cdbl(obj.TXT_E32.value) else objE32 = 0 end if
+			if isnumeric(obj.TXT_E33.value)  then objE33 = cdbl(obj.TXT_E33.value) else objE33 = 0 end if
+			
+			obj.TXT_E34.value = objE31 + objE32 + objE33
+			obj.TXT_E34.value = replace(obj.TXT_E34.value, ".", ",")
+		end if '---------------- end urut 7 kolom E ---------------------------------------------------------
+		'----------------------- end urut 7 -----------------------------------------------------------------		
+	elseif (urut=8) then
+		if (kolom="B") then
+			if isnumeric(obj.TXT_B30.value)  then objB30 = cdbl(obj.TXT_B30.value) else objB30 = 0 end if
+			if isnumeric(obj.TXT_B34.value)  then objB34 = cdbl(obj.TXT_B34.value) else objB34 = 0 end if
+			
+			obj.TXT_B35.value = objB30 + objB34
+			obj.TXT_B35.value = replace(obj.TXT_B35.value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(obj.TXT_C30.value)  then objC30 = cdbl(obj.TXT_C30.value) else objC30 = 0 end if
+			if isnumeric(obj.TXT_C34.value)  then objC34 = cdbl(obj.TXT_C34.value) else objC34 = 0 end if
+			
+			obj.TXT_C35.value = objC30 + objC34
+			obj.TXT_C35.value = replace(obj.TXT_C35.value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(obj.TXT_D30.value)  then objD30 = cdbl(obj.TXT_D30.value) else objD30 = 0 end if
+			if isnumeric(obj.TXT_D34.value)  then objD34 = cdbl(obj.TXT_D34.value) else objD34 = 0 end if
+			
+			obj.TXT_D35.value = objD30 + objD34
+			obj.TXT_D35.value = replace(obj.TXT_D35.value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(obj.TXT_E30.value)  then objE30 = cdbl(obj.TXT_E30.value) else objE30 = 0 end if
+			if isnumeric(obj.TXT_E34.value)  then objE34 = cdbl(obj.TXT_E34.value) else objE34 = 0 end if
+			
+			obj.TXT_E35.value = objE30 + objE34
+			obj.TXT_E35.value = replace(obj.TXT_E35.value, ".", ",")
+		end if '---------------- end urut 8 kolom E ---------------------------------------------------------
+		'----------------------- end urut 8 -----------------------------------------------------------------		
+	end if
+	urut = urut + 1
+	next
+end function
+'=============================================================================================================
+'======= separator ===========================================================================================
+'=============================================================================================================
+function HitungNeracaMiddle(urutx,kolom)
+	SetLocale("in")
+	
+	urut = 1
+	
+	for i = 1 to 8 
+	
+	if (urut=1) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B5").value)  then objB5 = cdbl(window.document.getElementById("TXT_B5").value) else objB5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B6").value)  then objB6 = cdbl(window.document.getElementById("TXT_B6").value) else objB6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B7").value)  then objB7 = cdbl(window.document.getElementById("TXT_B7").value) else objB7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B8").value)  then objB8 = cdbl(window.document.getElementById("TXT_B8").value) else objB8 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B9").value)  then objB9 = cdbl(window.document.getElementById("TXT_B9").value) else objB9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B10").value)  then objB10 = cdbl(window.document.getElementById("TXT_B10").value) else objB10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B11").value)  then objB11 = cdbl(window.document.getElementById("TXT_B11").value) else objB11 = 0 end if
+			
+			window.document.getElementById("TXT_B12").value = objB5 + objB6 + objB7 + objB8 + objB9 + objB10 + objB11 
+			window.document.getElementById("TXT_B12").value = replace(window.document.getElementById("TXT_B12").value, ".", ",")	
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C5").value)  then objC5 = cdbl(window.document.getElementById("TXT_C5").value) else objC5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C6").value)  then objC6 = cdbl(window.document.getElementById("TXT_C6").value) else objC6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C7").value)  then objC7 = cdbl(window.document.getElementById("TXT_C7").value) else objC7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C8").value)  then objC8 = cdbl(window.document.getElementById("TXT_C8").value) else objC8 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C9").value)  then objC9 = cdbl(window.document.getElementById("TXT_C9").value) else objC9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C10").value)  then objC10 = cdbl(window.document.getElementById("TXT_C10").value) else objC10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C11").value)  then objC11 = cdbl(window.document.getElementById("TXT_C11").value) else objC11 = 0 end if
+			
+			window.document.getElementById("TXT_C12").value = objC5 + objC6 + objC7 + objC8 + objC9 + objC10 + objC11 
+			window.document.getElementById("TXT_C12").value = replace(window.document.getElementById("TXT_C12").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D5").value)  then objD5 = cdbl(window.document.getElementById("TXT_D5").value) else objD5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D6").value)  then objD6 = cdbl(window.document.getElementById("TXT_D6").value) else objD6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D7").value)  then objD7 = cdbl(window.document.getElementById("TXT_D7").value) else objD7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D8").value)  then objD8 = cdbl(window.document.getElementById("TXT_D8").value) else objD8 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D9").value)  then objD9 = cdbl(window.document.getElementById("TXT_D9").value) else objD9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D10").value)  then objD10 = cdbl(window.document.getElementById("TXT_D10").value) else objD10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D11").value)  then objD11 = cdbl(window.document.getElementById("TXT_D11").value) else objD11 = 0 end if
+			
+			window.document.getElementById("TXT_D12").value = objD5 + objD6 + objD7 + objD8 + objD9 + objD10 + objD11 
+			window.document.getElementById("TXT_D12").value = replace(window.document.getElementById("TXT_D12").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E5").value)  then objE5 = cdbl(window.document.getElementById("TXT_E5").value) else objE5 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E6").value)  then objE6 = cdbl(window.document.getElementById("TXT_E6").value) else objE6 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E7").value)  then objE7 = cdbl(window.document.getElementById("TXT_E7").value) else objE7 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E8").value)  then objE8 = cdbl(window.document.getElementById("TXT_E8").value) else objE8 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E9").value)  then objE9 = cdbl(window.document.getElementById("TXT_E9").value) else objE9 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E10").value)  then objE10 = cdbl(window.document.getElementById("TXT_E10").value) else objE10 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E11").value)  then objE11 = cdbl(window.document.getElementById("TXT_E11").value) else objE11 = 0 end if
+			
+			window.document.getElementById("TXT_E12").value = objE5 + objE6 + objE7 + objE8 + objE9 + objE10 + objE11 
+			window.document.getElementById("TXT_E12").value = replace(window.document.getElementById("TXT_E12").value, ".", ",")
+		end if '---------------- end urut 1 kolom E ---------------------------------------------------------
+		'----------------------- end urut 1 -----------------------------------------------------------------
+	elseif (urut=2) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B13").value)  then objB13 = cdbl(window.document.getElementById("TXT_B13").value) else objB13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B14").value)  then objB14 = cdbl(window.document.getElementById("TXT_B14").value) else objB14 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B15").value)  then objB15 = cdbl(window.document.getElementById("TXT_B15").value) else objB15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B16").value)  then objB16 = cdbl(window.document.getElementById("TXT_B16").value) else objB16 = 0 end if
+			
+			window.document.getElementById("TXT_B17").value = objB13 + objB14 + objB15 + objB16 
+			window.document.getElementById("TXT_B17").value = replace(window.document.getElementById("TXT_B17").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C13").value)  then objC13 = cdbl(window.document.getElementById("TXT_C13").value) else objC13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C14").value)  then objC14 = cdbl(window.document.getElementById("TXT_C14").value) else objC14 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C15").value)  then objC15 = cdbl(window.document.getElementById("TXT_C15").value) else objC15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C16").value)  then objC16 = cdbl(window.document.getElementById("TXT_C16").value) else objC16 = 0 end if
+			
+			window.document.getElementById("TXT_C17").value = objC13 + objC14 + objC15 + objC16 
+			window.document.getElementById("TXT_C17").value = replace(window.document.getElementById("TXT_C17").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D13").value)  then objD13 = cdbl(window.document.getElementById("TXT_D13").value) else objD13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D14").value)  then objD14 = cdbl(window.document.getElementById("TXT_D14").value) else objD14 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D15").value)  then objD15 = cdbl(window.document.getElementById("TXT_D15").value) else objD15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D16").value)  then objD16 = cdbl(window.document.getElementById("TXT_D16").value) else objD16 = 0 end if
+			
+			window.document.getElementById("TXT_D17").value = objD13 + objD14 + objD15 + objD16 
+			window.document.getElementById("TXT_D17").value = replace(window.document.getElementById("TXT_D17").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E13").value)  then objE13 = cdbl(window.document.getElementById("TXT_E13").value) else objE13 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E14").value)  then objE14 = cdbl(window.document.getElementById("TXT_E14").value) else objE14 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E15").value)  then objE15 = cdbl(window.document.getElementById("TXT_E15").value) else objE15 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E16").value)  then objE16 = cdbl(window.document.getElementById("TXT_E16").value) else objE16 = 0 end if
+			
+			window.document.getElementById("TXT_E17").value = objE13 + objE14 + objE15 + objE16 
+			window.document.getElementById("TXT_E17").value = replace(window.document.getElementById("TXT_E17").value, ".", ",")
+		end if '---------------- end urut 2 kolom E ---------------------------------------------------------
+		'----------------------- end urut 2 -----------------------------------------------------------------	
+	elseif (urut=3) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B12").value)  then objB12 = cdbl(window.document.getElementById("TXT_B12").value) else objB12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B17").value)  then objB17 = cdbl(window.document.getElementById("TXT_B17").value) else objB17 = 0 end if
+			
+			window.document.getElementById("TXT_B18").value = objB12 + objB17 
+			window.document.getElementById("TXT_B18").value = replace(window.document.getElementById("TXT_B18").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C12").value)  then objC12 = cdbl(window.document.getElementById("TXT_C12").value) else objC12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C17").value)  then objC17 = cdbl(window.document.getElementById("TXT_C17").value) else objC17 = 0 end if
+			
+			window.document.getElementById("TXT_C18").value = objC12 + objC17 
+			window.document.getElementById("TXT_C18").value = replace(window.document.getElementById("TXT_C18").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D12").value)  then objD12 = cdbl(window.document.getElementById("TXT_D12").value) else objD12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D17").value)  then objD17 = cdbl(window.document.getElementById("TXT_D17").value) else objD17 = 0 end if
+			
+			window.document.getElementById("TXT_D18").value = objD12 + objD17 
+			window.document.getElementById("TXT_D18").value = replace(window.document.getElementById("TXT_D18").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E12").value)  then objE12 = cdbl(window.document.getElementById("TXT_E12").value) else objE12 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E17").value)  then objE17 = cdbl(window.document.getElementById("TXT_E17").value) else objE17 = 0 end if
+			
+			window.document.getElementById("TXT_E18").value = objE12 + objE17 
+			window.document.getElementById("TXT_E18").value = replace(window.document.getElementById("TXT_E18").value, ".", ",")
+		end if '---------------- end urut 3 kolom E ---------------------------------------------------------
+		'----------------------- end urut 3 -----------------------------------------------------------------	
+	elseif (urut=4) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B19").value)  then objB19 = cdbl(window.document.getElementById("TXT_B19").value) else objB19 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B20").value)  then objB20 = cdbl(window.document.getElementById("TXT_B20").value) else objB20 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B21").value)  then objB21 = cdbl(window.document.getElementById("TXT_B21").value) else objB21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B22").value)  then objB22 = cdbl(window.document.getElementById("TXT_B22").value) else objB22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B23").value)  then objB23 = cdbl(window.document.getElementById("TXT_B23").value) else objB23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B24").value)  then objB24 = cdbl(window.document.getElementById("TXT_B24").value) else objB24 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B25").value)  then objB25 = cdbl(window.document.getElementById("TXT_B25").value) else objB25 = 0 end if
+			
+			window.document.getElementById("TXT_B26").value = objB19 + objB20 + objB21 + objB22 + objB23 + objB24 + objB25
+			window.document.getElementById("TXT_B26").value = replace(window.document.getElementById("TXT_B26").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C19").value)  then objC19 = cdbl(window.document.getElementById("TXT_C19").value) else objC19 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C20").value)  then objC20 = cdbl(window.document.getElementById("TXT_C20").value) else objC20 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C21").value)  then objC21 = cdbl(window.document.getElementById("TXT_C21").value) else objC21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C22").value)  then objC22 = cdbl(window.document.getElementById("TXT_C22").value) else objC22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C23").value)  then objC23 = cdbl(window.document.getElementById("TXT_C23").value) else objC23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C24").value)  then objC24 = cdbl(window.document.getElementById("TXT_C24").value) else objC24 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C25").value)  then objC25 = cdbl(window.document.getElementById("TXT_C25").value) else objC25 = 0 end if
+			
+			window.document.getElementById("TXT_C26").value = objC19 + objC20 + objC21 + objC22 + objC23 + objC24 + objC25
+			window.document.getElementById("TXT_C26").value = replace(window.document.getElementById("TXT_C26").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D19").value)  then objD19 = cdbl(window.document.getElementById("TXT_D19").value) else objD19 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D20").value)  then objD20 = cdbl(window.document.getElementById("TXT_D20").value) else objD20 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D21").value)  then objD21 = cdbl(window.document.getElementById("TXT_D21").value) else objD21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D22").value)  then objD22 = cdbl(window.document.getElementById("TXT_D22").value) else objD22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D23").value)  then objD23 = cdbl(window.document.getElementById("TXT_D23").value) else objD23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D24").value)  then objD24 = cdbl(window.document.getElementById("TXT_D24").value) else objD24 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D25").value)  then objD25 = cdbl(window.document.getElementById("TXT_D25").value) else objD25 = 0 end if
+			
+			window.document.getElementById("TXT_D26").value = objD19 + objD20 + objD21 + objD22 + objD23 + objD24 + objD25
+			window.document.getElementById("TXT_D26").value = replace(window.document.getElementById("TXT_D26").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E19").value)  then objE19 = cdbl(window.document.getElementById("TXT_E19").value) else objE19 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E20").value)  then objE20 = cdbl(window.document.getElementById("TXT_E20").value) else objE20 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E21").value)  then objE21 = cdbl(window.document.getElementById("TXT_E21").value) else objE21 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E22").value)  then objE22 = cdbl(window.document.getElementById("TXT_E22").value) else objE22 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E23").value)  then objE23 = cdbl(window.document.getElementById("TXT_E23").value) else objE23 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E24").value)  then objE24 = cdbl(window.document.getElementById("TXT_E24").value) else objE24 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E25").value)  then objE25 = cdbl(window.document.getElementById("TXT_E25").value) else objE25 = 0 end if
+			
+			window.document.getElementById("TXT_E26").value = objE19 + objE20 + objE21 + objE22 + objE23 + objE24 + objE25
+			window.document.getElementById("TXT_E26").value = replace(window.document.getElementById("TXT_E26").value, ".", ",")
+		end if '---------------- end urut 4 kolom E ---------------------------------------------------------
+		'----------------------- end urut 4 -----------------------------------------------------------------	
+	elseif (urut=5) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B27").value)  then objB27 = cdbl(window.document.getElementById("TXT_B27").value) else objB27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B28").value)  then objB28 = cdbl(window.document.getElementById("TXT_B28").value) else objB28 = 0 end if
+			
+			window.document.getElementById("TXT_B29").value = objB27 + objB28
+			window.document.getElementById("TXT_B29").value = replace(window.document.getElementById("TXT_B29").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C27").value)  then objC27 = cdbl(window.document.getElementById("TXT_C27").value) else objC27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C28").value)  then objC28 = cdbl(window.document.getElementById("TXT_C28").value) else objC28 = 0 end if
+			
+			window.document.getElementById("TXT_C29").value = objC27 + objC28
+			window.document.getElementById("TXT_C29").value = replace(window.document.getElementById("TXT_C29").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D27").value)  then objD27 = cdbl(window.document.getElementById("TXT_D27").value) else objD27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D28").value)  then objD28 = cdbl(window.document.getElementById("TXT_D28").value) else objD28 = 0 end if
+			
+			window.document.getElementById("TXT_D29").value = objD27 + objD28
+			window.document.getElementById("TXT_D29").value = replace(window.document.getElementById("TXT_D29").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E27").value)  then objE27 = cdbl(window.document.getElementById("TXT_E27").value) else objE27 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E28").value)  then objE28 = cdbl(window.document.getElementById("TXT_E28").value) else objE28 = 0 end if
+			
+			window.document.getElementById("TXT_E29").value = objE27 + objE28
+			window.document.getElementById("TXT_E29").value = replace(window.document.getElementById("TXT_E29").value, ".", ",")
+		end if '---------------- end urut 5 kolom E ---------------------------------------------------------
+		'----------------------- end urut 5 -----------------------------------------------------------------	
+	elseif (urut=6) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B26").value)  then objB26 = cdbl(window.document.getElementById("TXT_B26").value) else objB26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B29").value)  then objB29 = cdbl(window.document.getElementById("TXT_B29").value) else objB29 = 0 end if
+			
+
+
+			window.document.getElementById("TXT_B30").value = objB26 + objB29
+			window.document.getElementById("TXT_B30").value = replace(window.document.getElementById("TXT_B30").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C26").value)  then objC26 = cdbl(window.document.getElementById("TXT_C26").value) else objC26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C29").value)  then objC29 = cdbl(window.document.getElementById("TXT_C29").value) else objC29 = 0 end if
+			
+			window.document.getElementById("TXT_C30").value = objC26 + objC29
+			window.document.getElementById("TXT_C30").value = replace(window.document.getElementById("TXT_C30").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D26").value)  then objD26 = cdbl(window.document.getElementById("TXT_D26").value) else objD26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D29").value)  then objD29 = cdbl(window.document.getElementById("TXT_D29").value) else objD29 = 0 end if
+			
+			window.document.getElementById("TXT_D30").value = objD26 + objD29
+			window.document.getElementById("TXT_D30").value = replace(window.document.getElementById("TXT_D30").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E26").value)  then objE26 = cdbl(window.document.getElementById("TXT_E26").value) else objE26 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E29").value)  then objE29 = cdbl(window.document.getElementById("TXT_E29").value) else objE29 = 0 end if
+			
+			window.document.getElementById("TXT_E30").value = objE26 + objE29
+			window.document.getElementById("TXT_E30").value = replace(window.document.getElementById("TXT_E30").value, ".", ",")
+		end if '---------------- end urut 6 kolom E ---------------------------------------------------------
+		'----------------------- end urut 6 -----------------------------------------------------------------	
+	elseif (urut=7) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B31").value)  then objB31 = cdbl(window.document.getElementById("TXT_B31").value) else objB31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B32").value)  then objB32 = cdbl(window.document.getElementById("TXT_B32").value) else objB32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B33").value)  then objB33 = cdbl(window.document.getElementById("TXT_B33").value) else objB33 = 0 end if
+			
+			window.document.getElementById("TXT_B34").value = objB31 + objB32 + objB33
+			window.document.getElementById("TXT_B34").value = replace(window.document.getElementById("TXT_B34").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C31").value)  then objC31 = cdbl(window.document.getElementById("TXT_C31").value) else objC31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C32").value)  then objC32 = cdbl(window.document.getElementById("TXT_C32").value) else objC32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C33").value)  then objC33 = cdbl(window.document.getElementById("TXT_C33").value) else objC33 = 0 end if
+			
+			window.document.getElementById("TXT_C34").value = objC31 + objC32 + objC33
+			window.document.getElementById("TXT_C34").value = replace(window.document.getElementById("TXT_C34").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D31").value)  then objD31 = cdbl(window.document.getElementById("TXT_D31").value) else objD31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D32").value)  then objD32 = cdbl(window.document.getElementById("TXT_D32").value) else objD32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D33").value)  then objD33 = cdbl(window.document.getElementById("TXT_D33").value) else objD33 = 0 end if
+			
+			window.document.getElementById("TXT_D34").value = objD31 + objD32 + objD33
+			window.document.getElementById("TXT_D34").value = replace(window.document.getElementById("TXT_D34").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E31").value)  then objE31 = cdbl(window.document.getElementById("TXT_E31").value) else objE31 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E32").value)  then objE32 = cdbl(window.document.getElementById("TXT_E32").value) else objE32 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E33").value)  then objE33 = cdbl(window.document.getElementById("TXT_E33").value) else objE33 = 0 end if
+			
+			window.document.getElementById("TXT_E34").value = objE31 + objE32 + objE33
+			window.document.getElementById("TXT_E34").value = replace(window.document.getElementById("TXT_E34").value, ".", ",")
+		end if '---------------- end urut 7 kolom E ---------------------------------------------------------
+		'----------------------- end urut 7 -----------------------------------------------------------------		
+	elseif (urut=8) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B30").value)  then objB30 = cdbl(window.document.getElementById("TXT_B30").value) else objB30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B34").value)  then objB34 = cdbl(window.document.getElementById("TXT_B34").value) else objB34 = 0 end if
+			
+			window.document.getElementById("TXT_B35").value = objB30 + objB34
+			window.document.getElementById("TXT_B35").value = replace(window.document.getElementById("TXT_B35").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C30").value)  then objC30 = cdbl(window.document.getElementById("TXT_C30").value) else objC30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C34").value)  then objC34 = cdbl(window.document.getElementById("TXT_C34").value) else objC34 = 0 end if
+			
+			window.document.getElementById("TXT_C35").value = objC30 + objC34
+			window.document.getElementById("TXT_C35").value = replace(window.document.getElementById("TXT_C35").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D30").value)  then objD30 = cdbl(window.document.getElementById("TXT_D30").value) else objD30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D34").value)  then objD34 = cdbl(window.document.getElementById("TXT_D34").value) else objD34 = 0 end if
+			
+			window.document.getElementById("TXT_D35").value = objD30 + objD34
+			window.document.getElementById("TXT_D35").value = replace(window.document.getElementById("TXT_D35").value, ".", ",")
+		elseif (kolom="E") then		
+			if isnumeric(window.document.getElementById("TXT_E30").value)  then objE30 = cdbl(window.document.getElementById("TXT_E30").value) else objE30 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E34").value)  then objE34 = cdbl(window.document.getElementById("TXT_E34").value) else objE34 = 0 end if
+			
+			window.document.getElementById("TXT_E35").value = objE30 + objE34
+			window.document.getElementById("TXT_E35").value = replace(window.document.getElementById("TXT_E35").value, ".", ",")
+		end if '---------------- end urut 8 kolom E ---------------------------------------------------------
+		'----------------------- end urut 8 -----------------------------------------------------------------		
+	end if
+	urut = urut + 1
+	next
+end function
+'=============================================================================================================
+'======= separator ===========================================================================================
+'=============================================================================================================
+function HitungLabaRugiMiddle(urutx,kolom)
+	
+	SetLocale("in")
+	'						standard excel kolom		screen kolom
+	'Net Sales                     14						41
+	'Cost of Goods Sold            15					    42
+	'% of Sales						16						43  = 42/41
+	'Gross Margin					17						44
+	'% of Sales						18						45  = 44/41
+	'Selling, Gen, Admin Exp		19						46
+	'% of Sales						20						47  = 46/41
+	'Operating Earnings				21						48  = 44 - 46
+	'% of Sales						22						49  = 48/41
+	'Depreciation					23						50
+	'Amortization 1					24						51
+	'Amortization 2					25						52
+	'Other Income (Charges) - Net	26						53
+	'Extraordinary Items			27						54
+	'Earnings Before Interest & Taxes 28					55  = 48-50-51-52+53+54      =E21-E23-E24-E25+E26+E27
+	'Interest Expense				  29					56
+	'Earnings Before Taxes			  30					57  = 55 - 56					=E28-E29
+	'% of Sales						  31					58  = 57/41					
+	'Income Taxes					  32					59   
+	'Net Income						  33					60  = 57 - 59			=E30-E32
+	'% of Sales						  34					61  = 60/41 * 100			=E33/E14*100
+
+	urut = 0  
+   for i=1 to 11
+	
+	if (urut=0) then
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B42").value)  then objB42 = cdbl(window.document.getElementById("TXT_B42").value) else objB42 = 0 end if			
+					
+			
+			if (objB41 = 0  Or objB42 = 0) then			
+				window.document.getElementById("TXT_B43").value = 0
+				window.document.getElementById("TXT_B43").value = replace(window.document.getElementById("TXT_B43").value, ".", ",")
+			else
+				window.document.getElementById("TXT_B43").value = (objB42/objB41)*100
+				window.document.getElementById("TXT_B43").value = replace(window.document.getElementById("TXT_B43").value, ".", ",")			
+			end if	
+			
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C42").value)  then objC42 = cdbl(window.document.getElementById("TXT_C42").value) else objC42 = 0 end if
+			
+			if (objC41>0 or objC41<0) then
+				window.document.getElementById("TXT_C43").value = (objC42/objC41)*100
+				window.document.getElementById("TXT_C43").value = replace(window.document.getElementById("TXT_C43").value, ".", ",")
+			else
+				window.document.getElementById("TXT_C43").value = 0
+				window.document.getElementById("TXT_C43").value = replace(window.document.getElementById("TXT_C43").value, ".", ",")	
+			end if	
+				
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D42").value)  then objD42 = cdbl(window.document.getElementById("TXT_D42").value) else objD42 = 0 end if
+			
+			if (objD41>0 or objD41<0) then
+				window.document.getElementById("TXT_D43").value = (objD42/objD41)*100
+				window.document.getElementById("TXT_D43").value = replace(window.document.getElementById("TXT_D43").value, ".", ",")
+			else
+				window.document.getElementById("TXT_D43").value = 0
+				window.document.getElementById("TXT_D43").value = replace(window.document.getElementById("TXT_D43").value, ".", ",")	
+			end if
+			
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E42").value)  then objE42 = cdbl(window.document.getElementById("TXT_E42").value) else objE42 = 0 end if
+			
+			if (objE41>0 or objE41<0) then
+				window.document.getElementById("TXT_E43").value = (objE42/objE41)*100
+				window.document.getElementById("TXT_E43").value = replace(window.document.getElementById("TXT_E43").value, ".", ",")
+			else
+				window.document.getElementById("TXT_E43").value = 0
+				window.document.getElementById("TXT_E43").value = replace(window.document.getElementById("TXT_E43").value, ".", ",")	
+			end if
+		end if '------------------------------- END URUT 0 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 0 ---------------------------------------------------
+
+	elseif (urut=1) then   //Income Statement
+	    '							sTANDARD					Dennny
+		'Net Sales                     14						41
+		'Cost of Goods Sold            15					    42
+		'Gross Margin				   17						44			
+		if (kolom="B") then		    
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B42").value)  then objB42 = cdbl(window.document.getElementById("TXT_B42").value) else objB42 = 0 end if
+			window.document.getElementById("TXT_B44").value = objB41 - objB42
+			window.document.getElementById("TXT_B44").value = replace(window.document.getElementById("TXT_B44").value, ".", ",")
+			
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C42").value)  then objC42 = cdbl(window.document.getElementById("TXT_C42").value) else objC42 = 0 end if
+			
+			window.document.getElementById("TXT_C44").value = objC41 - objC42
+			window.document.getElementById("TXT_C44").value = replace(window.document.getElementById("TXT_C44").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D42").value)  then objD42 = cdbl(window.document.getElementById("TXT_D42").value) else objD42 = 0 end if
+			
+			window.document.getElementById("TXT_D44").value = objD41 - objD42
+			window.document.getElementById("TXT_D44").value = replace(window.document.getElementById("TXT_D44").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E42").value)  then objE42 = cdbl(window.document.getElementById("TXT_E42").value) else objE42 = 0 end if
+			
+			window.document.getElementById("TXT_E44").value = objE41 - objE42
+			window.document.getElementById("TXT_E44").value = replace(window.document.getElementById("TXT_E44").value, ".", ",")
+		end if '------------------------------- END URUT 1 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 1 ---------------------------------------------------		
+
+	elseif (urut=2) then
+		'							sTANDARD					Dennny
+		'Net Sales                     14						41
+		'Gross Margin					17						44
+		'% of Sales												45  = 44/41
+		
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B44").value)  then objB44 = cdbl(window.document.getElementById("TXT_B44").value) else objB44 = 0 end if
+			
+			if ( objB41 > 0 or objB41 < 0) then 
+						window.document.getElementById("TXT_B45").value = (objB44 / objB41) * 100
+			else
+						window.document.getElementById("TXT_B45").value = 0
+			end if						
+			window.document.getElementById("TXT_B45").value = replace(window.document.getElementById("TXT_B45").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C44").value)  then objC44 = cdbl(window.document.getElementById("TXT_C44").value) else objC44 = 0 end if
+			
+			if ( objC41 > 0 or objC41 < 0) then
+				window.document.getElementById("TXT_C45").value = (objC44 / objC41) * 100
+			else
+				window.document.getElementById("TXT_C45").value = 0 
+			end if		
+			window.document.getElementById("TXT_C45").value = replace(window.document.getElementById("TXT_C45").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D44").value)  then objD44 = cdbl(window.document.getElementById("TXT_D44").value) else objD44 = 0 end if
+			
+			if ( objD41 > 0 or objD41 < 0) then
+				window.document.getElementById("TXT_D45").value = (objD44 / objD41) * 100
+			else
+				window.document.getElementById("TXT_D45").value = 0
+			end if	
+			window.document.getElementById("TXT_D45").value = replace(window.document.getElementById("TXT_D45").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E44").value)  then objE44 = cdbl(window.document.getElementById("TXT_E44").value) else objE44 = 0 end if
+			
+			if ( objE41 > 0 or objE41 < 0) then
+				window.document.getElementById("TXT_E45").value = (objE44 / objE41) * 100
+			else
+				window.document.getElementById("TXT_E45").value = 0
+			end if 
+			
+			window.document.getElementById("TXT_E45").value = replace(window.document.getElementById("TXT_E45").value, ".", ",")
+		end if '------------------------------- END URUT 2 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 2 ---------------------------------------------------
+	elseif (urut=3) then
+		'							sTANDARD					Dennny
+		'Net Sales                     14						41
+		'Selling, Gen, Admin Exp		19						46
+		'% of Sales												47  = 46/41
+
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B46").value)  then objB46 = cdbl(window.document.getElementById("TXT_B46").value) else objB46 = 0 end if
+			
+			if (objB41 > 0 or objB41 < 0) then
+				window.document.getElementById("TXT_B47").value = (objB46 / objB41) * 100
+			else
+				window.document.getElementById("TXT_B47").value  = 0
+			end if	
+			
+			window.document.getElementById("TXT_B47").value = replace(window.document.getElementById("TXT_B47").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C46").value)  then objC46 = cdbl(window.document.getElementById("TXT_C46").value) else objC46 = 0 end if
+			
+			if (objC41 > 0 or objC41 < 0) then
+				window.document.getElementById("TXT_C47").value = (objC46 / objC41) * 100
+			else
+				window.document.getElementById("TXT_C47").value  = 0
+			end if	
+			window.document.getElementById("TXT_C47").value = replace(window.document.getElementById("TXT_C47").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D46").value)  then objD46 = cdbl(window.document.getElementById("TXT_D46").value) else objD46 = 0 end if
+			
+			if (objD41 > 0 or objD41 < 0) then
+				window.document.getElementById("TXT_D47").value = (objD46 / objD41) * 100
+			else
+				window.document.getElementById("TXT_D47").value  = 0
+			end if	
+			window.document.getElementById("TXT_D47").value = replace(window.document.getElementById("TXT_D47").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E46").value)  then objE46 = cdbl(window.document.getElementById("TXT_E46").value) else objE46 = 0 end if
+			
+			if (objE41 > 0 or objE41 < 0) then
+				window.document.getElementById("TXT_E47").value = (objE46 / objE41) * 100
+			else
+				window.document.getElementById("TXT_E47").value  = 0
+			end if	
+			window.document.getElementById("TXT_E47").value = replace(window.document.getElementById("TXT_E47").value, ".", ",")
+		end if '------------------------------- END URUT 3 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 3 ---------------------------------------------------
+	elseif (urut=4) then
+		'Operating Earnings				21						48   = 44 - 46
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B44").value)  then objB44 = cdbl(window.document.getElementById("TXT_B44").value) else objB44 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B46").value)  then objB46 = cdbl(window.document.getElementById("TXT_B46").value) else objB46 = 0 end if
+			
+			window.document.getElementById("TXT_B48").value = objB44 - objB46
+			window.document.getElementById("TXT_B48").value = replace(window.document.getElementById("TXT_B48").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C44").value)  then objC44 = cdbl(window.document.getElementById("TXT_C44").value) else objC44 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C46").value)  then objC46 = cdbl(window.document.getElementById("TXT_C46").value) else objC46 = 0 end if
+			
+			window.document.getElementById("TXT_C48").value = objC44 - objC46
+			window.document.getElementById("TXT_C48").value = replace(window.document.getElementById("TXT_C48").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D44").value)  then objD44 = cdbl(window.document.getElementById("TXT_D44").value) else objD44 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D46").value)  then objD46 = cdbl(window.document.getElementById("TXT_D46").value) else objD46 = 0 end if
+			
+			window.document.getElementById("TXT_D48").value = objD44 - objD46
+			window.document.getElementById("TXT_D48").value = replace(window.document.getElementById("TXT_D48").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E44").value)  then objE44 = cdbl(window.document.getElementById("TXT_E44").value) else objE44 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E46").value)  then objE46 = cdbl(window.document.getElementById("TXT_E46").value) else objE46 = 0 end if
+			
+			window.document.getElementById("TXT_E48").value = objE44 - objE46
+			window.document.getElementById("TXT_E48").value = replace(window.document.getElementById("TXT_E48").value, ".", ",")
+		end if '------------------------------- END URUT 4 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 4 ---------------------------------------------------	
+	elseif (urut=5) then
+		'							sTANDARD					Dennny
+		'Net Sales                     14						41
+		'Operating Earnings				21						48
+		'% of Sales												49   = 48/41
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B48").value)  then objB48 = cdbl(window.document.getElementById("TXT_B48").value) else objB48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+			
+			
+			if (objB41 > 0 or objB41 < 0) then
+				window.document.getElementById("TXT_B49").value = (objB48 / objB41) * 100
+			else
+				window.document.getElementById("TXT_B49").value  = 0
+			end if	
+			window.document.getElementById("TXT_B49").value = replace(window.document.getElementById("TXT_B49").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C48").value)  then objC48 = cdbl(window.document.getElementById("TXT_C48").value) else objC48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			
+			if (objC41 > 0 or objC41 < 0) then
+				window.document.getElementById("TXT_C49").value = (objC48 / objC41) * 100
+			else
+				window.document.getElementById("TXT_C49").value  = 0
+			end if	
+			window.document.getElementById("TXT_C49").value = replace(window.document.getElementById("TXT_C49").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D48").value)  then objD48 = cdbl(window.document.getElementById("TXT_D48").value) else objD48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			
+			if (objD41 > 0 or objD41 < 0) then
+				window.document.getElementById("TXT_D49").value = (objD48 / objD41) * 100
+			else
+				window.document.getElementById("TXT_D49").value  = 0
+			end if	
+			window.document.getElementById("TXT_D49").value = replace(window.document.getElementById("TXT_D49").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E48").value)  then objE48 = cdbl(window.document.getElementById("TXT_E48").value) else objE48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			
+			if (objE41 > 0 or objE41 < 0) then
+				window.document.getElementById("TXT_E49").value = (objE48 / objE41) * 100
+			else
+				window.document.getElementById("TXT_E49").value  = 0
+			end if	
+			window.document.getElementById("TXT_E49").value = replace(window.document.getElementById("TXT_E49").value, ".", ",")
+		end if '------------------------------- END URUT 5 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 5 ---------------------------------------------------	
+	'------------- dibuang !!!1	
+	'elseif (urut=6) then		
+'		if (kolom="B") then
+	'		if isnumeric(window.document.getElementById("TXT_B50").value)  then objB50 = cdbl(window.document.getElementById("TXT_B50").value) else objB50 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_B45").value)  then objB45 = cdbl(window.document.getElementById("TXT_B45").value) else objB45 = 0 end if
+	'		
+	'		if (objB45 > 0 ) then
+	'			window.document.getElementById("TXT_B51").value = (objB50 / objB45) * 100
+	'		else
+	'			window.document.getElementById("TXT_B51").value  = 0
+	'		end if	
+	'		'window.document.getElementById("TXT_B51").value = (objB50 / objB45) * 100
+	'		window.document.getElementById("TXT_B51").value = replace(window.document.getElementById("TXT_B51").value, ".", ",")
+	'	elseif (kolom="C") then
+	'		if isnumeric(window.document.getElementById("TXT_C49").value) then objC49 = cdbl(window.document.getElementById("TXT_C49").value) else objC49 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_C46").value) then objC46 = cdbl(window.document.getElementById("TXT_C46").value) else objC46 = 0 end if
+	'		
+	'		if (objC46 > 0) then
+	'			window.document.getElementById("TXT_C50").value = (objC49 / objC46) * 100
+	'		else
+	'			window.document.getElementById("TXT_C50").value = 0
+	'		end if
+	'		
+	'		'window.document.getElementById("TXT_C50").value = (objC49 / objC46) * 100
+	'		window.document.getElementById("TXT_C50").value = replace(window.document.getElementById("TXT_C50").value, ".", ",")
+	'		'===================================================================
+	'		if isnumeric(window.document.getElementById("TXT_C50").value)  then objC50 = cdbl(window.document.getElementById("TXT_C50").value) else objC50 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_C45").value)  then objC45 = cdbl(window.document.getElementById("TXT_C45").value) else objC45 = 0 end if
+	'		
+	'		if (objC45 > 0 ) then
+	'			window.document.getElementById("TXT_C51").value = (objC50 / objC45) * 100
+	'		else
+	'			window.document.getElementById("TXT_C51").value = 0	
+	'		end if		
+	'		'window.document.getElementById("TXT_C51").value = (objC50 / objC45) * 100
+	'		window.document.getElementById("TXT_C51").value = replace(window.document.getElementById("TXT_C51").value, ".", ",")
+	'	elseif (kolom="D") then
+	'		if isnumeric(window.document.getElementById("TXT_D50").value)  then objD50 = cdbl(window.document.getElementById("TXT_D50").value) else objD50 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_D45").value)  then objD45 = cdbl(window.document.getElementById("TXT_D45").value) else objD45 = 0 end if
+	'		
+	'		if (objD46 > 0) then
+	'			window.document.getElementById("TXT_D50").value = (objD49 / objD46) * 100
+	'		else
+	'			window.document.getElementById("TXT_D50").value = 0
+	'		end if
+	'		
+	'		'window.document.getElementById("TXT_D51").value = (objD50 / objD45) * 100
+	'		window.document.getElementById("TXT_D51").value = replace(window.document.getElementById("TXT_D51").value, ".", ",")
+	'	elseif (kolom="E") then
+	''		if isnumeric(window.document.getElementById("TXT_E50").value)  then objE50 = cdbl(window.document.getElementById("TXT_E50").value) else objE50 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_E45").value)  then objE45 = cdbl(window.document.getElementById("TXT_E45").value) else objE45 = 0 end if
+	'		
+	'		
+	'		if (objE46 > 0) then
+	'			window.document.getElementById("TXT_E51").value = (objE50 / objE45) * 100
+	'		else
+	'			window.document.getElementById("TXT_E51").value = 0
+	'		end if
+	'		'window.document.getElementById("TXT_E51").value = (objE50 / objE45) * 100
+	'		window.document.getElementById("TXT_E51").value = replace(window.document.getElementById("TXT_E51").value, ".", ",")
+	'	end if '------------------------------- END URUT 6 KOLOM E -------------------------------------------
+		' ---- end
+		'-------------------------------------- END URUT 6 ---------------------------------------------------	
+	' - dibuang	
+	'elseif (urut=7) then
+'		if (kolom="B") then'
+'			if isnumeric(window.document.getElementById("TXT_B48").value)  then objB48 = cdbl(window.document.getElementById("TXT_B48").value) else objB48 = 0 end if
+'			if isnumeric(window.document.getElementById("TXT_B50").value)  then objB50 = cdbl(window.document.getElementById("TXT_B50").value) else objB50 = 0 end if
+'			
+'			window.document.getElementById("TXT_B52").value = objB48 - objB50
+'			window.document.getElementById("TXT_B52").value = replace(window.document.getElementById("TXT_B52").value, ".", ",")
+'		elseif (kolom="C") then
+'			if isnumeric(window.document.getElementById("TXT_C48").value)  then objC48 = cdbl(window.document.getElementById("TXT_C48").value) else objC48 = 0 end if
+'			if isnumeric(window.document.getElementById("TXT_C50").value)  then objC50 = cdbl(window.document.getElementById("TXT_C50").value) else objC50 = 0 end if
+'			
+'			window.document.getElementById("TXT_C52").value = objC48 - objC50
+'			window.document.getElementById("TXT_C52").value = replace(window.document.getElementById("TXT_C52").value, ".", ",")
+'		elseif (kolom="D") then
+'			if isnumeric(window.document.getElementById("TXT_D48").value)  then objD48 = cdbl(window.document.getElementById("TXT_D48").value) else objD48 = 0 end if
+'			if isnumeric(window.document.getElementById("TXT_D50").value)  then objD50 = cdbl(window.document.getElementById("TXT_D50").value) else objD50 = 0 end if
+'			
+'			window.document.getElementById("TXT_D52").value = objD48 - objD50
+'			window.document.getElementById("TXT_D52").value = replace(window.document.getElementById("TXT_D52").value, ".", ",")
+'		elseif (kolom="E") then
+'			if isnumeric(window.document.getElementById("TXT_E48").value)  then objE48 = cdbl(window.document.getElementById("TXT_E48").value) else objE48 = 0 end if
+'			if isnumeric(window.document.getElementById("TXT_E50").value)  then objE50 = cdbl(window.document.getElementById("TXT_E50").value) else objE50 = 0 end if
+'			
+'			window.document.getElementById("TXT_E52").value = objE48 - objE50
+'			window.document.getElementById("TXT_E52").value = replace(window.document.getElementById("TXT_E52").value, ".", ",")
+'		end if '------------------------------- END URUT 7 KOLOM E -------------------------------------------
+	'--------	
+		'-------------------------------------- END URUT 7 ---------------------------------------------------	
+' - dibuang ---- other income		
+'	elseif (urut=8) then
+		'if (kolom="B") then
+		'	if isnumeric(window.document.getElementById("TXT_B45").value)  then objB45 = cdbl(window.document.getElementById("TXT_B45").value) else objB45 = 0 end if
+		'	if isnumeric(window.document.getElementById("TXT_B52").value)  then objB52 = cdbl(window.document.getElementById("TXT_B52").value) else objB52 = 0 end if
+		'	
+		'	
+		'	if (objB45 > 0) then
+		'		window.document.getElementById("TXT_B53").value = (objB52 / objB45) * 100
+		'	else
+		'		window.document.getElementById("TXT_B53").value = 0
+		'	end if	
+		'	
+		'	window.document.getElementById("TXT_B53").value = replace(window.document.getElementById("TXT_B53").value, ".", ",")
+		'	
+		'elseif (kolom="C") then
+	'		if isnumeric(window.document.getElementById("TXT_C45").value)  then objC45 = cdbl(window.document.getElementById("TXT_C45").value) else objC45 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_C52").value)  then objC52 = cdbl(window.document.getElementById("TXT_C52").value) else objC52 = 0 end if
+	'		
+	'		if (objC45 > 0) then
+	'			window.document.getElementById("TXT_C53").value = (objC52 / objC45) * 100
+	'		else
+	'			window.document.getElementById("TXT_C53").value = 0
+	'		end if	
+	'		'window.document.getElementById("TXT_C53").value = (objC52 / objC45) * 100
+	'		window.document.getElementById("TXT_C53").value = replace(window.document.getElementById("TXT_C53").value, ".", ",")
+	'	elseif (kolom="D") then
+	'		if isnumeric(window.document.getElementById("TXT_D45").value)  then objD45 = cdbl(window.document.getElementById("TXT_D45").value) else objD45 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_D52").value)  then objD52 = cdbl(window.document.getElementById("TXT_D52").value) else objD52 = 0 end if
+	'		
+	'		if (objD45 > 0) then
+	'			window.document.getElementById("TXT_D53").value = (objD52 / objD45) * 100
+	'		else
+	'			window.document.getElementById("TXT_D53").value = 0
+	'		end if
+	'		'window.document.getElementById("TXT_D53").value = (objD52 / objD45) * 100
+	'		window.document.getElementById("TXT_D53").value = replace(window.document.getElementById("TXT_D53").value, ".", ",")
+	'	elseif (kolom="E") then
+	'		if isnumeric(window.document.getElementById("TXT_E45").value)  then objE45 = cdbl(window.document.getElementById("TXT_E45").value) else objE45 = 0 end if
+	'		if isnumeric(window.document.getElementById("TXT_E52").value)  then objE52 = cdbl(window.document.getElementById("TXT_E52").value) else objE52 = 0 end if
+	'		
+	'		if (objE45 > 0) then
+	'			window.document.getElementById("TXT_E53").value = (objE52 / objE45) * 100
+	'		else
+	'			window.document.getElementById("TXT_E53").value = 0
+	'		end if
+	'		'window.document.getElementById("TXT_E53").value = (objE52 / objE45) * 100
+	'		window.document.getElementById("TXT_E53").value = replace(window.document.getElementById("TXT_E53").value, ".", ",")
+	'	end if '------------------------------- END URUT 8 KOLOM E -------------------------------------------
+'----------------- end dibuang		
+		'-------------------------------------- END URUT 8 ---------------------------------------------------	
+	elseif (urut=6) then
+		'Earnings Before Interest & Taxes 27					55  = 48-50-51-52+53+54      =E21-E23-E24-E25+E26+E27
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B48").value)  then objB48 = cdbl(window.document.getElementById("TXT_B48").value) else objB48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B50").value)  then objB50 = cdbl(window.document.getElementById("TXT_B50").value) else objB50 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B51").value)  then objB51 = cdbl(window.document.getElementById("TXT_B51").value) else objB51 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B52").value)  then objB52 = cdbl(window.document.getElementById("TXT_B52").value) else objB52 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B53").value)  then objB53 = cdbl(window.document.getElementById("TXT_B53").value) else objB53 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B54").value)  then objB54 = cdbl(window.document.getElementById("TXT_B54").value) else objB54 = 0 end if
+			
+			window.document.getElementById("TXT_B55").value = objB48 - objB50 - objB51 - objB52 + objB53 + objB54
+ 			window.document.getElementById("TXT_B55").value = replace(window.document.getElementById("TXT_B55").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C48").value)  then objC48 = cdbl(window.document.getElementById("TXT_C48").value) else objC48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C50").value)  then objC50 = cdbl(window.document.getElementById("TXT_C50").value) else objC50 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C51").value)  then objC51 = cdbl(window.document.getElementById("TXT_C51").value) else objC51 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C52").value)  then objC52 = cdbl(window.document.getElementById("TXT_C52").value) else objC52 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C53").value)  then objC53 = cdbl(window.document.getElementById("TXT_C53").value) else objC53 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C54").value)  then objC54 = cdbl(window.document.getElementById("TXT_C54").value) else objC54 = 0 end if
+			
+			window.document.getElementById("TXT_C55").value = objC48 - objC50 - objC51 - objC52 + objC53 + objC54
+ 			window.document.getElementById("TXT_C55").value = replace(window.document.getElementById("TXT_C55").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D48").value)  then objD48 = cdbl(window.document.getElementById("TXT_D48").value) else objD48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D50").value)  then objD50 = cdbl(window.document.getElementById("TXT_D50").value) else objD50 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D51").value)  then objD51 = cdbl(window.document.getElementById("TXT_D51").value) else objD51 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D52").value)  then objD52 = cdbl(window.document.getElementById("TXT_D52").value) else objD52 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D53").value)  then objD53 = cdbl(window.document.getElementById("TXT_D53").value) else objD53 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D54").value)  then objD54 = cdbl(window.document.getElementById("TXT_D54").value) else objD54 = 0 end if
+			
+			window.document.getElementById("TXT_D55").value = objD48 - objD50 - objD51 - objD52 + objD53 + objD54
+ 			window.document.getElementById("TXT_D55").value = replace(window.document.getElementById("TXT_D55").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E48").value)  then objE48 = cdbl(window.document.getElementById("TXT_E48").value) else objE48 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E50").value)  then objE50 = cdbl(window.document.getElementById("TXT_E50").value) else objE50 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E51").value)  then objE51 = cdbl(window.document.getElementById("TXT_E51").value) else objE51 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E52").value)  then objE52 = cdbl(window.document.getElementById("TXT_E52").value) else objE52 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E53").value)  then objE53 = cdbl(window.document.getElementById("TXT_E53").value) else objE53 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E54").value)  then objE54 = cdbl(window.document.getElementById("TXT_E54").value) else objE54 = 0 end if
+			
+			window.document.getElementById("TXT_E55").value = objE48 - objE50 - objE51 - objE52 + objE53 + objE54
+ 			window.document.getElementById("TXT_E55").value = replace(window.document.getElementById("TXT_E55").value, ".", ",")
+		end if '------------------------------- END URUT 9 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 9 ---------------------------------------------------	
+	elseif (urut=7) then
+		'Earnings Before Taxes			  29					57   = 55 - 56	
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B55").value)  then objB55 = cdbl(window.document.getElementById("TXT_B55").value) else objB55 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B56").value)  then objB56 = cdbl(window.document.getElementById("TXT_B56").value) else objB56 = 0 end if
+			
+			window.document.getElementById("TXT_B57").value = objB55 - objB56
+ 			window.document.getElementById("TXT_B57").value = replace(window.document.getElementById("TXT_B57").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C55").value)  then objC55 = cdbl(window.document.getElementById("TXT_C55").value) else objC55 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C56").value)  then objC56 = cdbl(window.document.getElementById("TXT_C56").value) else objC56 = 0 end if
+			
+			window.document.getElementById("TXT_C57").value = objC55 - objC56
+ 			window.document.getElementById("TXT_C57").value = replace(window.document.getElementById("TXT_C57").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D55").value)  then objD55 = cdbl(window.document.getElementById("TXT_D55").value) else objD55 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D56").value)  then objD56 = cdbl(window.document.getElementById("TXT_D56").value) else objD56 = 0 end if
+			
+			window.document.getElementById("TXT_D57").value = objD55 - objD56
+ 			window.document.getElementById("TXT_D57").value = replace(window.document.getElementById("TXT_D57").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E55").value)  then objE55 = cdbl(window.document.getElementById("TXT_E55").value) else objE55 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E56").value)  then objE56 = cdbl(window.document.getElementById("TXT_E56").value) else objE56 = 0 end if
+			
+			window.document.getElementById("TXT_E57").value = objE55 - objE56
+ 			window.document.getElementById("TXT_E57").value = replace(window.document.getElementById("TXT_E57").value, ".", ",")
+		end if '------------------------------- END URUT 10 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 10 ---------------------------------------------------	
+	elseif (urut=8) then
+		'							sTANDARD					Dennny
+		'Net Sales                     14						41	
+		'Earnings Before Taxes			  29					57   = 55 - 56
+		'% of Sales												58   =  57/41	
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B57").value)  then objB57 = cdbl(window.document.getElementById("TXT_B57").value) else objB57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+						
+			if (objB41 > 0 or objB41 < 0) then
+				window.document.getElementById("TXT_B58").value = (objB57 / objB41) * 100
+			else
+				window.document.getElementById("TXT_B58").value = 0
+			end if	
+ 			window.document.getElementById("TXT_B58").value = replace(window.document.getElementById("TXT_B58").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C57").value)  then objC57 = cdbl(window.document.getElementById("TXT_C57").value) else objC57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			
+			if (objC41 > 0 or objC41 < 0) then
+				window.document.getElementById("TXT_C58").value = (objC57 / objC41) * 100
+			else
+				window.document.getElementById("TXT_C58").value = 0
+			end if				
+ 			window.document.getElementById("TXT_C58").value = replace(window.document.getElementById("TXT_C58").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D57").value)  then objD57 = cdbl(window.document.getElementById("TXT_D57").value) else objD57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			
+			if (objD41 > 0 or objD41 < 0) then
+				window.document.getElementById("TXT_D58").value = (objD57 / objD41) * 100
+			else
+				window.document.getElementById("TXT_D58").value = 0
+			end if	
+			window.document.getElementById("TXT_D58").value = replace(window.document.getElementById("TXT_D58").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E57").value)  then objE57 = cdbl(window.document.getElementById("TXT_E57").value) else objE57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			
+			if (objE41 > 0 or objE41 < 0) then
+				window.document.getElementById("TXT_E58").value = (objE57 / objE41) * 100
+			else
+				window.document.getElementById("TXT_E58").value = 0
+			end if		
+			window.document.getElementById("TXT_E58").value = replace(window.document.getElementById("TXT_E58").value, ".", ",")
+		end if '------------------------------- END URUT 11 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 11 ---------------------------------------------------	
+	elseif (urut=9) then
+		'Net Income												60 = 57 - 59			=E30-E32
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B57").value)  then objB57 = cdbl(window.document.getElementById("TXT_B57").value) else objB57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B59").value)  then objB59 = cdbl(window.document.getElementById("TXT_B59").value) else objB59 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B54").value)  then objB54 = cdbl(window.document.getElementById("TXT_B54").value) else objB54 = 0 end if
+			
+			window.document.getElementById("TXT_B60").value = (objB57 - objB59) '+ objB54
+ 			window.document.getElementById("TXT_B60").value = replace(window.document.getElementById("TXT_B60").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C57").value)  then objC57 = cdbl(window.document.getElementById("TXT_C57").value) else objC57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C59").value)  then objC59 = cdbl(window.document.getElementById("TXT_C59").value) else objC59 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C54").value)  then objC54 = cdbl(window.document.getElementById("TXT_C54").value) else objC54 = 0 end if
+			
+			window.document.getElementById("TXT_C60").value = (objC57 - objC59) '+ objC54
+ 			window.document.getElementById("TXT_C60").value = replace(window.document.getElementById("TXT_C60").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D57").value)  then objD57 = cdbl(window.document.getElementById("TXT_D57").value) else objD57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D59").value)  then objD59 = cdbl(window.document.getElementById("TXT_D59").value) else objD59 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D54").value)  then objD54 = cdbl(window.document.getElementById("TXT_D54").value) else objD54 = 0 end if
+			
+			window.document.getElementById("TXT_D60").value = (objD57 - objD59) '+ objD54
+ 			window.document.getElementById("TXT_D60").value = replace(window.document.getElementById("TXT_D60").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E57").value)  then objE57 = cdbl(window.document.getElementById("TXT_E57").value) else objE57 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E59").value)  then objE59 = cdbl(window.document.getElementById("TXT_E59").value) else objE59 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E54").value)  then objE54 = cdbl(window.document.getElementById("TXT_E54").value) else objE54 = 0 end if
+			
+			window.document.getElementById("TXT_E60").value = (objE57 - objE59) '+ objE54
+ 			window.document.getElementById("TXT_E60").value = replace(window.document.getElementById("TXT_E60").value, ".", ",")
+		end if '------------------------------- END URUT 12 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 12 ---------------------------------------------------	
+	elseif (urut=10) then
+		'% of Sales												61   60/41*100
+		if (kolom="B") then
+			if isnumeric(window.document.getElementById("TXT_B60").value)  then objB60 = cdbl(window.document.getElementById("TXT_B60").value) else objB60 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_B41").value)  then objB41 = cdbl(window.document.getElementById("TXT_B41").value) else objB41 = 0 end if
+			
+			if (objB41 > 0 or objB41 < 0) then
+				window.document.getElementById("TXT_B61").value = (objB60 / objB41) * 100
+			else
+				window.document.getElementById("TXT_B61").value = 0
+			end if
+ 			window.document.getElementById("TXT_B61").value = replace(window.document.getElementById("TXT_B61").value, ".", ",")
+		elseif (kolom="C") then
+			if isnumeric(window.document.getElementById("TXT_C60").value)  then objC60 = cdbl(window.document.getElementById("TXT_C60").value) else objC60 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_C41").value)  then objC41 = cdbl(window.document.getElementById("TXT_C41").value) else objC41 = 0 end if
+			
+			if (objC41 > 0 or objC41 < 0) then
+				window.document.getElementById("TXT_C61").value = (objC60 / objC41) * 100
+			else
+				window.document.getElementById("TXT_C61").value = 0
+			end if
+ 			window.document.getElementById("TXT_C61").value = replace(window.document.getElementById("TXT_C61").value, ".", ",")
+		elseif (kolom="D") then
+			if isnumeric(window.document.getElementById("TXT_D60").value)  then objD60 = cdbl(window.document.getElementById("TXT_D60").value) else objD60 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_D41").value)  then objD41 = cdbl(window.document.getElementById("TXT_D41").value) else objD41 = 0 end if
+			
+			if (objD41 > 0 or objD41 < 0) then
+				window.document.getElementById("TXT_D61").value = (objD60 / objD41) * 100
+			else
+				window.document.getElementById("TXT_D61").value = 0
+			end if
+ 			window.document.getElementById("TXT_D61").value = replace(window.document.getElementById("TXT_D61").value, ".", ",")
+		elseif (kolom="E") then
+			if isnumeric(window.document.getElementById("TXT_E60").value)  then objE60 = cdbl(window.document.getElementById("TXT_E60").value) else objE60 = 0 end if
+			if isnumeric(window.document.getElementById("TXT_E41").value)  then objE41 = cdbl(window.document.getElementById("TXT_E41").value) else objE41 = 0 end if
+			
+			if (objE41 > 0 or objE41 < 0) then
+				window.document.getElementById("TXT_E61").value = (objE60 / objE41) * 100
+			else
+				window.document.getElementById("TXT_E61").value = 0
+			end if
+ 			window.document.getElementById("TXT_E61").value = replace(window.document.getElementById("TXT_E61").value, ".", ",")
+		end if '------------------------------- END URUT 13 KOLOM E -------------------------------------------
+		'-------------------------------------- END URUT 13 ---------------------------------------------------	
+	end if	
+	urut = urut+1
+	next 
+	
+	
+end function
+</script>		

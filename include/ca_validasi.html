@@ -1,0 +1,1559 @@
+<script language="javascript">	
+<!--
+
+
+	function validasi(b1,b2,c1,c2,d1,d2,e1,e2)
+	{
+		if (eval("document.getElementById('"+b1+"').value") != eval("document.getElementById('"+b2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+b1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+c1+"').value") != eval("document.getElementById('"+c2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+c1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+d1+"').value") != eval("document.getElementById('"+d2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+d1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+e1+"').value") != eval("document.getElementById('"+e2+"').value"))
+		{
+			alert("Kolom Total asset dgn kolom Liabilities Net Worth tidak sama !! ");
+			eval("document.getElementById('"+e1+"').focus();");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	function valid_small(b1,b2,c1,c2,d1,d2)
+	{
+		if (eval("document.getElementById('"+b1+"').value") != eval("document.getElementById('"+b2+"').value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Pasiva tidak sama !! ");
+			eval("document.getElementById('"+b1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+c1+"').value") != eval("document.getElementById('"+c2+"').value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Pasiva tidak sama !! ");
+			eval("document.getElementById('"+c1+"').focus();");
+			return false;
+		}
+		
+		if (eval("document.getElementById('"+d1+"').value") != eval("document.getElementById('"+d2+"').value"))
+		{
+			alert("Kolom Total Aktiva dgn kolom Pasiva tidak sama !! ");
+			eval("document.getElementById('"+d1+"').focus();");
+			return false;
+		}
+
+		return true;
+	}
+	
+	function cek_key()
+	{
+		
+		if (document.getElementById('TXT_TGL_B1').value=="") 
+		{
+			alert("Silakan isi kolom tanggal nya ");
+			document.getElementById('TXT_TGL_B1').focus();
+			return false;
+		}
+		if (document.getElementById('DDL_BLN_B1').selectedIndex <= 0) 
+		{
+			alert("Silakan isi kolom bulan nya ");
+			document.getElementById('DDL_BLN_B1').focus();
+			return false;
+		}
+		if (document.getElementById('TXT_YEAR_B1').value=="") 
+		{
+			alert("Silakan isi kolom tahunnya nya ");
+			document.getElementById('TXT_YEAR_B1').focus();
+			return false;
+		}
+		//--------------------------------------	
+				if (document.getElementById('TXT_B2').value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.getElementById('TXT_B2').focus();
+					return false;
+				}
+				if (document.getElementById('DDL_B3').selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom jenis laporan nya ");
+					document.getElementById('DDL_B3').focus();
+					return false;
+				}
+			
+		//---- end kolom B-------------------------------
+					if (document.getElementById('TXT_C5').value != "")
+					{
+						if (document.getElementById('TXT_TGL_C1').value=="") 
+						{
+							alert("Silakan isi kolom tanggal nya ");
+							document.getElementById('TXT_TGL_C1').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_BLN_C1').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom bulan nya ");
+							document.getElementById('DDL_BLN_C1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_YEAR_C1').value=="") 
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							document.getElementById('TXT_YEAR_C1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_C2').value=="") 
+						{
+							alert("Silakan isi kolom jumlah bulan nya ");
+							document.getElementById('TXT_C2').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_C3').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom jenis laporan nya ");
+							document.getElementById('DDL_C3').focus();
+							return false;
+						}
+					}	
+				
+		//-----------end kolom C-----------------------------
+					if (document.getElementById('TXT_D5').value != "")
+					{
+						if (document.getElementById('TXT_TGL_D1').value=="") 
+						{
+							alert("Silakan isi kolom tanggal nya ");
+							document.getElementById('TXT_TGL_D1').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_BLN_D1').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom bulan nya ");
+							document.getElementById('DDL_BLN_D1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_YEAR_B1').value=="") 
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							document.getElementById('TXT_YEAR_D1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_D2').value=="") 
+						{
+							alert("Silakan isi jumlah bulan nya ");
+							document.getElementById('TXT_D2').focus();
+							return false;
+						}
+					}
+			
+		//--------------end kolom D------------------------------ 
+		return true;
+	}
+	
+	
+	function cek_key_middle()
+	{
+		
+		if (document.getElementById('TXT_TGL_B1').value=="") 
+		{
+			alert("Silakan isi kolom tanggal nya ");
+			document.getElementById('TXT_TGL_B1').focus();
+			return false;
+		}
+		if (document.getElementById('DDL_BLN_B1').selectedIndex <= 0) 
+		{
+			alert("Silakan isi kolom bulan nya ");
+			document.getElementById('DDL_BLN_B1').focus();
+			return false;
+		}
+		if (document.getElementById('TXT_YEAR_B1').value=="") 
+		{
+			alert("Silakan isi kolom tahunnya nya ");
+			document.getElementById('TXT_YEAR_B1').focus();
+			return false;
+		}
+		//--------------------------------------	
+				if (document.getElementById('TXT_B2').value=="") 
+				{
+					alert("Silakan isi kolom jumlah bulan nya ");
+					document.getElementById('TXT_B2').focus();
+					return false;
+				}
+				if (document.getElementById('DDL_B3').selectedIndex <= 0) 
+				{
+					alert("Silakan isi kolom jenis laporan nya ");
+					document.getElementById('DDL_B3').focus();
+					return false;
+				}
+			
+		//---- end kolom B-------------------------------
+					if (document.getElementById('TXT_C5').value != "")
+					{
+						if (document.getElementById('TXT_TGL_C1').value=="") 
+						{
+							alert("Silakan isi kolom tanggal nya ");
+							document.getElementById('TXT_TGL_C1').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_BLN_C1').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom bulan nya ");
+							document.getElementById('DDL_BLN_C1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_YEAR_C1').value=="") 
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							document.getElementById('TXT_YEAR_C1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_C2').value=="") 
+						{
+							alert("Silakan isi kolom jumlah bulan nya ");
+							document.getElementById('TXT_C2').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_C3').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom jenis laporan nya ");
+							document.getElementById('DDL_C3').focus();
+							return false;
+						}
+					}	
+				
+		//-----------end kolom C-----------------------------
+					if (document.getElementById('TXT_D5').value != "")
+					{
+						if (document.getElementById('TXT_TGL_D1').value=="") 
+						{
+							alert("Silakan isi kolom tanggal nya ");
+							document.getElementById('TXT_TGL_D1').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_BLN_D1').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom bulan nya ");
+							document.getElementById('DDL_BLN_D1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_YEAR_B1').value=="") 
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							document.getElementById('TXT_YEAR_D1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_D2').value=="") 
+						{
+							alert("Silakan isi jumlah bulan nya ");
+							document.getElementById('TXT_D2').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_D3').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom jenis laporan nya ");
+							document.getElementById('DDL_D3').focus();
+							return false;
+						}
+					}
+				//----------------------------------------------------------------------
+				if (document.getElementById('TXT_E5').value != "")
+					{
+						if (document.getElementById('TXT_TGL_E1').value=="") 
+						{
+							alert("Silakan isi kolom tanggal nya ");
+							document.getElementById('TXT_TGL_E1').focus();
+							return false;
+						}
+						if (document.getElementById('DDL_BLN_E1').selectedIndex <= 0) 
+						{
+							alert("Silakan isi kolom bulan nya ");
+							document.getElementById('DDL_BLN_E1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_YEAR_E1').value=="") 
+						{
+							alert("Silakan isi kolom tahunnya nya ");
+							document.getElementById('TXT_YEAR_E1').focus();
+							return false;
+						}
+						if (document.getElementById('TXT_E2').value=="") 
+						{
+							alert("Silakan isi jumlah bulan nya ");
+							document.getElementById('TXT_E2').focus();
+							return false;
+						}
+					}
+			
+		//--------------end kolom D------------------------------ 
+		return true;
+	}
+
+
+	function cek_all(tipe) {
+	    if (tipe == "small") {
+	        for (n = 4; n < 35; n++) {
+	            tmpB = eval("document.getElementById('TXT_B')" + n);
+	            tmpC = eval("document.getElementById('TXT_C')" + n);
+	            tmpD = eval("document.getElementById('TXT_D')" + n);
+
+	            xB2 = document.getElementById('TXT_B2');
+	            xB3 = document.getElementById('DDL_B3');
+
+	            if ((tmpB.value == "") || (tmpC.value == "") || (tmpD.value == "") || (xB2.value == "") || (xB3.value == "")) {
+	                alert("Kolom Tidak boleh mengandung nilai null\nSilakan anda melengkapi data nya.");
+	                return false;
+	            }
+	        }
+	    }
+	    else // middle
+	    {
+	        for (m = 4; m < 36; m++) {
+	            tmpB = eval("document.getElementById('TXT_B')" + m);
+	            tmpC = eval("document.getElementById('TXT_C')" + m);
+	            tmpD = eval("document.getElementById('TXT_D')" + m);
+	            tmpE = eval("document.getElementById('TXT_E')" + m);
+
+	            vB2 = document.getElementById('TXT_B2');
+	            vB3 = document.getElementById('DDL_B3');
+
+	            if ((tmpB.value == "") || (tmpC.value == "") || (tmpD.value == "") || (tmpE.value == "") || (vB2.value == "") || (vB3.value == "")) {
+	                alert("Kolom Tidak boleh mengandung nilai null\nSilakan anda melengkapi data nya.");
+	                return false;
+	            }
+	        }
+	    }
+	    return true;
+	}
+
+	function cek_ratio(tipe, start, end) {
+	    if (tipe == "middle") {
+	        for (m = start; m <= end; m++) {
+	            tmpB = eval("document.getElementById('TXT_B')" + m);
+	            tmpC = eval("document.getElementById('TXT_C')" + m);
+	            tmpD = eval("document.getElementById('TXT_D')" + m);
+	            tmpE = eval("document.getElementById('TXT_E')" + m);
+
+	            vB2 = document.getElementById('TXT_B3');
+	            vB3 = document.getElementById('DDL_B4');
+
+	            if ((tmpB.value == "") || (tmpC.value == "") || (tmpD.value == "") || (tmpE.value == "") || (vB2.value == "") || (vB3.value == "")) {
+	                alert("Kolom Tidak boleh mengandung nilai null\nSilakan anda melengkapi data nya.");
+	                return false;
+	            }
+	        }
+	    }
+	    else {
+	        for (m = start; m <= end; m++) {
+	            tmpB = eval("document.getElementById('TXT_B')" + m);
+	            tmpC = eval("document.getElementById('TXT_C')" + m);
+	            tmpD = eval("document.getElementById('TXT_D')" + m);
+
+	            x = start - 2;
+	            y = start - 1;
+	            vB2 = eval("document.getElementById('TXT_B')" + x);
+	            vB3 = eval("document.getElementById('DDL_B')" + y);
+
+	            if ((tmpB.value == "") || (tmpC.value == "") || (tmpD.value == "") || (vB2.value == "") || (vB3.value == "")) {
+	                alert("Kolom Tidak boleh mengandung nilai null\nSilakan anda melengkapi data nya.");
+	                return false;
+	            }
+	        }
+	    }
+
+	    return true;
+	}
+	
+	function hit_neraca(urut, kolom)
+	{
+		if (urut==1)
+		{
+			if (kolom=="B")
+			{
+				vKB_B = document.getElementById('TXT_B5').value; // kolom b kas bank
+				vPD_B = document.getElementById('TXT_B6').value; // 
+				vPersediaan_B = document.getElementById('TXT_B7').value;
+				vAktivaLncrLain_B = document.getElementById('TXT_B8').value;
+				
+				if (vKB_B==""){ vKB_B=0; }
+				if (vPD_B==""){ vPD_B=0; }
+				if (vPersediaan_B==""){ vPersediaan_B=0; }
+				if (vAktivaLncrLain_B==""){ vAktivaLncrLain_B=0; }
+				
+				document.getElementById('TXT_B9').value = parseInt(vKB_B) + parseInt(vPD_B) + parseInt(vPersediaan_B) + parseInt(vAktivaLncrLain_B);
+			}
+			else if (kolom=="C")
+			{
+				vKB_C = document.getElementById('TXT_C5').value; // kolom b kas bank
+				vPD_C = document.getElementById('TXT_C6').value; // 
+				vPersediaan_C = document.getElementById('TXT_C7').value;
+				vAktivaLncrLain_C = document.getElementById('TXT_C8').value;
+				
+				if (vKB_C==""){ vKB_C=0; }
+				if (vPD_C==""){ vPD_C=0; }
+				if (vPersediaan_C==""){ vPersediaan_C=0; }
+				if (vAktivaLncrLain_C==""){ vAktivaLncrLain_C=0; }
+				
+				document.getElementById('TXT_C9').value = parseInt(vKB_C)+parseInt(vPD_C)+parseInt(vPersediaan_C)+parseInt(vAktivaLncrLain_C);	
+			}	
+			else
+			{
+				vKB_D = document.getElementById('TXT_D5').value; // kolom b kas bank
+				vPD_D = document.getElementById('TXT_D6').value; // 
+				vPersediaan_D = document.getElementById('TXT_D7').value;
+				vAktivaLncrLain_D = document.getElementById('TXT_D8').value;
+				
+				if (vKB_D==""){ vKB_D=0; }
+				if (vPD_D==""){ vPD_D=0; }
+				if (vPersediaan_D==""){ vPersediaan_D=0; }
+				if (vAktivaLncrLain_D==""){ vAktivaLncrLain_D=0; }
+				
+				document.getElementById('TXT_D9').value = parseInt(vKB_D)+parseInt(vPD_D)+parseInt(vPersediaan_D)+parseInt(vAktivaLncrLain_D);	
+			}
+		}
+		
+		else if (urut==2)
+		{
+			if (kolom=="B")
+			{
+				vTnhBg_B = document.getElementById('TXT_B10').value; // kolom b kas bank
+				vMesinAlat_B = document.getElementById('TXT_B11').value; // 
+				vInventKndr_B = document.getElementById('TXT_B12').value;
+				vAktivaTtpLain_B = document.getElementById('TXT_B13').value;
+				//vAkumSusut_B = document.getElementById('TXT_B14').value;
+				
+				if (vTnhBg_B==""){ vTnhBg_B=0; }
+				if (vMesinAlat_B==""){ vMesinAlat_B=0; }
+				if (vInventKndr_B==""){ vInventKndr_B=0; }
+				if (vAktivaTtpLain_B==""){ vAktivaTtpLain_B=0; }
+				//if (vAkumSusut_B==""){ vAkumSusut_B=0; }
+				
+				//document.getElementById('TXT_B15').value = parseInt(vTnhBg_B)+parseInt(vMesinAlat_B)+parseInt(vInventKndr_B)+parseInt(vAktivaTtpLain_B)+parseInt(vAkumSusut_B);	
+				document.getElementById('TXT_B15').value = parseInt(vTnhBg_B)+parseInt(vMesinAlat_B)+parseInt(vInventKndr_B)+parseInt(vAktivaTtpLain_B);	
+			}
+			else if (kolom=="C")
+			{
+				vTnhBg_C = document.getElementById('TXT_C10').value; // kolom b kas bank
+				vMesinAlat_C = document.getElementById('TXT_C11').value; // 
+				vInventKndr_C = document.getElementById('TXT_C12').value;
+				vAktivaTtpLain_C = document.getElementById('TXT_C13').value;
+				//vAkumSusut_C = document.getElementById('TXT_C14').value;
+				
+				if (vTnhBg_C==""){ vTnhBg_C=0; }
+				if (vMesinAlat_C==""){ vMesinAlat_C=0; }
+				if (vInventKndr_C==""){ vInventKndr_C=0; }
+				if (vAktivaTtpLain_C==""){ vAktivaTtpLain_C=0; }
+				//if (vAkumSusut_C==""){ vAkumSusut_C=0; }
+				
+				//document.getElementById('TXT_C15').value = parseInt(vTnhBg_C)+parseInt(vMesinAlat_C)+parseInt(vInventKndr_C)+parseInt(vAktivaTtpLain_C)+parseInt(vAkumSusut_C);	
+				document.getElementById('TXT_C15').value = parseInt(vTnhBg_C)+parseInt(vMesinAlat_C)+parseInt(vInventKndr_C)+parseInt(vAktivaTtpLain_C);	
+			}
+			else
+			{
+				vTnhBg_D = document.getElementById('TXT_D10').value; // kolom b kas bank
+				vMesinAlat_D = document.getElementById('TXT_D11').value; // 
+				vInventKndr_D = document.getElementById('TXT_D12').value;
+				vAktivaTtpLain_D = document.getElementById('TXT_D13').value;
+				//vAkumSusut_D = document.getElementById('TXT_D14').value;
+				
+				if (vTnhBg_D==""){ vTnhBg_D=0; }
+				if (vMesinAlat_D==""){ vMesinAlat_D=0; }
+				if (vInventKndr_D==""){ vInventKndr_D=0; }
+				if (vAktivaTtpLain_D==""){ vAktivaTtpLain_D=0; }
+				//if (vAkumSusut_D==""){ vAkumSusut_D=0; }
+				
+				//document.getElementById('TXT_D15').value = parseInt(vTnhBg_D)+parseInt(vMesinAlat_D)+parseInt(vInventKndr_D)+parseInt(vAktivaTtpLain_D)+parseInt(vAkumSusut_D);	
+				document.getElementById('TXT_D15').value = parseInt(vTnhBg_D)+parseInt(vMesinAlat_D)+parseInt(vInventKndr_D)+parseInt(vAktivaTtpLain_D);	
+			}
+		}
+		//-----------------------------------------------
+		else if (urut==3)
+		{
+			if (kolom=="B")
+			{
+				vBiayaDitanggukan_B = document.getElementById('TXT_B16').value; // kolom b kas bank
+				vAkumAmortisasi_B = document.getElementById('TXT_B17').value; // 
+				vAktivaLainnya_B = document.getElementById('TXT_B18').value;
+				
+				
+				if (vBiayaDitanggukan_B==""){ vBiayaDitanggukan_B=0; }
+				if (vAkumAmortisasi_B==""){ vAkumAmortisasi_B=0; }
+				if (vAktivaLainnya_B==""){ vAktivaLainnya_B=0; }
+				
+				document.getElementById('TXT_B19').value = parseInt(vBiayaDitanggukan_B)+parseInt(vAkumAmortisasi_B)+parseInt(vAktivaLainnya_B);					
+			}
+			else if (kolom=="C")
+			{
+				vBiayaDitanggukan_C = document.getElementById('TXT_C16').value; // kolom b kas bank
+				vAkumAmortisasi_C = document.getElementById('TXT_C17').value; // 
+				vAktivaLainnya_C = document.getElementById('TXT_C18').value;
+				
+				if (vBiayaDitanggukan_C==""){ vBiayaDitanggukan_C=0; }
+				if (vAkumAmortisasi_C==""){ vAkumAmortisasi_C=0; }
+				if (vAktivaLainnya_C==""){ vAktivaLainnya_C=0; }
+				
+				document.getElementById('TXT_C19').value = parseInt(vBiayaDitanggukan_C)+parseInt(vAkumAmortisasi_C)+parseInt(vAktivaLainnya_C);					
+			}
+			else 
+			{
+				vBiayaDitanggukan_D = document.getElementById('TXT_D16').value; // kolom b kas bank
+				vAkumAmortisasi_D = document.getElementById('TXT_D17').value; // 
+				vAktivaLainnya_D = document.getElementById('TXT_D18').value;
+								
+				if (vBiayaDitanggukan_D==""){ vBiayaDitanggukan_D=0; }
+				if (vAkumAmortisasi_D==""){ vAkumAmortisasi_D=0; }
+				if (vAktivaLainnya_D==""){ vAktivaLainnya_D=0; }
+				
+				document.getElementById('TXT_D19').value = parseInt(vBiayaDitanggukan_D)+parseInt(vAkumAmortisasi_D)+parseInt(vAktivaLainnya_D);						
+			}
+		}
+		//----------------------------------------
+		else if (urut==4)
+		{
+			if (kolom=="B")
+			{
+				vTotalAktivaLncr_B = document.getElementById('TXT_B9').value;
+				vNetAktvTtp_B = document.getElementById('TXT_B15').value;
+				vTtlAktivaLain_B = document.getElementById('TXT_B19').value;
+				
+				if (vTotalAktivaLncr_B==""){ vTotalAktivaLncr_B=0; }
+				if (vNetAktvTtp_B==""){ vNetAktvTtp_B=0; }
+				if (vTtlAktivaLain_B==""){ vTtlAktivaLain_B=0; }
+				
+				document.getElementById('TXT_B20').value = parseInt(vTotalAktivaLncr_B) + parseInt(vNetAktvTtp_B) + parseInt(vTtlAktivaLain_B);
+				
+			}
+			else if (kolom=="C")
+			{
+				vTotalAktivaLncr_C = document.getElementById('TXT_C9').value;
+				vNetAktvTtp_C = document.getElementById('TXT_C15').value;
+				vTtlAktivaLain_C = document.getElementById('TXT_C19').value;
+				
+				if (vTotalAktivaLncr_C==""){ vTotalAktivaLncr_C=0; }
+				if (vNetAktvTtp_C==""){ vNetAktvTtp_C=0; }
+				if (vTtlAktivaLain_C==""){ vTtlAktivaLain_C=0; }
+				
+				document.getElementById('TXT_C20').value = parseInt(vTotalAktivaLncr_C) + parseInt(vNetAktvTtp_C) + parseInt(vTtlAktivaLain_C);
+			}
+			else
+			{
+				vTotalAktivaLncr_D = document.getElementById('TXT_D9').value;
+				vNetAktvTtp_D = document.getElementById('TXT_D15').value;
+				vTtlAktivaLain_D = document.getElementById('TXT_D19').value;
+				
+				if (vTotalAktivaLncr_D==""){ vTotalAktivaLncr_D=0; }
+				if (vNetAktvTtp_D==""){ vNetAktvTtp_D=0; }
+				if (vTtlAktivaLain_D==""){ vTtlAktivaLain_D=0; }
+				
+				document.getElementById('TXT_D20').value = parseInt(vTotalAktivaLncr_D) + parseInt(vNetAktvTtp_D) + parseInt(vTtlAktivaLain_D);
+			}
+		}
+		//-------------------------------------------
+		// -- START PASIVA ---------------------------
+		//--------------------------------------------
+		else if (urut==5)
+		{
+			if (kolom=="B")
+			{
+				vHtDg_B = document.getElementById('TXT_B21').value;
+				vHtBank_B = document.getElementById('TXT_B22').value;
+				vKIJthTempo_B = document.getElementById('TXT_B23').value;
+				vHtLncrLain_B = document.getElementById('TXT_B24').value;
+				
+				if (vHtDg_B==""){ vHtDg_B=0; }
+				if (vHtBank_B==""){ vHtBank_B=0; }
+				if (vKIJthTempo_B==""){ vKIJthTempo_B=0; }
+				if (vHtLncrLain_B==""){ vHtLncrLain_B=0; }
+				
+				document.getElementById('TXT_B25').value = parseInt(vHtDg_B) + parseInt(vHtBank_B) + parseInt(vKIJthTempo_B) + parseInt(vHtLncrLain_B);				
+			}
+			else if (kolom=="C")
+			{
+				vHtDg_C = document.getElementById('TXT_C21').value;
+				vHtBank_C = document.getElementById('TXT_C22').value;
+				vKIJthTempo_C = document.getElementById('TXT_C23').value;
+				vHtLncrLain_C = document.getElementById('TXT_C24').value;
+				
+				if (vHtDg_C==""){ vHtDg_C=0; }
+				if (vHtBank_C==""){ vHtBank_C=0; }
+				if (vKIJthTempo_C==""){ vKIJthTempo_C=0; }
+				if (vHtLncrLain_C==""){ vHtLncrLain_C=0; }
+				
+				document.getElementById('TXT_C25').value = parseInt(vHtDg_C) + parseInt(vHtBank_C) + parseInt(vKIJthTempo_C) + parseInt(vHtLncrLain_C);				
+			}
+			else
+			{
+				vHtDg_D = document.getElementById('TXT_D21').value;
+				vHtBank_D = document.getElementById('TXT_D22').value;
+				vKIJthTempo_D = document.getElementById('TXT_D23').value;
+				vHtLncrLain_D = document.getElementById('TXT_D24').value;
+				
+				if (vHtDg_D==""){ vHtDg_D=0; }
+				if (vHtBank_D==""){ vHtBank_D=0; }
+				if (vKIJthTempo_D==""){ vKIJthTempo_D=0; }
+				if (vHtLncrLain_D==""){ vHtLncrLain_D=0; }
+				
+				document.getElementById('TXT_D25').value = parseInt(vHtDg_D) + parseInt(vHtBank_D) + parseInt(vKIJthTempo_D) + parseInt(vHtLncrLain_D);				
+			}		
+		}
+		//-----------------------------------------------------------	
+		else if (urut==6)
+		{
+			if (kolom=="B")
+			{
+				vHtJkPjg_B = document.getElementById('TXT_B26').value;
+				vHtPmggShm_B = document.getElementById('TXT_B27').value;
+				vHtJkPjgLain_B = document.getElementById('TXT_B28').value;
+				
+				if (vHtJkPjg_B==""){ vHtJkPjg_B=0; }
+				if (vHtPmggShm_B==""){ vHtPmggShm_B=0; }
+				if (vHtJkPjgLain_B==""){ vHtJkPjgLain_B=0; }
+				
+				document.getElementById('TXT_B29').value = parseInt(vHtJkPjg_B) + parseInt(vHtPmggShm_B) + parseInt(vHtJkPjgLain_B);				
+			}
+			else if (kolom=="C")
+			{
+				vHtJkPjg_C = document.getElementById('TXT_C26').value;
+				vHtPmggShm_C = document.getElementById('TXT_C27').value;
+				vHtJkPjgLain_C = document.getElementById('TXT_C28').value;
+				
+				if (vHtJkPjg_C==""){ vHtJkPjg_C=0; }
+				if (vHtPmggShm_C==""){ vHtPmggShm_C=0; }
+				if (vHtJkPjgLain_C==""){ vHtJkPjgLain_C=0; }
+				
+				document.getElementById('TXT_C29').value = parseInt(vHtJkPjg_C) + parseInt(vHtPmggShm_C) + parseInt(vHtJkPjgLain_C);
+			}
+			else
+			{
+				vHtJkPjg_D = document.getElementById('TXT_D26').value;
+				vHtPmggShm_D = document.getElementById('TXT_D27').value;
+				vHtJkPjgLain_D = document.getElementById('TXT_D28').value;
+				
+				if (vHtJkPjg_D==""){ vHtJkPjg_D=0; }
+				if (vHtPmggShm_D==""){ vHtPmggShm_D=0; }
+				if (vHtJkPjgLain_D==""){ vHtJkPjgLain_D=0; }
+				
+				document.getElementById('TXT_D29').value = parseInt(vHtJkPjg_D) + parseInt(vHtPmggShm_D) + parseInt(vHtJkPjgLain_D);
+			}
+		}
+		//----------------------------------------------
+		else if (urut==7)
+		{
+			if (kolom=="B")
+			{
+				vTtlHtLncr_B = document.getElementById('TXT_B25').value;
+				vTtlHtJkPjg_B = document.getElementById('TXT_B29').value;
+				
+				if (vTtlHtLncr_B==""){ vTtlHtLncr_B=0; }
+				if (vTtlHtJkPjg_B==""){ vTtlHtJkPjg_B=0; }
+				
+				document.getElementById('TXT_B30').value = parseInt(vTtlHtLncr_B) + parseInt(vTtlHtJkPjg_B); 
+			}
+			else if (kolom=="C")
+			{
+				vTtlHtLncr_C = document.getElementById('TXT_C25').value;
+				vTtlHtJkPjg_C = document.getElementById('TXT_C29').value;
+				
+				if (vTtlHtLncr_C==""){ vTtlHtLncr_C=0; }
+				if (vTtlHtJkPjg_C==""){ vTtlHtJkPjg_C=0; }
+				
+				document.getElementById('TXT_C30').value = parseInt(vTtlHtLncr_C) + parseInt(vTtlHtJkPjg_C); 
+			}
+			else
+			{
+				vTtlHtLncr_D = document.getElementById('TXT_D25').value;
+				vTtlHtJkPjg_D = document.getElementById('TXT_D29').value;
+				
+				if (vTtlHtLncr_D==""){ vTtlHtLncr_D=0; }
+				if (vTtlHtJkPjg_D==""){ vTtlHtJkPjg_D=0; }
+				
+				document.getElementById('TXT_D30').value = parseInt(vTtlHtLncr_D) + parseInt(vTtlHtJkPjg_D); 
+			}
+		}
+		//---------------------------------------------------------
+		else if (urut==8)
+		{
+			if (kolom=="B")
+			{
+				vModalSetor_B = document.getElementById('TXT_B31').value;
+				vLabaRugiTahan_B = document.getElementById('TXT_B32').value;
+				
+				if (vModalSetor_B==""){ vModalSetor_B=0; }
+				if (vLabaRugiTahan_B==""){ vLabaRugiTahan_B=0; }
+				
+				document.getElementById('TXT_B33').value = parseInt(vModalSetor_B) + parseInt(vLabaRugiTahan_B); 
+			}
+			else if (kolom=="C")
+			{
+				vModalSetor_C = document.getElementById('TXT_C31').value;
+				vLabaRugiTahan_C = document.getElementById('TXT_C32').value;
+				
+				if (vModalSetor_C==""){ vModalSetor_C=0; }
+				if (vLabaRugiTahan_C==""){ vLabaRugiTahan_C=0; }
+				
+				document.getElementById('TXT_C33').value = parseInt(vModalSetor_C) + parseInt(vLabaRugiTahan_C); 
+			}
+			else
+			{
+				vModalSetor_D = document.getElementById('TXT_D31').value;
+				vLabaRugiTahan_D = document.getElementById('TXT_D32').value;
+				
+				if (vModalSetor_D==""){ vModalSetor_D=0; }
+				if (vLabaRugiTahan_D==""){ vLabaRugiTahan_D=0; }
+				
+				document.getElementById('TXT_D33').value = parseInt(vModalSetor_D) + parseInt(vLabaRugiTahan_D); 
+			}			
+		}
+		//---------------------------------------------------------------------
+		else if (urut==9)
+		{
+			if (kolom=="B")
+			{
+				vTtlHt_B = 	document.getElementById('TXT_B30').value;
+				vTtlModal_B = 	document.getElementById('TXT_B33').value;
+				
+				if (vTtlHt_B==""){ vTtlHt_B=0; }
+				if (vTtlModal_B==""){ vTtlModal_B=0; }
+				
+				document.getElementById('TXT_B34').value = parseInt(vTtlHt_B) + parseInt(vTtlModal_B); 
+			}
+			else if (kolom=="C")
+			{
+				vTtlHt_C = 	document.getElementById('TXT_C30').value;
+				vTtlModal_C = 	document.getElementById('TXT_C33').value;
+				
+				if (vTtlHt_C==""){ vTtlHt_C=0; }
+				if (vTtlModal_C==""){ vTtlModal_C=0; }
+				
+				document.getElementById('TXT_C34').value = parseInt(vTtlHt_C) + parseInt(vTtlModal_C); 
+			}
+			else 
+			{
+				vTtlHt_D = 	document.getElementById('TXT_D30').value;
+				vTtlModal_D = 	document.getElementById('TXT_D33').value;
+				
+				if (vTtlHt_D==""){ vTtlHt_D=0; }
+				if (vTtlModal_D==""){ vTtlModal_D=0; }
+				
+				document.getElementById('TXT_D34').value = parseInt(vTtlHt_D) + parseInt(vTtlModal_D); 
+			}
+		}
+		//--- END PASIVA ---
+		//------------------------------------------------------------------------------------
+	}
+	
+	function hit_neraca_middle(urut,kolom)
+	{
+		if (urut==1)
+		{
+			if (kolom=="B")
+			{
+				vCashBank_B = document.getElementById('TXT_B5').value; // kolom b kas bank
+				vMarket_B = document.getElementById('TXT_B6').value; // 
+				vAR_B = document.getElementById('TXT_B7').value;
+				vARfrA_B = document.getElementById('TXT_B8').value;
+				vInventory_B = document.getElementById('TXT_B9').value;
+				vOthCA_B = document.getElementById('TXT_B10').value;
+				vPrePayExp_B = document.getElementById('TXT_B11').value;
+				
+				
+				if (vCashBank_B==""){ vCashBank_B=0; }
+				if (vMarket_B==""){ vMarket_B=0; }
+				if (vAR_B==""){ vAR_B=0; }
+				if (vARfrA_B==""){ vARfrA_B=0; }
+				if (vInventory_B==""){ vInventory_B=0; }
+				if (vOthCA_B==""){ vOthCA_B=0; }
+				if (vPrePayExp_B==""){ vPrePayExp_B=0; }
+				
+				document.getElementById('TXT_B12').value = parseInt(vCashBank_B) + parseInt(vMarket_B) + parseInt(vAR_B) + parseInt(vARfrA_B) + parseInt(vInventory_B) + parseInt(vOthCA_B) + parseInt(vPrePayExp_B);
+			}		
+			//----- end urut 1 kolom B ---
+			else if (kolom=="C")
+			{
+				vCashBank_C = document.getElementById('TXT_C5').value; // kolom b kas bank
+				vMarket_C = document.getElementById('TXT_C6').value; // 
+				vAR_C = document.getElementById('TXT_C7').value;
+				vARfrA_C = document.getElementById('TXT_C8').value;
+				vInventory_C = document.getElementById('TXT_C9').value;
+				vOthCA_C = document.getElementById('TXT_C10').value;
+				vPrePayExp_C = document.getElementById('TXT_C11').value;
+				
+				
+				if (vCashBank_C==""){ vCashBank_C=0; }
+				if (vMarket_C==""){ vMarket_C=0; }
+				if (vAR_C==""){ vAR_C=0; }
+				if (vARfrA_C==""){ vARfrA_C=0; }
+				if (vInventory_C==""){ vInventory_C=0; }
+				if (vOthCA_C==""){ vOthCA_C=0; }
+				if (vPrePayExp_C==""){ vPrePayExp_C=0; }
+				
+				document.getElementById('TXT_C12').value = parseInt(vCashBank_C) + parseInt(vMarket_C) + parseInt(vAR_C) + parseInt(vARfrA_C) + parseInt(vInventory_C) + parseInt(vOthCA_C) + parseInt(vPrePayExp_C);
+			}		
+			//----- end urut 1 kolom C ---
+			else if (kolom=="D")
+			{
+				vCashBank_D = document.getElementById('TXT_D5').value; // kolom b kas bank
+				vMarket_D = document.getElementById('TXT_D6').value; // 
+				vAR_D = document.getElementById('TXT_D7').value;
+				vARfrA_D = document.getElementById('TXT_D8').value;
+				vInventory_D = document.getElementById('TXT_D9').value;
+				vOthCA_D = document.getElementById('TXT_D10').value;
+				vPrePayExp_D = document.getElementById('TXT_D11').value;
+				
+				
+				if (vCashBank_D==""){ vCashBank_D=0; }
+				if (vMarket_D==""){ vMarket_D=0; }
+				if (vAR_D==""){ vAR_D=0; }
+				if (vARfrA_D==""){ vARfrA_D=0; }
+				if (vInventory_D==""){ vInventory_D=0; }
+				if (vOthCA_D==""){ vOthCA_D=0; }
+				if (vPrePayExp_D==""){ vPrePayExp_D=0; }
+				
+				document.getElementById('TXT_D12').value = parseInt(vCashBank_D) + parseInt(vMarket_D) + parseInt(vAR_D) + parseInt(vARfrA_D) + parseInt(vInventory_D) + parseInt(vOthCA_D) + parseInt(vPrePayExp_D);
+			}		
+			//----- end urut 1 kolom D ---
+			else if (kolom=="E")
+			{
+				vCashBank_E = document.getElementById('TXT_E5').value; // kolom b kas bank
+				vMarket_E = document.getElementById('TXT_E6').value; // 
+				vAR_E = document.getElementById('TXT_E7').value;
+				vARfrA_E = document.getElementById('TXT_E8').value;
+				vInventory_E = document.getElementById('TXT_E9').value;
+				vOthCA_E = document.getElementById('TXT_E10').value;
+				vPrePayExp_E = document.getElementById('TXT_E11').value;
+				
+				
+				if (vCashBank_E==""){ vCashBank_E=0; }
+				if (vMarket_E==""){ vMarket_E=0; }
+				if (vAR_E==""){ vAR_E=0; }
+				if (vARfrA_E==""){ vARfrA_E=0; }
+				if (vInventory_E==""){ vInventory_E=0; }
+				if (vOthCA_E==""){ vOthCA_E=0; }
+				if (vPrePayExp_E==""){ vPrePayExp_E=0; }
+				
+				document.getElementById('TXT_E12').value = parseInt(vCashBank_E) + parseInt(vMarket_E) + parseInt(vAR_E) + parseInt(vARfrA_E) + parseInt(vInventory_E) + parseInt(vOthCA_D) + parseInt(vPrePayExp_E);
+			}		
+			//----- end urut 1 kolom E ---
+		}
+		//--- end urut 1 ----------
+		else if (urut==2)
+		{
+			if (kolom=="B")
+			{
+				vNetFixAsst_B = document.getElementById('TXT_B13').value; // kolom b kas bank
+				vInvestment_B = document.getElementById('TXT_B14').value; // 
+				vNetOthNCA_B = document.getElementById('TXT_B15').value;
+				vNetIntangible_B = document.getElementById('TXT_B16').value;
+				
+				if (vNetFixAsst_B==""){ vNetFixAsst_B=0; }
+				if (vInvestment_B==""){ vInvestment_B=0; }
+				if (vNetOthNCA_B==""){ vNetOthNCA_B=0; }
+				if (vNetIntangible_B==""){ vNetIntangible_B=0; }
+				
+				document.getElementById('TXT_B17').value = parseInt(vNetFixAsst_B) + parseInt(vInvestment_B) + parseInt(vNetOthNCA_B) + parseInt(vNetIntangible_B);
+			}
+			//---- end urut 2 kolom b
+			else if (kolom=="B")
+			{
+				vNetFixAsst_C = document.getElementById('TXT_C13').value; // kolom b kas bank
+				vInvestment_C = document.getElementById('TXT_C14').value; // 
+				vNetOthNCA_C = document.getElementById('TXT_C15').value;
+				vNetIntangible_C = document.getElementById('TXT_C16').value;
+				
+				if (vNetFixAsst_C==""){ vNetFixAsst_C=0; }
+				if (vInvestment_C==""){ vInvestment_C=0; }
+				if (vNetOthNCA_C==""){ vNetOthNCA_C=0; }
+				if (vNetIntangible_C==""){ vNetIntangible_C=0; }
+				
+				document.getElementById('TXT_C17').value = parseInt(vNetFixAsst_C) + parseInt(vInvestment_C) + parseInt(vNetOthNCA_C) + parseInt(vNetIntangible_C);
+			}
+			//---- end urut 2 kolom c
+			else if (kolom=="D")
+			{
+				vNetFixAsst_D = document.getElementById('TXT_D13').value; // kolom b kas bank
+				vInvestment_D = document.getElementById('TXT_D14').value; // 
+				vNetOthNCA_D = document.getElementById('TXT_D15').value;
+				vNetIntangible_D = document.getElementById('TXT_D16').value;
+				
+				if (vNetFixAsst_D==""){ vNetFixAsst_D=0; }
+				if (vInvestment_D==""){ vInvestment_D=0; }
+				if (vNetOthNCA_D==""){ vNetOthNCA_D=0; }
+				if (vNetIntangible_D==""){ vNetIntangible_D=0; }
+				
+				document.getElementById('TXT_D17').value = parseInt(vNetFixAsst_D) + parseInt(vInvestment_D) + parseInt(vNetOthNCA_D) + parseInt(vNetIntangible_D);
+			}
+			//---- end urut 2 kolom D
+			else if (kolom=="E")
+			{
+				vNetFixAsst_E = document.getElementById('TXT_E13').value; // kolom b kas bank
+				vInvestment_E = document.getElementById('TXT_E14').value; // 
+				vNetOthNCA_E = document.getElementById('TXT_E15').value;
+				vNetIntangible_E = document.getElementById('TXT_E16').value;
+				
+				if (vNetFixAsst_E==""){ vNetFixAsst_E=0; }
+				if (vInvestment_E==""){ vInvestment_E=0; }
+				if (vNetOthNCA_E==""){ vNetOthNCA_E=0; }
+				if (vNetIntangible_E==""){ vNetIntangible_E=0; }
+				
+				document.getElementById('TXT_E17').value = parseInt(vNetFixAsst_E) + parseInt(vInvestment_E) + parseInt(vNetOthNCA_E) + parseInt(vNetIntangible_E);
+			}
+			//---- end urut 2 kolom D
+		}
+		//--- end urut 2 ----------
+		else if (urut==3)
+		{
+			if (kolom=="B")
+			{
+				vCurrAsst_B = document.getElementById('TXT_B12').value; // kolom b kas bank
+				vTtlNCA_B = document.getElementById('TXT_B17').value; // 
+				
+				if (vCurrAsst_B==""){ vCurrAsst_B=0; }
+				if (vTtlNCA_B==""){ vTtlNCA_B=0; }
+				
+				document.getElementById('TXT_B18').value = parseInt(vCurrAsst_B) + parseInt(vTtlNCA_B); 
+			}
+			//---- end urut 3 kolom B
+			else if (kolom=="C")
+			{
+				vCurrAsst_C = document.getElementById('TXT_C12').value; // kolom b kas bank
+				vTtlNCA_C = document.getElementById('TXT_C17').value; // 
+				
+				if (vCurrAsst_C==""){ vCurrAsst_C=0; }
+				if (vTtlNCA_C==""){ vTtlNCA_C=0; }
+				
+				document.getElementById('TXT_C18').value = parseInt(vCurrAsst_C) + parseInt(vTtlNCA_C); 
+			}
+			//---- end urut 3 kolom C
+			else if (kolom=="D")
+			{
+				vCurrAsst_D = document.getElementById('TXT_D12').value; // kolom b kas bank
+				vTtlNCA_D = document.getElementById('TXT_D17').value; // 
+				
+				if (vCurrAsst_D==""){ vCurrAsst_D=0; }
+				if (vTtlNCA_D==""){ vTtlNCA_D=0; }
+				
+				document.getElementById('TXT_D18').value = parseInt(vCurrAsst_D) + parseInt(vTtlNCA_D); 
+			}
+			//---- end urut 3 kolom D
+			else if (kolom=="E")
+			{
+				vCurrAsst_E = document.getElementById('TXT_E12').value; // kolom b kas bank
+				vTtlNCA_E = document.getElementById('TXT_E17').value; // 
+				
+				if (vCurrAsst_E==""){ vCurrAsst_E=0; }
+				if (vTtlNCA_E==""){ vTtlNCA_E=0; }
+				
+				document.getElementById('TXT_E18').value = parseInt(vCurrAsst_E) + parseInt(vTtlNCA_E); 
+			}
+			//---- end urut 3 kolom D
+		}
+		//--- end urut 3 ----------
+		else if (urut==4)
+		{
+			if (kolom=="B")
+			{
+				vDBST_B = document.getElementById('TXT_B19').value; // kolom b kas bank
+				vAP_B = document.getElementById('TXT_B20').value; // 
+				vAPtoAff_B = document.getElementById('TXT_B21').value;
+				vAccrual_B = document.getElementById('TXT_B22').value;
+				vTaxPay_B = document.getElementById('TXT_B23').value;
+				vOthCurrLiab_B = document.getElementById('TXT_B24').value;
+				vCurrPortionLTDebt_B = document.getElementById('TXT_B25').value;
+				
+				if (vDBST_B==""){ vDBST_B=0; }
+				if (vAP_B==""){ vAP_B=0; }
+				if (vAPtoAff_B==""){ vAPtoAff_B=0; }
+				if (vAccrual_B==""){ vAccrual_B=0; }
+				if (vTaxPay_B==""){ vTaxPay_B=0; }
+				if (vOthCurrLiab_B==""){ vOthCurrLiab_B=0; }
+				if (vCurrPortionLTDebt_B==""){ vCurrPortionLTDebt_B=0; }
+				
+				document.getElementById('TXT_B26').value = parseInt(vDBST_B) + parseInt(vAP_B) + parseInt(vAPtoAff_B) + parseInt(vAccrual_B) + parseInt(vTaxPay_B) + parseInt(vOthCurrLiab_B) + parseInt(vCurrPortionLTDebt_B);
+			}
+			//--- end urut 4 kolom B
+			else if (kolom=="C")
+			{	
+				vDBST_C = document.getElementById('TXT_C19').value; // kolom b kas bank
+				vAP_C = document.getElementById('TXT_C20').value; // 
+				vAPtoAff_C = document.getElementById('TXT_C21').value;
+				vAccrual_C = document.getElementById('TXT_C22').value;
+				vTaxPay_C = document.getElementById('TXT_C23').value;
+				vOthCurrLiab_C = document.getElementById('TXT_C24').value;
+				vCurrPortionLTDebt_C = document.getElementById('TXT_C25').value;
+				
+				if (vDBST_C==""){ vDBST_C=0; }
+				if (vAP_C==""){ vAP_C=0; }
+				if (vAPtoAff_C==""){ vAPtoAff_C=0; }
+				if (vAccrual_C==""){ vAccrual_C=0; }
+				if (vTaxPay_C==""){ vTaxPay_C=0; }
+				if (vOthCurrLiab_C==""){ vOthCurrLiab_C=0; }
+				if (vCurrPortionLTDebt_C==""){ vCurrPortionLTDebt_C=0; }
+				
+				document.getElementById('TXT_C26').value = parseInt(vDBST_C) + parseInt(vAP_C) + parseInt(vAPtoAff_C) + parseInt(vAccrual_C) + parseInt(vTaxPay_C) + parseInt(vOthCurrLiab_C) + parseInt(vCurrPortionLTDebt_C);
+			}
+			//--- end urut 4 kolom C
+			else if (kolom=="D")
+			{	
+				vDBST_D = document.getElementById('TXT_D19').value; // kolom b kas bank
+				vAP_D = document.getElementById('TXT_D20').value; // 
+				vAPtoAff_D = document.getElementById('TXT_D21').value;
+				vAccrual_D = document.getElementById('TXT_D22').value;
+				vTaxPay_D = document.getElementById('TXT_D23').value;
+				vOthCurrLiab_D = document.getElementById('TXT_D24').value;
+				vCurrPortionLTDebt_D = document.getElementById('TXT_D25').value;
+				
+				if (vDBST_D==""){ vDBST_D=0; }
+				if (vAP_D==""){ vAP_D=0; }
+				if (vAPtoAff_D==""){ vAPtoAff_D=0; }
+				if (vAccrual_D==""){ vAccrual_D=0; }
+				if (vTaxPay_D==""){ vTaxPay_D=0; }
+				if (vOthCurrLiab_D==""){ vOthCurrLiab_D=0; }
+				if (vCurrPortionLTDebt_D==""){ vCurrPortionLTDebt_D=0; }
+				
+				document.getElementById('TXT_D26').value = parseInt(vDBST_D) + parseInt(vAP_D) + parseInt(vAPtoAff_D) + parseInt(vAccrual_D) + parseInt(vTaxPay_D) + parseInt(vOthCurrLiab_D) + parseInt(vCurrPortionLTDebt_D);
+			}
+			//--- end urut 4 kolom D
+			else if (kolom=="E")
+			{	
+				vDBST_E = document.getElementById('TXT_E19').value; // kolom b kas bank
+				vAP_E = document.getElementById('TXT_E20').value; // 
+				vAPtoAff_E = document.getElementById('TXT_E21').value;
+				vAccrual_E = document.getElementById('TXT_E22').value;
+				vTaxPay_E = document.getElementById('TXT_E23').value;
+				vOthCurrLiab_E = document.getElementById('TXT_E24').value;
+				vCurrPortionLTDebt_E = document.getElementById('TXT_E25').value;
+				
+				if (vDBST_E==""){ vDBST_E=0; }
+				if (vAP_E==""){ vAP_E=0; }
+				if (vAPtoAff_E==""){ vAPtoAff_E=0; }
+				if (vAccrual_E==""){ vAccrual_E=0; }
+				if (vTaxPay_E==""){ vTaxPay_E=0; }
+				if (vOthCurrLiab_E==""){ vOthCurrLiab_E=0; }
+				if (vCurrPortionLTDebt_E==""){ vCurrPortionLTDebt_E=0; }
+				
+				document.getElementById('TXT_E26').value = parseInt(vDBST_E) + parseInt(vAP_E) + parseInt(vAPtoAff_E) + parseInt(vAccrual_E) + parseInt(vTaxPay_E) + parseInt(vOthCurrLiab_E) + parseInt(vCurrPortionLTDebt_E);
+			}
+			//--- end urut 4 kolom E
+		}
+		//--- end urut 4 -------------
+		else if (urut==5)
+		{
+			if (kolom=="B")
+			{
+				vLongTermDb_B = document.getElementById('TXT_B27').value; // kolom b kas bank
+				vOthLiab_B = document.getElementById('TXT_B28').value; //
+				
+				if (vLongTermDb_B==""){ vLongTermDb_B=0; }
+				if (vOthLiab_B==""){ vOthLiab_B=0; }
+				
+				document.getElementById('TXT_B29').value = parseInt(vLongTermDb_B) + parseInt(vOthLiab_B); 
+			}
+			//---- end urut 5 kolom B
+			else if (kolom=="C")
+			{
+				vLongTermDb_C = document.getElementById('TXT_C27').value; // kolom b kas bank
+				vOthLiab_C = document.getElementById('TXT_C28').value; //
+				
+				if (vLongTermDb_C==""){ vLongTermDb_C=0; }
+				if (vOthLiab_C==""){ vOthLiab_C=0; }
+				
+				document.getElementById('TXT_C29').value = parseInt(vLongTermDb_C) + parseInt(vOthLiab_C); 
+			}
+			//---- end urut 5 kolom C
+			else if (kolom=="D")
+			{
+				vLongTermDb_D = document.getElementById('TXT_D27').value; // kolom b kas bank
+				vOthLiab_D = document.getElementById('TXT_D28').value; //
+				
+				if (vLongTermDb_D==""){ vLongTermDb_D=0; }
+				if (vOthLiab_D==""){ vOthLiab_D=0; }
+				
+				document.getElementById('TXT_D29').value = parseInt(vLongTermDb_D) + parseInt(vOthLiab_D); 
+			}
+			//---- end urut 5 kolom D
+			else if (kolom=="E")
+			{
+				vLongTermDb_E = document.getElementById('TXT_E27').value; // kolom b kas bank
+				vOthLiab_E = document.getElementById('TXT_E28').value; //
+				
+				if (vLongTermDb_E==""){ vLongTermDb_E=0; }
+				if (vOthLiab_E==""){ vOthLiab_E=0; }
+				
+				document.getElementById('TXT_E29').value = parseInt(vLongTermDb_E) + parseInt(vOthLiab_E); 
+			}
+			//---- end urut 5 kolom D
+		}
+		//--- end urut 5 -------------
+		else if (urut==6)
+		{
+			if (kolom=="B")
+			{
+				vCurrLiab_B = document.getElementById('TXT_E26').value; // kolom b kas bank
+				vLongTermLiab_B = document.getElementById('TXT_E29').value; //
+				
+				if (vCurrLiab_B==""){ vCurrLiab_B=0; }
+				if (vLongTermLiab_B==""){ vLongTermLiab_B=0; }
+				
+				document.getElementById('TXT_B30').value = parseInt(vCurrLiab_B) + parseInt(vLongTermLiab_B); 	
+			}
+			//--- end urut 6 kolom B
+			if (kolom=="C")
+			{
+				vCurrLiab_C = document.getElementById('TXT_C26').value; // kolom b kas bank
+				vLongTermLiab_C = document.getElementById('TXT_C29').value; //
+				
+				if (vCurrLiab_C==""){ vCurrLiab_C=0; }
+				if (vLongTermLiab_C==""){ vLongTermLiab_C=0; }
+				
+				document.getElementById('TXT_C30').value = parseInt(vCurrLiab_C) + parseInt(vLongTermLiab_C); 	
+			}
+			//--- end urut 6 kolom C
+			if (kolom=="D")
+			{
+				vCurrLiab_D = document.getElementById('TXT_D26').value; // kolom b kas bank
+				vLongTermLiab_D = document.getElementById('TXT_D29').value; //
+				
+				if (vCurrLiab_D==""){ vCurrLiab_D=0; }
+				if (vLongTermLiab_D==""){ vLongTermLiab_D=0; }
+				
+				document.getElementById('TXT_D30').value = parseInt(vCurrLiab_D) + parseInt(vLongTermLiab_D); 	
+			}
+			//--- end urut 6 kolom D
+			if (kolom=="E")
+			{
+				vCurrLiab_E = document.getElementById('TXT_E26').value; // kolom b kas bank
+				vLongTermLiab_E = document.getElementById('TXT_E29').value; //
+				
+				if (vCurrLiab_E==""){ vCurrLiab_E=0; }
+				if (vLongTermLiab_E==""){ vLongTermLiab_E=0; }
+				
+				document.getElementById('TXT_E30').value = parseInt(vCurrLiab_E) + parseInt(vLongTermLiab_E); 	
+			}
+			//--- end urut 6 kolom E
+		}
+		//--- end urut 6 -------------
+		else if (urut==7)
+		{
+			if (kolom=="B")
+			{
+				vCommStock_B = document.getElementById('TXT_B31').value; // kolom b kas bank
+				vSurplus_B = document.getElementById('TXT_B32').value; //
+				vRetainEarn_B = document.getElementById('TXT_B33').value;
+				
+				if (vCommStock_B==""){ vCommStock_B=0; }
+				if (vSurplus_B==""){ vSurplus_B=0; }
+				if (vRetainEarn_B==""){ vRetainEarn_B=0; }
+				
+				document.getElementById('TXT_B34').value = parseInt(vCommStock_B) + parseInt(vSurplus_B) + parseInt(vRetainEarn_B); 	
+			}
+			//---- end urut 7 kolom B
+			if (kolom=="C")
+			{
+				vCommStock_C = document.getElementById('TXT_C31').value; // kolom b kas bank
+				vSurplus_C = document.getElementById('TXT_C32').value; //
+				vRetainEarn_C = document.getElementById('TXT_C33').value;
+				
+				if (vCommStock_C==""){ vCommStock_C=0; }
+				if (vSurplus_C==""){ vSurplus_C=0; }
+				if (vRetainEarn_C==""){ vRetainEarn_C=0; }
+				
+				document.getElementById('TXT_C34').value = parseInt(vCommStock_C) + parseInt(vSurplus_C) + parseInt(vRetainEarn_C); 	
+			}
+			//---- end urut 7 kolom C
+			if (kolom=="D")
+			{
+				vCommStock_D = document.getElementById('TXT_D31').value; // kolom b kas bank
+				vSurplus_D = document.getElementById('TXT_D32').value; //
+				vRetainEarn_D = document.getElementById('TXT_D33').value;
+				
+				if (vCommStock_D==""){ vCommStock_D=0; }
+				if (vSurplus_D==""){ vSurplus_D=0; }
+				if (vRetainEarn_D==""){ vRetainEarn_D=0; }
+				
+				document.getElementById('TXT_D34').value = parseInt(vCommStock_D) + parseInt(vSurplus_D) + parseInt(vRetainEarn_D); 	
+			}
+			//---- end urut 7 kolom D
+			if (kolom=="E")
+			{
+				vCommStock_E = document.getElementById('TXT_E31').value; // kolom b kas bank
+				vSurplus_E = document.getElementById('TXT_E32').value; //
+				vRetainEarn_E = document.getElementById('TXT_E33').value;
+				
+				if (vCommStock_E==""){ vCommStock_E=0; }
+				if (vSurplus_E==""){ vSurplus_E=0; }
+				if (vRetainEarn_E==""){ vRetainEarn_E=0; }
+				
+				document.getElementById('TXT_E34').value = parseInt(vCommStock_E) + parseInt(vSurplus_E) + parseInt(vRetainEarn_E); 	
+			}
+			//---- end urut 7 kolom E
+		}
+		//--- end urut 7
+		else if (urut==8)
+		{
+			if (kolom=="B")
+			{
+				vTtlLiab_B = document.getElementById('TXT_B30').value; // kolom b kas bank
+				vTtlNetWorth_B = document.getElementById('TXT_B34').value; //
+				
+				if (vTtlLiab_B==""){ vTtlLiab_B=0; }
+				if (vTtlNetWorth_B==""){ vTtlNetWorth_B=0; }
+				
+				
+				document.getElementById('TXT_B35').value = parseInt(vTtlLiab_B) + parseInt(vTtlNetWorth_B); 					
+			}
+			//--- end urut 8 kolom B
+			else if (kolom=="C")
+			{
+				vTtlLiab_C = document.getElementById('TXT_C30').value; // kolom b kas bank
+				vTtlNetWorth_C = document.getElementById('TXT_C34').value; //
+				
+				if (vTtlLiab_C==""){ vTtlLiab_C=0; }
+				if (vTtlNetWorth_C==""){ vTtlNetWorth_C=0; }
+				
+				
+				document.getElementById('TXT_C35').value = parseInt(vTtlLiab_C) + parseInt(vTtlNetWorth_C); 					
+			}
+			//--- end urut 8 kolom C
+			else if (kolom=="D")
+			{
+				vTtlLiab_D = document.getElementById('TXT_D30').value; // kolom b kas bank
+				vTtlNetWorth_D = document.getElementById('TXT_D34').value; //
+				
+				if (vTtlLiab_D==""){ vTtlLiab_D=0; }
+				if (vTtlNetWorth_D==""){ vTtlNetWorth_D=0; }
+				
+				
+				document.getElementById('TXT_D35').value = parseInt(vTtlLiab_D) + parseInt(vTtlNetWorth_D); 					
+			}
+			//--- end urut 8 kolom D
+			else if (kolom=="E")
+			{
+				vTtlLiab_E = document.getElementById('TXT_E30').value; // kolom b kas bank
+				vTtlNetWorth_E = document.getElementById('TXT_E34').value; //
+				
+				if (vTtlLiab_E==""){ vTtlLiab_E=0; }
+				if (vTtlNetWorth_E==""){ vTtlNetWorth_E=0; }
+				
+				
+				document.getElementById('TXT_E35').value = parseInt(vTtlLiab_E) + parseInt(vTtlNetWorth_E); 					
+			}
+			//--- end urut 8 kolom C
+		}
+		//--- end urut 8
+	}
+	
+	
+	
+	function hit_labarugi_small(urut,kolom)
+	{
+		if (urut=="1")
+		{
+			if (kolom=="B")
+			{
+				vPenj_B = document.getElementById('TXT_B39').value; // kolom b kas bank
+				vHPP_B = document.getElementById('TXT_B40').value; //
+				
+				if (vPenj_B==""){ vPenj_B=0; }
+				if (vHPP_B==""){ vHPP_B=0; }
+				
+				document.getElementById('TXT_B41').value = (parseInt(vHPP_B)/parseInt(vPenj_B))*100; 
+			}
+			//-- end urut 1 kolom B
+			else if (kolom=="C")
+			{
+				vPenj_C = document.getElementById('TXT_C39').value; // kolom b kas bank
+				vHPP_C = document.getElementById('TXT_C40').value; //
+				
+				if (vPenj_C==""){ vPenj_C=0; }
+				if (vHPP_C==""){ vHPP_C=0; }
+				
+				document.getElementById('TXT_C41').value = (parseInt(vHPP_C)/parseInt(vPenj_C))*100; 
+			}	
+			//-- end urut 1 kolom C
+			else if (kolom=="D")
+			{
+				vPenj_D = document.getElementById('TXT_D39').value; // kolom b kas bank
+				vHPP_D = document.getElementById('TXT_D40').value; //
+				
+				if (vPenj_D==""){ vPenj_D=0; }
+				if (vHPP_D==""){ vHPP_D=0; }
+				
+				document.getElementById('TXT_D41').value = (parseInt(vHPP_D)/parseInt(vPenj_D))*100; 
+			}	
+			//-- end urut 1 kolom D
+		}
+		//--- end urut 1
+		else if (urut==2)
+		{
+			if (kolom=="B")
+			{
+				vPenj_B = document.getElementById('TXT_B39').value; // kolom b kas bank
+				vBiayaUmumAdm_B = document.getElementById('TXT_B42').value; //
+				
+				if (vPenj_B==""){ vPenj_B=0; }
+				if (vBiayaUmumAdm_B==""){ vBiayaUmumAdm_B=0; }
+				
+				document.getElementById('TXT_B43').value = (parseInt(vBiayaUmumAdm_B)/parseInt(vPenj_B))*100; 	
+			}
+			//-- end urut 2 kolom B
+			else if (kolom=="C")
+			{
+				vPenj_C = document.getElementById('TXT_C39').value; // kolom b kas bank
+				vBiayaUmumAdm_C = document.getElementById('TXT_C42').value; //
+				
+				if (vPenj_C==""){ vPenj_C=0; }
+				if (vBiayaUmumAdm_C==""){ vBiayaUmumAdm_C=0; }
+				
+				document.getElementById('TXT_C43').value = (parseInt(vBiayaUmumAdm_C)/parseInt(vPenj_C))*100; 	
+			}
+			//-- end urut 2 kolom C
+			else if (kolom=="D")
+			{
+				vPenj_D = document.getElementById('TXT_D39').value; // kolom b kas bank
+				vBiayaUmumAdm_D = document.getElementById('TXT_D42').value; //
+				
+				if (vPenj_D==""){ vPenj_D=0; }
+				if (vBiayaUmumAdm_D==""){ vBiayaUmumAdm_D=0; }
+				
+				document.getElementById('TXT_D43').value = (parseInt(vBiayaUmumAdm_D)/parseInt(vPenj_D))*100; 	
+			}
+			//-- end urut 2 kolom D
+		}
+		//--- end urut 2
+		if (urut==3)
+		{
+			if (kolom=="B")
+			{
+				vPenj_B = document.getElementById('TXT_B39').value; // kolom b kas bank
+				vHPP_B = document.getElementById('TXT_B40').value; //
+				vBiayaUmumAdm_B = document.getElementById('TXT_B42').value; //
+				
+				if (vPenj_B==""){ vPenj_D=0; }
+				if (vHPP_B==""){ vHPP_B=0; }
+				if (vBiayaUmumAdm_B==""){ vBiayaUmumAdm_B=0; }
+				
+				if (document.getElementById('TXT_B44').value==""){document.getElementById('TXT_B44').value=0;}
+				
+				document.getElementById('TXT_B44').value = parseInt(vPenj_B) - parseInt(vHPP_B) - parseInt(vBiayaUmumAdm_B); 
+			}
+			//-- end URUT 3 kolom B
+			else if (kolom=="C")
+			{
+				vPenj_C = document.getElementById('TXT_C39').value; // kolom b kas bank
+				vHPP_C = document.getElementById('TXT_C40').value; //
+				vBiayaUmumAdm_C = document.getElementById('TXT_C42').value; //
+				
+				if (vPenj_C==""){ vPenj_C=0; }
+				if (vHPP_C==""){ vHPP_C=0; }
+				if (vBiayaUmumAdm_C==""){ vBiayaUmumAdm_C=0; }
+				
+				if (document.getElementById('TXT_C44').value==""){document.getElementById('TXT_C44').value=0;}
+				
+				document.getElementById('TXT_C44').value = parseInt(vPenj_C) - parseInt(vHPP_C) - parseInt(vBiayaUmumAdm_C); 
+			}
+			//-- end URUT 3 kolom C
+			else if (kolom=="D")
+			{
+				vPenj_D = document.getElementById('TXT_D39').value; // kolom b kas bank
+				vHPP_D = document.getElementById('TXT_D40').value; //
+				vBiayaUmumAdm_D = document.getElementById('TXT_D42').value; //
+				
+				if (vPenj_D==""){ vPenj_D=0; }
+				if (vHPP_D==""){ vHPP_D=0; }
+				if (vBiayaUmumAdm_D==""){ vBiayaUmumAdm_D=0; }
+				
+				if (document.getElementById('TXT_D44').value==""){document.getElementById('TXT_D44').value=0;}
+				
+				document.getElementById('TXT_D44').value = parseInt(vPenj_D) - parseInt(vHPP_D) - parseInt(vBiayaUmumAdm_C); 
+			}
+			//-- end URUT 3 kolom C
+		}
+		//--- end urut 3
+		if (urut==4)
+		{
+			if (kolom=="B")
+			{
+				vTnhBgnan_B = document.getElementById('TXT_B45').value; // kolom b kas bank
+				vMesinAlat_B = document.getElementById('TXT_B46').value; //
+				vInvKndrn_B = document.getElementById('TXT_B47').value; //
+				
+				if (vTnhBgnan_B==""){ vTnhBgnan_B=0; }
+				if (vMesinAlat_B==""){ vMesinAlat_B=0; }
+				if (vInvKndrn_B==""){ vInvKndrn_B=0; }
+				
+				document.getElementById('TXT_B48').value = parseInt(vTnhBgnan_B) + parseInt(vMesinAlat_B) + parseInt(vInvKndrn_B); 
+			}
+			//--- end urut 4 kolom B			
+			else if (kolom=="C")
+			{
+				vTnhBgnan_C = document.getElementById('TXT_C45').value; // kolom b kas bank
+				vMesinAlat_C = document.getElementById('TXT_C46').value; //
+				vInvKndrn_C = document.getElementById('TXT_C47').value; //
+				
+				if (vTnhBgnan_C==""){ vTnhBgnan_C=0; }
+				if (vMesinAlat_C==""){ vMesinAlat_C=0; }
+				if (vInvKndrn_C==""){ vInvKndrn_C=0; }
+				
+				document.getElementById('TXT_C48').value = parseInt(vTnhBgnan_C) + parseInt(vMesinAlat_C) + parseInt(vInvKndrn_C); 
+			}
+			//--- end urut 4 kolom C
+			else if (kolom=="D")
+			{
+				vTnhBgnan_D = document.getElementById('TXT_D45').value; // kolom b kas bank
+				vMesinAlat_D = document.getElementById('TXT_D46').value; //
+				vInvKndrn_D = document.getElementById('TXT_D47').value; //
+				
+				if (vTnhBgnan_D==""){ vTnhBgnan_D=0; }
+				if (vMesinAlat_D==""){ vMesinAlat_D=0; }
+				if (vInvKndrn_D==""){ vInvKndrn_D=0; }
+				
+				document.getElementById('TXT_D48').value = parseInt(vTnhBgnan_D) + parseInt(vMesinAlat_D) + parseInt(vInvKndrn_D); 
+			}
+			//--- end urut 4 kolom D
+		}
+		//--- end urut 4
+		if (urut==5)
+		{
+			if (kolom=="B")
+			{
+				vLabaOpr_B = (document.getElementById('TXT_B44').value); // kolom b kas bank
+				vBiayaSusutTtl_B = (document.getElementById('TXT_B48').value); //
+				vPndptLain2_B = (document.getElementById('TXT_B49').value); //
+				vBiayaLain2_B = (document.getElementById('TXT_B50').value); //
+				
+				if (vLabaOpr_B==""){ vLabaOpr_B=0; }
+				if (vBiayaSusutTtl_B==""){ vBiayaSusutTtl_B=0; }
+				if (vPndptLain2_B==""){ vPndptLain2_B=0; }
+				if (vBiayaLain2_B==""){ vBiayaLain2_B=0; }
+				
+				document.getElementById('TXT_B51').value = parseInt(vLabaOpr_B) - parseInt(vBiayaSusutTtl_B) + parseInt(vPndptLain2_B) - parseInt(vBiayaLain2_B); 				
+			}
+			//--- end urut 5 kolom B
+			else if (kolom=="C")
+			{
+				vLabaOpr_C = (document.getElementById('TXT_C44').value); // kolom b kas bank
+				vBiayaSusutTtl_C = (document.getElementById('TXT_C48').value); //
+				vPndptLain2_C = (document.getElementById('TXT_C49').value); //
+				vBiayaLain2_C = (document.getElementById('TXT_C50').value); //
+				
+				if (vLabaOpr_C==""){ vLabaOpr_C=0; }
+				if (vBiayaSusutTtl_C==""){ vBiayaSusutTtl_C=0; }
+				if (vPndptLain2_C==""){ vPndptLain2_C=0; }
+				if (vBiayaLain2_C==""){ vBiayaLain2_C=0; }
+				
+				document.getElementById('TXT_C51').value = parseInt(vLabaOpr_C) - parseInt(vBiayaSusutTtl_C) + parseInt(vPndptLain2_C) - parseInt(vBiayaLain2_C); 				
+			}
+			//--- end urut 5 kolom C
+			else if (kolom=="D")
+			{
+				vLabaOpr_D = (document.getElementById('TXT_D44').value); // kolom b kas bank
+				vBiayaSusutTtl_D = (document.getElementById('TXT_D48').value); //
+				vPndptLain2_D = (document.getElementById('TXT_D49').value); //
+				vBiayaLain2_D = (document.getElementById('TXT_D50').value); //
+				
+				if (vLabaOpr_D==""){ vLabaOpr_D=0; }
+				if (vBiayaSusutTtl_D==""){ vBiayaSusutTtl_D=0; }
+				if (vPndptLain2_D==""){ vPndptLain2_D=0; }
+				if (vBiayaLain2_D==""){ vBiayaLain2_D=0; }
+				
+				document.getElementById('TXT_D51').value = parseInt(vLabaOpr_D) - parseInt(vBiayaSusutTtl_D) + parseInt(vPndptLain2_D) - parseInt(vBiayaLain2_D); 				
+			}
+			//--- end urut 5 kolom D
+		}
+		//--- end urut 5
+		if (urut==6)
+		{
+			if (kolom=="B")
+			{
+				vLabaSblBunga_B = (document.getElementById('TXT_B51').value); // kolom b kas bank
+				vBiayaBunga_B = (document.getElementById('TXT_B52').value); //
+				
+				if (vLabaSblBunga_B==""){ vLabaSblBunga_B=0; }
+				if (vBiayaBunga_B==""){ vBiayaBunga_B=0; }
+							
+				document.getElementById('TXT_B53').value = parseInt(vLabaSblBunga_B) - parseInt(vBiayaBunga_B); 					
+			}
+			//--- urut 6 kolom B			
+			else if (kolom=="C")
+			{
+				vLabaSblBunga_C = (document.getElementById('TXT_C51').value); // kolom b kas bank
+				vBiayaBunga_C = (document.getElementById('TXT_C52').value); //
+				
+				if (vLabaSblBunga_C==""){ vLabaSblBunga_C=0; }
+				if (vBiayaBunga_C==""){ vBiayaBunga_C=0; }
+							
+				document.getElementById('TXT_C53').value = parseInt(vLabaSblBunga_C) - parseInt(vBiayaBunga_C); 					
+			}
+			//--- urut 6 kolom C
+			else if (kolom=="D")
+			{
+				vLabaSblBunga_D = (document.getElementById('TXT_D51').value); // kolom b kas bank
+				vBiayaBunga_D = (document.getElementById('TXT_D52').value); //
+				
+				if (vLabaSblBunga_D==""){ vLabaSblBunga_D=0; }
+				if (vBiayaBunga_D==""){ vBiayaBunga_D=0; }
+							
+				document.getElementById('TXT_D53').value = parseInt(vLabaSblBunga_D) - parseInt(vBiayaBunga_D); 					
+			}
+			//--- urut 6 kolom D
+		}
+		//--- end urut 6
+		if (urut==7)
+		{
+			if (kolom=="B")
+			{
+				vLabaSblPjk_B = (document.getElementById('TXT_B53').value); // kolom b kas bank
+				vPajak_B = (document.getElementById('TXT_B54').value); //
+				vBiayaLain_B = (document.getElementById('TXT_B50').value); //
+				
+				if (vLabaSblPjk_B==""){ vLabaSblPjk_B=0; }
+				if (vPajak_B==""){ vPajak_B=0; }
+				if (vBiayaLain_B==""){ vBiayaLain_B=0; }
+							
+				document.getElementById('TXT_B55').value = parseInt(vLabaSblPjk_B) - parseInt(vPajak_B) + parseInt(vBiayaLain_B); 	
+			}
+			//--- end urut 7 kolom b
+			else if (kolom=="C")
+			{
+				vLabaSblPjk_C = (document.getElementById('TXT_C53').value); // kolom b kas bank
+				vPajak_C = (document.getElementById('TXT_C54').value); //
+				vBiayaLain_C = (document.getElementById('TXT_C50').value); //
+				
+				if (vLabaSblPjk_C==""){ vLabaSblPjk_C=0; }
+				if (vPajak_C==""){ vPajak_C=0; }
+				if (vBiayaLain_C==""){ vBiayaLain_C=0; }
+							
+				document.getElementById('TXT_C55').value = parseInt(vLabaSblPjk_C) - parseInt(vPajak_C) + parseInt(vBiayaLain_C); 	
+			}
+			//--- end urut 7 kolom C
+			else if (kolom=="D")
+			{
+				vLabaSblPjk_D = (document.getElementById('TXT_D53').value); // kolom b kas bank
+				vPajak_D = (document.getElementById('TXT_D54').value); //
+				vBiayaLain_D = (document.getElementById('TXT_D50').value); //
+				
+				if (vLabaSblPjk_D==""){ vLabaSblPjk_D=0; }
+				if (vPajak_D==""){ vPajak_D=0; }
+				if (vBiayaLain_D==""){ vBiayaLain_D=0; }
+							
+				document.getElementById('TXT_D55').value = parseInt(vLabaSblPjk_D) - parseInt(vPajak_D) + parseInt(vBiayaLain_D); 	
+			}
+			//--- end urut 7 kolom b
+		}
+		//--- end urut 7
+	}
+//-->
+</script>

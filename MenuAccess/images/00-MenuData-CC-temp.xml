@@ -1,0 +1,16 @@
+at "credit card parameter", change:
+
+            <MenuItem Label="Scoring" RightIcon="arrow.gif" RightconWidth="17" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12">
+              <MenuGroup>
+                <MenuItem Label="Maker" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Parameter/ScoringParamAll.aspx?mc=9902050201&amp;moduleID=20" />
+                <MenuItem Label="Approval" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Parameter/ScoringParamApprovalAll.aspx?mc=9902050202&amp;moduleID=20" />
+              </MenuGroup>
+            </MenuItem>
+
+
+to:
+
+            <MenuItem Label="Scoring" LeftIcon="bullet.gif" LeftIconOver="bullet_over.gif" LeftIconWidth="20" LeftIconHeight="12" URL="Parameter/ScoringParam.aspx?mc=9902050201&amp;moduleID=20" />
+
+
+(this is temporary until we have maker/approval mechanism)

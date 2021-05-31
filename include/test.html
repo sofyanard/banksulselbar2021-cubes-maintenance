@@ -1,0 +1,14 @@
+<script language="javascript">
+function bikin_query(frm)
+{
+	max_elm = (frm.elements.length) - 2;
+	frm.query.value = '';
+	for (var i=1; i<=max_elm; i++)
+	{
+		elm = frm.elements[i];
+		if ((elm.type == "text" || elm.type == "hidden") && elm.value != "")
+		frm.query.value += '&' + elm.id + '=' + elm.value;
+	}
+	//alert(frm.query.value);
+}
+</script>
