@@ -2419,6 +2419,20 @@
     <Compile Include="Parameter\General\SME\prog_prodAppr.aspx.designer.cs">
       <DependentUpon>prog_prodAppr.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Parameter\General\SME\RFAgencyOfrParam.aspx.cs">
+      <DependentUpon>RFAgencyOfrParam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Parameter\General\SME\RFAgencyOfrParam.aspx.designer.cs">
+      <DependentUpon>RFAgencyOfrParam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Parameter\General\SME\RFAgencyOfrParamAppr.aspx.cs">
+      <DependentUpon>RFAgencyOfrParamAppr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Parameter\General\SME\RFAgencyOfrParamAppr.aspx.designer.cs">
+      <DependentUpon>RFAgencyOfrParamAppr.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Parameter\General\SME\RFAgencyParam.aspx.cs">
       <DependentUpon>RFAgencyParam.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4901,6 +4915,8 @@
     <Content Include="Parameter\General\SME\prog_prodAppr.aspx">
       <SubType>Form</SubType>
     </Content>
+    <Content Include="Parameter\General\SME\RFAgencyOfrParam.aspx" />
+    <Content Include="Parameter\General\SME\RFAgencyOfrParamAppr.aspx" />
     <Content Include="Parameter\General\SME\RFAgencyParam.aspx" />
     <Content Include="Parameter\General\SME\RFAgencyParamAppr.aspx" />
     <Content Include="Parameter\General\SME\RFAreaParam.aspx" />
